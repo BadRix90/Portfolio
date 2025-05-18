@@ -1,17 +1,23 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
-
-# Compiled output
+# Node & Angular
+/node_modules
 /dist
 /tmp
 /out-tsc
-/bazel-out
+/.angular/cache
+/.angular/config.json
 
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# IDEs and editors
+# Testing
+/coverage
+testem.log
+karma-*.log
+
+# IDEs & Editors
 .idea/
 .project
 .classpath
@@ -19,6 +25,7 @@ yarn-error.log
 *.launch
 .settings/
 *.sublime-workspace
+.history
 
 # Visual Studio Code
 .vscode/*
@@ -26,17 +33,23 @@ yarn-error.log
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history/*
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-
-# System files
+# MacOS / Windows system files
 .DS_Store
 Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Build artifacts
+*.tgz
+*.zip
+*.gz
+
+# Env files
+.env
+.env.*.local
+
+# Optional: ignore local fonts/images cache (if applicable)
+/src/assets/fonts/*
+/src/assets/img/*
+!keep.txt # Optional: if you want to keep the folder tracked

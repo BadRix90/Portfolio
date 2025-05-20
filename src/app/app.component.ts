@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { SkillSetComponent } from './components/skill-set/skill-set.component';
@@ -15,7 +14,6 @@ import { FooterComponent } from './components/footer/footer.component';
   standalone: true,
   imports: [
     RouterOutlet,
-    NavbarComponent,
     HeroComponent,
     AboutMeComponent,
     SkillSetComponent,

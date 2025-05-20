@@ -1,0 +1,109 @@
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    color: white;
+    width: 100vw;
+
+    .title-hand {
+        display: flex;
+        gap: 10px;
+
+        .wave-hand,
+        .wave-hand-alt {
+            width: 40px;
+            height: 40px;
+            animation: wave 2s infinite alternate;
+        }
+
+        .wave-hand-alt {
+            display: none;
+        }
+    }
+
+    p {
+        font-size: 20px;
+        margin: 0;
+        border: 2px solid white;
+        border-radius: 25px;
+        padding: 4px 12px;
+        background-color: transparent;
+        transition: all 0.2s ease;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #2196f3;
+            color: white;
+        }
+    }
+
+
+
+    h1 {
+        font-size: 128px;
+        margin: 0;
+        display: flex;
+    }
+
+    .HelloWorld {
+        position: relative;
+        left: 20%;
+    }
+
+    .frontend {
+        position: relative;
+        left: 20%;
+    }
+
+    .developer {
+        position: relative;
+        left: 35%;
+    }
+
+    .swap-char {
+        display: inline-block;
+        min-width: 0.6em;
+        transition: all 0.15s ease;
+        cursor: default;
+
+        &:hover {
+            color: #F7C518;
+        }
+    }
+    
+
+
+    .primary-btn {
+        padding: 12px 24px;
+        background-color: transparent;
+        color: white;
+        border: 2px solid white;
+        border-radius: 25px;
+        box-shadow: 4px 4px 0 white;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        align-self: flex-end;
+        position: relative;
+        right: 13%;
+
+        &:hover {
+            background-color: #F87A55;
+            color: white;
+            box-shadow: none;
+            transform: translate(2px, 2px);
+        }
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(15deg);
+    }
+}

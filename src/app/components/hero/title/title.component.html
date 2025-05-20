@@ -1,0 +1,26 @@
+<div class="title-wrapper">
+    <div class="title-hand">
+        <img src="/assets/img/waving_hand.png" alt="Waving Hand" class="wave-hand" />
+        <img src="/assets/img/waving_hand-1.png" alt="Waving Hand Alt" class="wave-hand-alt" />
+    </div>
+    <p class="HelloWorld" (mouseenter)="onPHover()" (mouseleave)="onPLeave()">
+        {{ pText }}
+    </p>
+    <h1 class="frontend">
+        <span *ngFor="let c of frontend; let i = index" class="swap-char" (mouseenter)="onHover('frontend', i)"
+            (mouseleave)="onLeave('frontend', i)">
+            {{ hoveredFrontend[i] ? toggleCase(c) : c }}
+        </span>
+    </h1>
+
+    <h1 class="developer">
+        <span *ngFor="let c of developer; let i = index" class="swap-char" (mouseenter)="onHover('developer', i)"
+            (mouseleave)="onLeave('developer', i)">
+            {{ hoveredDeveloper[i] ? toggleCase(c) : c }}
+        </span>
+    </h1>
+
+    <button class="primary-btn">
+        {{ buttonText }}
+    </button>
+</div>

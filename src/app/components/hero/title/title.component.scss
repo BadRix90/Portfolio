@@ -4,7 +4,9 @@
     align-items: flex-start;
     gap: 20px;
     color: white;
-    width: 100vw;
+    position: relative;
+    left: -40%;
+    top: -100px;
 
     .title-hand {
         display: flex;
@@ -48,17 +50,17 @@
 
     .HelloWorld {
         position: relative;
-        left: 20%;
+
     }
 
     .frontend {
         position: relative;
-        left: 20%;
+
     }
 
     .developer {
         position: relative;
-        left: 35%;
+        left: 30%;
     }
 
     .swap-char {
@@ -71,7 +73,7 @@
             color: #F7C518;
         }
     }
-    
+
 
 
     .primary-btn {
@@ -87,7 +89,7 @@
         transition: all 0.2s ease;
         align-self: flex-end;
         position: relative;
-        right: 13%;
+        left: 30%;
 
         &:hover {
             background-color: #F87A55;

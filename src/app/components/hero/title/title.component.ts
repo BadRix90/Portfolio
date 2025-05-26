@@ -1,3 +1,4 @@
+// title.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,9 +12,11 @@ import { CommonModule } from '@angular/common';
 export class TitleComponent {
   buttonText = 'Get in Touch';
   pText = 'Hello World';
+  frameText = 'Kay :)';
+  handState: 'hidden' | 'waving' | 'rolling' = 'hidden';
 
-  hoveredFrontend: boolean[] = new Array(8).fill(false);   // "Frontend" = 8 Buchstaben
-  hoveredDeveloper: boolean[] = new Array(9).fill(false);  // "DEVELOPER" = 9 Buchstaben
+  hoveredFrontend: boolean[] = new Array(8).fill(false);
+  hoveredDeveloper: boolean[] = new Array(9).fill(false);
 
   frontend = 'Frontend'.split('');
   developer = 'DEVELOPER'.split('');
@@ -38,10 +41,39 @@ export class TitleComponent {
   }
 
   onPHover() {
+    // Nur starten wenn keine Animation läuft
+    if (this.handState !== 'hidden') {
+      return; // Animation läuft bereits, nichts tun
+    }
+    
     this.pText = "I'm Kay Dietrich";
+    this.handState = 'waving';
+    
+    // Nach 200ms: von waving zu rolling wechseln
+    setTimeout(() => {
+      this.handState = 'rolling';
+      // Nach der Roll-Animation zurück zu hidden
+      setTimeout(() => {
+        this.handState = 'hidden';
+        // Text gleichzeitig mit der Hand zurücksetzen
+        this.pText = 'Hello World';
+      }, 1500);
+    }, 100);
   }
 
   onPLeave() {
-    this.pText = 'Hello World';
+    // Text nur sofort zurücksetzen wenn keine Animation läuft
+    if (this.handState === 'hidden') {
+      this.pText = 'Hello World';
+    }
+    // Sonst bleibt der Text bis die Animation fertig ist
+  }
+
+  onFrameHover() {
+    this.frameText = 'Kay :D';
+  }
+
+  onFrameLeave() {
+    this.frameText = 'Kay :)';
   }
 }

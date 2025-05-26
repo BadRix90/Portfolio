@@ -1,6 +1,5 @@
 <div class="title-wrapper">
-    <div class="title-hand">
-        <img src="/assets/img/waving_hand.png" alt="Waving Hand" class="wave-hand" />
+    <div class="title-hand" [ngClass]="handState">
         <img src="/assets/img/waving_hand-1.png" alt="Waving Hand Alt" class="wave-hand-alt" />
     </div>
     <p class="HelloWorld" (mouseenter)="onPHover()" (mouseleave)="onPLeave()">
@@ -12,6 +11,16 @@
             {{ hoveredFrontend[i] ? toggleCase(c) : c }}
         </span>
     </h1>
+    
+    <div class="frame-container">
+        <img src="/assets/img/frame.png" alt="Frame" class="frame-image" />
+        <div class="frame-photo">
+            <img src="/assets/img/kay.jpg" alt="Kay Dietrich" class="photo-image" />
+        </div>
+        <div class="frame-text" (mouseenter)="onFrameHover()" (mouseleave)="onFrameLeave()">
+            {{ frameText }}
+        </div>
+    </div>
 
     <h1 class="developer">
         <span *ngFor="let c of developer; let i = index" class="swap-char" (mouseenter)="onHover('developer', i)"

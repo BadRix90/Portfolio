@@ -5,22 +5,51 @@
     gap: 20px;
     color: white;
     position: relative;
-    left: -40%;
+    left: -15%;
     top: -100px;
 
     .title-hand {
-        display: flex;
-        gap: 10px;
+        // Fester Container um Layout-Sprünge zu vermeiden
+        width: 40px;
+        height: 40px;
+        position: relative;
 
-        .wave-hand,
         .wave-hand-alt {
             width: 40px;
             height: 40px;
-            animation: wave 2s infinite alternate;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
         }
 
-        .wave-hand-alt {
-            display: none;
+        // Standardzustand: Hand versteckt
+        &.hidden {
+            .wave-hand-alt {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateX(0) rotate(0deg); // Startposition
+            }
+        }
+
+        // Waving-Zustand: Hand noch versteckt, bereitet sich vor
+        &.waving {
+            .wave-hand-alt {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateX(0) rotate(0deg);
+            }
+        }
+
+        // Rolling-Zustand: Hand rollt UND blendet dabei ein
+        &.rolling {
+            .wave-hand-alt {
+                opacity: 1;
+                visibility: visible;
+                animation: rollRightAndFadeIn 1.5s ease-out forwards;
+            }
         }
     }
 
@@ -40,8 +69,6 @@
         }
     }
 
-
-
     h1 {
         font-size: 128px;
         margin: 0;
@@ -50,12 +77,10 @@
 
     .HelloWorld {
         position: relative;
-
     }
 
     .frontend {
         position: relative;
-
     }
 
     .developer {
@@ -65,7 +90,8 @@
 
     .swap-char {
         display: inline-block;
-        min-width: 0.6em;
+        min-width: 0.8em; // Erhöht von 0.6em auf 0.8em für mehr Platz
+        text-align: center; // Zentriert den Buchstaben in seinem Container
         transition: all 0.15s ease;
         cursor: default;
 
@@ -73,8 +99,6 @@
             color: #F7C518;
         }
     }
-
-
 
     .primary-btn {
         padding: 12px 24px;
@@ -97,6 +121,85 @@
             box-shadow: none;
             transform: translate(2px, 2px);
         }
+    }
+
+    .frame-container {
+        position: absolute;
+        top: 0;
+        right: -250px;
+        transform: rotate(8deg);
+    }
+
+    .frame-image {
+        width: 203.57px !important;
+        height: 244px !important;
+        max-width: none !important;
+        max-height: none !important;
+        object-fit: contain;
+        position: relative;
+        z-index: 2; // Frame über dem Foto
+    }
+
+    .frame-photo {
+        position: absolute;
+        top: 20px; // Abstand vom oberen Rand des Frames
+        left: 20px; // Abstand vom linken Rand des Frames
+        width: 163px; // Breite innerhalb des Frames
+        height: 180px; // Höhe innerhalb des Frames
+        overflow: hidden;
+        z-index: 1; // Foto unter dem Frame
+
+        .photo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; // Foto füllt den Bereich aus
+            object-position: center;
+        }
+    }
+
+    .frame-text {
+        position: absolute;
+        font-family: var(--font-handwriting);
+        font-size: 18px;
+        color: #333;
+        bottom: 15px; // Unten im Frame
+        left: 50%;
+        transform: translateX(-50%); // Zentriert
+        cursor: pointer;
+        transition: all 0.2s ease;
+        user-select: none;
+        z-index: 3; // Text über allem
+
+        &:hover {
+            transform: translateX(-50%) scale(1.1);
+        }
+    }
+}
+
+@keyframes rollRightAndFadeIn {
+    0% {
+        transform: translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1; // Hand wird in den ersten 20% der Animation sichtbar
+    }
+
+    60% {
+        transform: translateX(150px) rotate(360deg);
+        opacity: 1; // Hand bleibt sichtbar am Ende der Roll-Animation
+    }
+
+    60%,
+    90% {
+        transform: translateX(150px) rotate(360deg);
+        opacity: 1; // Hand bleibt eine Weile sichtbar (30% der Gesamtzeit = ~0.45s)
+    }
+
+    100% {
+        transform: translateX(150px) rotate(360deg);
+        opacity: 0; // Dann verschwindet sie
     }
 }
 

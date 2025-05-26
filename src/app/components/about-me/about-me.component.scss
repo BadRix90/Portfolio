@@ -1,0 +1,40 @@
+.about-me-section {
+    padding: 100px 0;
+    border: 2px solid #e0e0e0;
+    height: 720px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .about-me-container {
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        gap: 80px;
+        align-items: center;
+        padding: 0 40px;
+
+        .stickers-side {
+            border: 2px solid red;
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .text-side {
+            border: 2px solid red;
+            flex: 1;
+            max-width: 600px;
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            gap: 60px;
+            text-align: center;
+
+            .stickers-side,
+            .text-side {
+                max-width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,64 @@
+.info-stickers-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: transparent;
+    position: relative;
+
+    .sticker {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        border: none;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 24px;
+        width: 560px; // Feste Breite
+        height: 152px; // Feste Höhe
+        color: white;
+        position: relative;
+        font-family: var(--font-main);
+
+        &:first-child {
+            z-index: 3;
+            margin-bottom: -65px; // Viel mehr Überlappung
+        }
+
+        &:nth-child(2) {
+            z-index: 2;
+            margin-left: 40px; // Mehr Versatz
+            margin-bottom: -50px; // Viel mehr Überlappung
+        }
+
+        &:last-child {
+            z-index: 1;
+            margin-left: 20px;
+        }
+
+        &:hover {
+            transform: scale(1.05) !important;
+            z-index: 10;
+        }
+
+        .sticker-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .sticker-text {
+            white-space: nowrap;
+            color: white;
+            text-shadow: none;
+            font-family: var(--font-main);
+            font-weight: 400;
+        }
+    }
+}

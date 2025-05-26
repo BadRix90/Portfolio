@@ -1,0 +1,15 @@
+<div class="info-stickers-container">
+    <div 
+        *ngFor="let sticker of stickers; let i = index" 
+        class="sticker"
+        [style.transform]="'rotate(' + (i === 0 ? '-6deg' : i === 1 ? '-2deg' : '3deg') + ')'"
+        [style.background-image]="'url(/assets/img/' + sticker.background + ')'"
+    >
+        <img 
+            [src]="'/assets/img/' + sticker.icon" 
+            [alt]="getText(sticker.key)"
+            class="sticker-icon"
+        />
+        <span class="sticker-text">{{ getText(sticker.key) }}</span>
+    </div>
+</div>

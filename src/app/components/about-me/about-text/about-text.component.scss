@@ -1,0 +1,73 @@
+.about-text-container {
+    color: #333;
+    font-family: var(--font-main); // Bricolage Grotesque
+    
+    .about-header {
+        margin-bottom: 30px;
+
+        .who-is {
+            font-size: 16px;
+            color: #666;
+            margin: 0 0 10px 0;
+            font-weight: 500;
+            font-family: var(--font-main);
+        }
+
+        .about-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 0 0 15px 0;
+            color: #333;
+            font-family: var(--font-main);
+        }
+
+        .underline {
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #4A90E2, #357ABD);
+            border-radius: 2px;
+        }
+    }
+
+    .about-content {
+        margin-bottom: 40px;
+
+        .description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: var(--font-main);
+        }
+
+        .collaboration {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            font-weight: 600;
+            font-family: var(--font-main);
+        }
+    }
+
+    .lets-talk-btn {
+        padding: 12px 24px;
+        background-color: transparent;
+        color: #333;
+        border: 2px solid #333;
+        border-radius: 25px;
+        box-shadow: 4px 4px 0 #333;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: var(--font-main);
+
+        &:hover {
+            background-color: #F87A55;
+            color: white;
+            border-color: #F87A55;
+            box-shadow: none;
+            transform: translate(2px, 2px);
+        }
+    }
+}

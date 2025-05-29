@@ -1,35 +1,65 @@
-<div class="title-wrapper">
-    <div class="title-hand" [ngClass]="handState">
-        <img src="/assets/img/waving_hand-1.png" alt="Waving Hand Alt" class="wave-hand-alt" />
+<div class="title-section">
+    <!-- Desktop Layout -->
+    <div class="top-row" *ngIf="!isMobileLayout">
+        <div class="top-content">
+            <div class="hero-top-btn">
+                <div class="title-hand" [ngClass]="handState">
+                    <img src="/assets/img/waving_hand-1.png" alt="Waving Hand Alt" class="wave-hand-alt" />
+                </div>
+                <p class="HelloWorld" (mouseenter)="onPHover()" (mouseleave)="onPLeave()">{{ pText }}</p>
+            </div>
+            <h1 class="hero-text frontend">
+                <span *ngFor="let c of frontend; let i = index" class="swap-char" (mouseenter)="onHover('frontend', i)"
+                    (mouseleave)="onLeave('frontend', i)">
+                    {{ hoveredFrontend[i] ? toggleCase(c) : c }}
+                </span>
+            </h1>
+        </div>
+        <div class="frame-container" (mouseenter)="onFrameHover()" (mouseleave)="onFrameLeave()">
+            <img src="/assets/img/frame.png" alt="Frame" class="frame-image" />
+            <div class="frame-photo">
+                <img src="/assets/img/kay.jpg" alt="Kay Dietrich" class="photo-image" />
+            </div>
+            <div class="frame-text">{{ frameText }}</div>
+        </div>
     </div>
-    <p class="HelloWorld" (mouseenter)="onPHover()" (mouseleave)="onPLeave()">
-        {{ pText }}
-    </p>
-    <h1 class="frontend">
-        <span *ngFor="let c of frontend; let i = index" class="swap-char" (mouseenter)="onHover('frontend', i)"
-            (mouseleave)="onLeave('frontend', i)">
-            {{ hoveredFrontend[i] ? toggleCase(c) : c }}
-        </span>
-    </h1>
-    
-    <div class="frame-container">
+
+    <!-- Mobile Layout -->
+    <div *ngIf="isMobileLayout">
+        <div class="top-content">
+            <div class="hero-top-btn">
+                <div class="title-hand" [ngClass]="handState">
+                    <img src="/assets/img/waving_hand-1.png" alt="Waving Hand Alt" class="wave-hand-alt" />
+                </div>
+                <p class="HelloWorld" (mouseenter)="onPHover()" (mouseleave)="onPLeave()">{{ pText }}</p>
+            </div>
+            <h1 class="hero-text frontend">
+                <span *ngFor="let c of frontend; let i = index" class="swap-char" (mouseenter)="onHover('frontend', i)"
+                    (mouseleave)="onLeave('frontend', i)">
+                    {{ hoveredFrontend[i] ? toggleCase(c) : c }}
+                </span>
+            </h1>
+        </div>
+    </div>
+
+    <!-- Lower Content (immer gleich) -->
+    <div class="lower-content">
+        <h1 class="hero-text developer">
+            <span *ngFor="let c of developer; let i = index" class="swap-char" (mouseenter)="onHover('developer', i)"
+                (mouseleave)="onLeave('developer', i)">
+                {{ hoveredDeveloper[i] ? toggleCase(c) : c }}
+            </span>
+        </h1>
+
+        <button class="primary-btn">{{ buttonText }}</button>
+    </div>
+
+    <!-- Mobile Frame unten -->
+    <div class="frame-container" *ngIf="isMobileLayout" (mouseenter)="onFrameHover()" (mouseleave)="onFrameLeave()">
         <img src="/assets/img/frame.png" alt="Frame" class="frame-image" />
         <div class="frame-photo">
             <img src="/assets/img/kay.jpg" alt="Kay Dietrich" class="photo-image" />
         </div>
-        <div class="frame-text" (mouseenter)="onFrameHover()" (mouseleave)="onFrameLeave()">
-            {{ frameText }}
-        </div>
+        <div class="frame-text">{{ frameText }}</div>
     </div>
-
-    <h1 class="developer">
-        <span *ngFor="let c of developer; let i = index" class="swap-char" (mouseenter)="onHover('developer', i)"
-            (mouseleave)="onLeave('developer', i)">
-            {{ hoveredDeveloper[i] ? toggleCase(c) : c }}
-        </span>
-    </h1>
-
-    <button class="primary-btn">
-        {{ buttonText }}
-    </button>
 </div>

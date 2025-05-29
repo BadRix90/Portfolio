@@ -1,180 +1,230 @@
-.title-wrapper {
+.title-section {
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-    color: white;
+    padding: 0 260px;
+    top: -80px;
+}
+
+.frame-container {
+    position: absolute;
+    right: -90px;
+    transform: rotate(8deg);
+    cursor: pointer;
+    z-index: 9999;
+
+    &:hover .frame-photo .photo-image {
+        -webkit-filter: grayscale(0%);
+        filter: grayscale(0%);
+    }
+
+    &:hover .frame-text {
+        transform: translateX(-50%) scale(1.1);
+    }
+}
+
+.frame-image {
+    width: 203.57px !important;
+    height: 244px !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain;
     position: relative;
-    left: -15%;
-    top: -100px;
+    z-index: 2;
+    pointer-events: none;
+}
 
-    .title-hand {
-        // Fester Container um Layout-Sprünge zu vermeiden
-        width: 40px;
-        height: 40px;
-        position: relative;
+.frame-photo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 180px;
+    height: 180px;
+    overflow: hidden;
+    z-index: 1;
 
-        .wave-hand-alt {
+    .photo-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+    }
+}
+
+.frame-text {
+    position: absolute;
+    font-family: var(--font-handwriting);
+    font-size: 18px;
+    color: #333;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all 0.2s ease;
+    user-select: none;
+    z-index: 3;
+}
+
+.top-content {
+    color: white;
+    padding: 72px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 200px;
+
+    .hero-top-btn {
+        display: flex;
+        align-items: flex-start;
+        margin: 0 0 0 -30px;
+
+        .title-hand {
             width: 40px;
             height: 40px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease;
-        }
+            position: relative;
+            margin-top: -40px;
 
-        // Standardzustand: Hand versteckt
-        &.hidden {
             .wave-hand-alt {
+                width: 40px;
+                height: 40px;
+                position: absolute;
+                top: 0;
+                left: 0;
                 opacity: 0;
                 visibility: hidden;
-                transform: translateX(0) rotate(0deg); // Startposition
+                transition: opacity 0.3s ease;
             }
-        }
 
-        // Waving-Zustand: Hand noch versteckt, bereitet sich vor
-        &.waving {
-            .wave-hand-alt {
+            &.hidden .wave-hand-alt {
                 opacity: 0;
                 visibility: hidden;
                 transform: translateX(0) rotate(0deg);
             }
-        }
 
-        // Rolling-Zustand: Hand rollt UND blendet dabei ein
-        &.rolling {
-            .wave-hand-alt {
+            &.waving .wave-hand-alt {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateX(0) rotate(0deg);
+            }
+
+            &.rolling .wave-hand-alt {
                 opacity: 1;
                 visibility: visible;
                 animation: rollRightAndFadeIn 1.5s ease-out forwards;
             }
         }
-    }
 
-    p {
-        font-size: 20px;
-        margin: 0;
-        border: 2px solid white;
-        border-radius: 25px;
-        padding: 4px 12px;
-        background-color: transparent;
-        transition: all 0.2s ease;
-        cursor: pointer;
+        .HelloWorld {
+            font-size: 20px;
+            margin: 0;
+            border: 2px solid white;
+            border-radius: 25px;
+            padding: 4px 12px;
+            background-color: transparent;
+            transition: all 0.2s ease;
+            cursor: pointer;
 
-        &:hover {
-            background-color: #2196f3;
-            color: white;
+            &:hover {
+                background-color: #2196f3;
+                color: white;
+            }
         }
     }
 
-    h1 {
+    .hero-text.frontend {
         font-size: 128px;
         margin: 0;
         display: flex;
-    }
-
-    .HelloWorld {
+        color: rgb(74 222 128);
         position: relative;
+        width: 800px;
+        left: 0;
+        justify-content: flex-start;
+    }
+}
+
+
+.lower-content {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+
+
+    .hero-text.developer {
+        font-size: 128px;
+        margin: 0 0 20px 0;
+        display: flex;
+        color: rgb(236 72 153);
+        position: absolute;
+        left: 29%;
+        top: 0;
+        width: 750px;
+        justify-content: flex-start;
+        white-space: nowrap;
     }
 
-    .frontend {
-        position: relative;
+    &::before {
+        content: '';
+        height: 150px;
+        width: 100%;
     }
+}
 
-    .developer {
-        position: relative;
-        left: 30%;
+.swap-char {
+    display: inline-block;
+    width: 0.65em;
+    text-align: center;
+    transition: all 0.15s ease;
+    cursor: default;
+
+    &:hover {
+        color: #F7C518;
     }
+}
 
-    .swap-char {
-        display: inline-block;
-        min-width: 0.8em; // Erhöht von 0.6em auf 0.8em für mehr Platz
-        text-align: center; // Zentriert den Buchstaben in seinem Container
-        transition: all 0.15s ease;
-        cursor: default;
+.primary-btn {
+    padding: 12px 24px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    border-radius: 25px;
+    box-shadow: 4px 4px 0 white;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
 
-        &:hover {
-            color: #F7C518;
-        }
-    }
-
-    .primary-btn {
-        padding: 12px 24px;
-        background-color: transparent;
+    &:hover {
+        background-color: #F87A55;
         color: white;
-        border: 2px solid white;
-        border-radius: 25px;
-        box-shadow: 4px 4px 0 white;
-        font-weight: bold;
-        font-size: 20px;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        align-self: flex-end;
-        position: relative;
-        left: 30%;
+        box-shadow: none;
+        transform: translate(2px, 2px);
+    }
+}
 
-        &:hover {
-            background-color: #F87A55;
-            color: white;
-            box-shadow: none;
-            transform: translate(2px, 2px);
-        }
+.top-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .top-content {
+        flex: 1;
     }
 
     .frame-container {
-        position: absolute;
-        top: 0;
-        right: -250px;
-        transform: rotate(8deg);
-    }
-
-    .frame-image {
-        width: 203.57px !important;
-        height: 244px !important;
-        max-width: none !important;
-        max-height: none !important;
-        object-fit: contain;
         position: relative;
-        z-index: 2; // Frame über dem Foto
-    }
-
-    .frame-photo {
-        position: absolute;
-        top: 20px; // Abstand vom oberen Rand des Frames
-        left: 20px; // Abstand vom linken Rand des Frames
-        width: 163px; // Breite innerhalb des Frames
-        height: 180px; // Höhe innerhalb des Frames
-        overflow: hidden;
-        z-index: 1; // Foto unter dem Frame
-
-        .photo-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; // Foto füllt den Bereich aus
-            object-position: center;
-        }
-    }
-
-    .frame-text {
-        position: absolute;
-        font-family: var(--font-handwriting);
-        font-size: 18px;
-        color: #333;
-        bottom: 15px; // Unten im Frame
-        left: 50%;
-        transform: translateX(-50%); // Zentriert
-        cursor: pointer;
-        transition: all 0.2s ease;
-        user-select: none;
-        z-index: 3; // Text über allem
-
-        &:hover {
-            transform: translateX(-50%) scale(1.1);
-        }
+        right: auto;
+        z-index: 2;
+        transform: rotate(8deg);
+        margin-left: 40px;
     }
 }
+
 
 @keyframes rollRightAndFadeIn {
     0% {
@@ -183,32 +233,119 @@
     }
 
     20% {
-        opacity: 1; // Hand wird in den ersten 20% der Animation sichtbar
+        opacity: 1;
     }
 
     60% {
         transform: translateX(150px) rotate(360deg);
-        opacity: 1; // Hand bleibt sichtbar am Ende der Roll-Animation
+        opacity: 1;
     }
 
-    60%,
     90% {
         transform: translateX(150px) rotate(360deg);
-        opacity: 1; // Hand bleibt eine Weile sichtbar (30% der Gesamtzeit = ~0.45s)
+        opacity: 1;
     }
 
     100% {
         transform: translateX(150px) rotate(360deg);
-        opacity: 0; // Dann verschwindet sie
+        opacity: 0;
     }
 }
 
-@keyframes wave {
-    0% {
-        transform: rotate(0deg);
+
+
+
+
+
+
+
+
+@media (max-width: 1340px) {
+    .title-section {
+        padding: 160px;
     }
 
-    100% {
-        transform: rotate(15deg);
+    .frame-container {
+        right: -200px;
     }
+}
+
+@media (max-width: 1260px) {
+    .title-section {
+        padding: 60px;
+    }
+
+    .frame-container {
+        right: -310px;
+    }
+}
+
+@media (max-width: 1130px) {
+    .title-section {
+        padding: 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .frame-container {
+        order: 3;
+        position: static;
+        transform: rotate(0deg);
+        z-index: auto;
+    }
+
+    .top-content .hero-text.frontend {
+        order: 1;
+        left: 0;
+        justify-content: flex-start;
+    }
+
+    .lower-content .hero-text.developer {
+        order: 2;
+        left: 0;
+        justify-content: flex-start;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .frame-container {
+        top: 50px;
+        right: 20px;
+        transform: rotate(8deg) scale(0.7);
+    }
+
+    .top-content {
+        padding: 20px;
+
+        .hero-text.frontend {
+            font-size: 48px;
+            width: 100%;
+            top: 80px;
+        }
+    }
+
+    .lower-content {
+        padding: 20px;
+        align-items: center;
+
+        .hero-text.developer {
+            font-size: 48px;
+            left: 0;
+            width: 100%;
+            justify-content: center;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+
+    .hero-content {
+        padding-left: 30px;
+    }
+
+    .top-content {
+        height: 100px;
+    }
+
 }

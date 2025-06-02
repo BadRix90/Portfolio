@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -16,6 +16,7 @@ export class TitleComponent implements OnInit {
   frameText = 'Kay :)';
   handState: 'hidden' | 'waving' | 'rolling' = 'hidden';
   isMobileLayout = false;
+  @Input() currentLanguage = 'en';
 
   hoveredFrontend: boolean[] = new Array(8).fill(false);
   hoveredDeveloper: boolean[] = new Array(9).fill(false);
@@ -23,7 +24,7 @@ export class TitleComponent implements OnInit {
   frontend = 'Frontend'.split('');
   developer = 'DEVELOPER'.split('');
 
-  
+
   ngOnInit(): void {
     if (typeof window !== 'undefined') {
       this.checkLayout();
@@ -38,7 +39,7 @@ export class TitleComponent implements OnInit {
     }
   }
 
-  
+
   onHover(word: 'frontend' | 'developer', index: number) {
     if (word === 'frontend') this.hoveredFrontend[index] = true;
     else this.hoveredDeveloper[index] = true;
@@ -63,7 +64,7 @@ export class TitleComponent implements OnInit {
 
   onPHover() {
     if (this.handState !== 'hidden') {
-      return; 
+      return;
     }
 
     this.pText = "I'm Kay Dietrich";

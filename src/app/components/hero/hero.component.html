@@ -1,8 +1,11 @@
 <section class="hero">
-  <app-navbar></app-navbar>
+  <app-navbar 
+    [currentLanguage]="currentLanguage" 
+    (languageChange)="onLanguageChange($event)">
+  </app-navbar>
 
   <div class="hero-content">
     <app-social-hero></app-social-hero>
-    <app-title></app-title>
+    <app-title [currentLanguage]="currentLanguage"></app-title>
   </div>
 </section>

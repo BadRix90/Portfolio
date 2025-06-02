@@ -1,13 +1,13 @@
 <div class="app-wrapper">
   <main>
-    <app-hero></app-hero>
-    <app-about-me></app-about-me>
-    <app-skill-set></app-skill-set>
-    <app-projects></app-projects>
-    <app-testimonials></app-testimonials>
-    <app-contact></app-contact>
+    <app-hero (languageChange)="onLanguageChange($event)" [currentLanguage]="selectedLanguage"></app-hero>
+    <app-about-me [currentLanguage]="selectedLanguage"></app-about-me>
+    <app-skill-set [currentLanguage]="selectedLanguage"></app-skill-set>
+    <app-projects [currentLanguage]="selectedLanguage"></app-projects>
+    <app-testimonials [currentLanguage]="selectedLanguage"></app-testimonials>
+    <app-contact [currentLanguage]="selectedLanguage"></app-contact>
   </main>
-  <app-footer></app-footer>
+  <app-footer [currentLanguage]="selectedLanguage"></app-footer>
 </div>
 
 <router-outlet></router-outlet>

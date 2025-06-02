@@ -28,11 +28,11 @@
 
 
     <div class="language-toggle">
-        <span class="lang active">EN</span>
+        <span class="lang" [class.active]="currentLanguage === 'en'">EN</span>
         <label class="switch">
-            <input type="checkbox" />
+            <input type="checkbox" [checked]="currentLanguage === 'de'" (change)="toggleLanguage()" />
             <span class="slider"></span>
         </label>
-        <span class="lang">DE</span>
+        <span class="lang" [class.active]="currentLanguage === 'de'">DE</span>
     </div>
 </nav>

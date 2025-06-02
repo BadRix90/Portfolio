@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SkillSetComponent } from './skill-set.component';
+import { Component, Input } from '@angular/core';
+
 
 describe('SkillSetComponent', () => {
   let component: SkillSetComponent;

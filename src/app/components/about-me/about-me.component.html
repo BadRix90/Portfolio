@@ -1,6 +1,8 @@
 <section class="about-me-section">
     <div class="about-me-container">
-        <app-info-stickers class="stickers-side"></app-info-stickers>
-        <app-about-text class="text-side"></app-about-text>
+        <app-info-stickers class="stickers-side" [currentLanguage]="currentLanguage">
+        </app-info-stickers>
+        <app-about-text class="text-side" [currentLanguage]="currentLanguage">
+        </app-about-text>
     </div>
 </section>

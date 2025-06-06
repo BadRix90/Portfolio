@@ -1,7 +1,7 @@
 .about-me-section {
     padding: 100px 0;
     border: 2px solid #e0e0e0;
-    height: 800px;
+    min-height: 800px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,15 +36,49 @@
     }
 }
 
+// KRITISCHE Änderung für unter 1130px
 @media (max-width: 1130px) {
+    .about-me-section {
+        padding: 50px 0; // Deutlich reduziert
+        min-height: auto; // Entferne min-height komplett
+        height: auto; // Flexible Höhe
+        margin-top: 0; // Stelle sicher, dass kein margin nach oben ist
+    }
+    
     .about-me-container {
         flex-direction: column;
-        gap: 60px;
+        gap: 30px; // Reduziert von 40px
         text-align: center;
+        padding: 0 20px;
 
         .stickers-side,
         .text-side {
             max-width: 100%;
+            max-height: none; // Entferne alle Höhenbegrenzungen
+            height: auto;
+            flex: none; // Entferne flex-grow
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .about-me-section {
+        padding: 30px 0; // Noch weniger Padding
+    }
+    
+    .about-me-container {
+        gap: 20px;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-me-section {
+        padding: 20px 0; // Minimal padding
+    }
+    
+    .about-me-container {
+        gap: 15px;
+        padding: 0 10px;
     }
 }

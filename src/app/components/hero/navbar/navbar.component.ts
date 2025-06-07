@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,17 +7,36 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
+
+// In navbar.component.ts
 export class NavbarComponent {
-  @Input() currentLanguage = 'en';
+  @Input() currentLanguage: string = 'en';
   @Output() languageChange = new EventEmitter<string>();
+  
+  isMobileMenuOpen = false;
+
+  @HostListener('click', ['$event'])
+  onNavbarClick(event: Event) {
+    // Nur bei Mobile (unter 870px) den Menu Toggle handhaben
+    if (window.innerWidth <= 870) {
+      this.toggleMobileMenu();
+    }
+  }
 
   toggleLanguage() {
     const newLanguage = this.currentLanguage === 'en' ? 'de' : 'en';
-    console.log('🔵 Navbar: Switching from', this.currentLanguage, 'to', newLanguage);
-    
-    // Only emit the event, don't update local state
     this.languageChange.emit(newLanguage);
+  }
+  
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
     
-    console.log('🔵 Navbar: Event emitted with value:', newLanguage);
+    // CSS Klasse für Styling hinzufügen/entfernen
+    const navbar = document.querySelector('.navbar');
+    if (this.isMobileMenuOpen) {
+      navbar?.classList.add('mobile-menu-open');
+    } else {
+      navbar?.classList.remove('mobile-menu-open');
+    }
   }
 }

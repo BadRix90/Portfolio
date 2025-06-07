@@ -7,7 +7,6 @@
     margin: 0 auto;
     box-sizing: border-box;
     top: -80px;
-    border: 5px solid red;
 }
 
 .frame-container {
@@ -131,7 +130,7 @@
             cursor: pointer;
 
             &:hover {
-                background-color: #2196f3;
+                background-color: rgb(236 72 153);
                 color: white;
             }
         }
@@ -146,6 +145,25 @@
         width: 800px;
         left: 0;
         justify-content: flex-start;
+
+        text-shadow:
+            0 0 3px rgb(74 222 128),
+            0 0 6px rgb(74 222 128),
+            0 0 9px rgb(74 222 128),
+            0 0 12px rgb(74 222 128),
+            0 0 15px rgb(74 222 128);
+
+        animation: neonFlicker 2s ease-in-out infinite alternate;
+
+        .swap-char:hover {
+            color: rgb(236 72 153); // Wird PINK beim Hover
+            text-shadow:
+                0 0 3px rgb(236 72 153),
+                0 0 6px rgb(236 72 153),
+                0 0 9px rgb(236 72 153),
+                0 0 12px rgb(236 72 153);
+            transform: scale(1.1);
+        }
     }
 }
 
@@ -169,12 +187,54 @@
         width: 750px;
         justify-content: flex-start;
         white-space: nowrap;
+
+        text-shadow:
+            0 0 3px rgb(236 72 153),
+            0 0 6px rgb(236 72 153),
+            0 0 9px rgb(236 72 153),
+            0 0 12px rgb(236 72 153),
+            0 0 15px rgb(236 72 153);
+
+        animation: neonFlicker 2s ease-in-out infinite alternate;
+        animation-delay: 1s;
+
+        .swap-char:hover {
+            color: rgb(74 222 128); // Wird GRÜN beim Hover
+            text-shadow:
+                0 0 3px rgb(74 222 128),
+                0 0 6px rgb(74 222 128),
+                0 0 9px rgb(74 222 128),
+                0 0 12px rgb(74 222 128);
+            transform: scale(1.1);
+        }
     }
 
     &::before {
         content: '';
         height: 150px;
         width: 100%;
+    }
+
+    @keyframes neonFlicker {
+
+        0%,
+        100% {
+            text-shadow:
+                0 0 5px currentColor,
+                0 0 10px currentColor,
+                0 0 15px currentColor,
+                0 0 20px currentColor,
+                0 0 25px currentColor;
+        }
+
+        50% {
+            text-shadow:
+                0 0 2px currentColor,
+                0 0 5px currentColor,
+                0 0 8px currentColor,
+                0 0 12px currentColor,
+                0 0 15px currentColor;
+        }
     }
 }
 
@@ -185,9 +245,6 @@
     transition: all 0.15s ease;
     cursor: default;
 
-    &:hover {
-        color: #F7C518;
-    }
 }
 
 .primary-btn {
@@ -203,8 +260,8 @@
     transition: all 0.2s ease;
 
     &:hover {
-        background-color: #F87A55;
-        color: white;
+        background-color: rgb(74 222 128);
+        color: black;
         box-shadow: none;
         transform: translate(2px, 2px);
     }

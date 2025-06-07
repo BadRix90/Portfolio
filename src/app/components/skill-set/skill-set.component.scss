@@ -1,0 +1,35 @@
+.skill-set-section {
+background-image: url("/assets/img/skills-bgd.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  min-height: 850px;
+  max-height: 900px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+  }
+  
+  app-my-stack,
+  app-tech-showcase {
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (max-width: 870px) {
+    background-attachment: scroll;
+  }
+}

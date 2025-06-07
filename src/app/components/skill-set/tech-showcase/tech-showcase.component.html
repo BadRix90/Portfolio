@@ -1,0 +1,25 @@
+<div class="tech-showcase-container">
+    <!-- Left Div: Tech Stack Icons -->
+    <div class="tech-icons-grid">
+        <div *ngFor="let tech of techStack; let i = index" class="tech-icon-item"
+            [style.animation-delay]="(i * 0.1) + 's'">
+            <img [src]="'/assets/img/' + tech.icon" [alt]="tech.alt" class="tech-icon" />
+        </div>
+    </div>
+
+    <div class="pull-to-peel-section">
+        <!-- Schritt 1 -->
+        <img *ngIf="currentPeelState === 1" src="/assets/img/pull-to-peel.png" (click)="onPeelClick()" />
+
+        <!-- Schritt 2 -->
+        <div *ngIf="currentPeelState === 2" class="peel-container">
+            <img src="/assets/img/pull-to-peel-bg.png" class="peel-background" />
+            <img src="/assets/img/pull-to-peel-front.png" class="peel-front" />
+        </div>
+
+        <!-- Schritt 3 -->
+        <!-- Schritt 3 -->
+        <img *ngIf="currentPeelState === 3" src="/assets/img/pull-to-peel-3.png" (click)="onPeelClick()" />
+    </div>
+
+</div>

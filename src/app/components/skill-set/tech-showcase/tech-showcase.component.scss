@@ -1,6 +1,6 @@
 .tech-showcase-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     gap: 80px;
     padding: 80px 40px;
@@ -53,7 +53,6 @@
                     padding-top: 25px;
                 }
             }
-
         }
     }
 
@@ -101,19 +100,13 @@
 
     @keyframes flyOutDiagonal {
         0% {
-            transform: translate(0, 0) rotate(0deg);
-            max-width: 100%;
-            max-height: 100%;
+            transform: translate(0, 0) rotate(5deg);
         }
 
         100% {
             transform: translate(-100%, 100%) rotate(-25deg);
-            max-width: 100%;
-            max-height: 100%;
         }
     }
-
-
 
     @keyframes slideInUp {
         from {
@@ -155,15 +148,17 @@
 
     @media (max-width: 870px) {
         flex-direction: column;
-        gap: 50px;
-        padding: 50px 20px;
+        gap: 30px;
+        padding: 30px 20px;
+        position: relative;
 
         .tech-icons-grid {
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(4, 1fr);
-            gap: 25px;
+            gap: 20px;
             width: 100%;
-            max-width: 400px;
+            max-width: 350px;
+            margin: 0 auto;
 
             .tech-icon-item {
                 .tech-icon {
@@ -174,12 +169,30 @@
                 .tech-name {
                     font-size: 11px;
                 }
+
+                // Material Design (letztes Icon) in Reihe 4, Spalte 1
+                &:nth-child(10) {
+                    grid-column: 1;
+                    grid-row: 4;
+                }
             }
         }
 
         .pull-to-peel-section {
-            .pull-to-peel-image {
-                max-width: 200px;
+            position: absolute;
+            right: 20px;
+            bottom: 0;
+            width: 140px;
+            height: 140px;
+
+            &>img {
+                width: 100%;
+                height: 100%;
+            }
+
+            .peel-container {
+                width: 100%;
+                height: 100%;
             }
         }
     }
@@ -206,9 +219,9 @@
         }
 
         .pull-to-peel-section {
-            .pull-to-peel-image {
-                max-width: 180px;
-            }
+            width: 120px;
+            height: 120px;
+            right: 10px;
         }
     }
 }

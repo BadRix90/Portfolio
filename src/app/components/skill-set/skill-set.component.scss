@@ -1,10 +1,11 @@
 .skill-set-section {
-background-image: url("/assets/img/skills-bgd.png");
+  background-image: url("/assets/img/skills-bgd.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
   height: 1000px;
   color: white;
+  padding: 0 100px;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -22,7 +23,7 @@ background-image: url("/assets/img/skills-bgd.png");
     bottom: 0;
     z-index: 1;
   }
-  
+
   app-my-stack,
   app-tech-showcase {
     position: relative;

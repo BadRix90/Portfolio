@@ -14,7 +14,6 @@ export class TechShowcaseComponent {
   currentPeelState = 1;
   isAnimating = false;
 
-  // Tech Stack Icons Data
   techStack = [
     { name: 'HTML', icon: 'Property 1=Default-3.png', alt: 'HTML5 Technology' },
     { name: 'CSS', icon: 'Property 1=CSS.png', alt: 'CSS3 Styling' },

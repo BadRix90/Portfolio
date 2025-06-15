@@ -4,6 +4,7 @@
         <div *ngFor="let tech of techStack; let i = index" class="tech-icon-item"
             [style.animation-delay]="(i * 0.1) + 's'">
             <img [src]="'/assets/img/' + tech.icon" [alt]="tech.alt" class="tech-icon" />
+            <span class="tech-name">{{ tech.name }}</span>
         </div>
     </div>
 
@@ -18,8 +19,6 @@
         </div>
 
         <!-- Schritt 3 -->
-        <!-- Schritt 3 -->
         <img *ngIf="currentPeelState === 3" src="/assets/img/pull-to-peel-3.png" (click)="onPeelClick()" />
     </div>
-
 </div>

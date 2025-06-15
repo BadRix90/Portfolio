@@ -2,7 +2,6 @@
   display: flex;
   align-items: flex-start;
   gap: 60px;
-  padding: 60px 40px;
   max-width: 1920px;
   margin: 0 auto;
 
@@ -30,7 +29,6 @@
       .line-decoration {
         position: absolute;
         top: 50%;
-        left: 64px;
         transform: translateY(-50%);
         width: auto;
         height: 80px;
@@ -43,7 +41,6 @@
         font-weight: 700;
         color: white;
         margin: 0;
-        padding-left: 80px;
         position: relative;
         z-index: 2;
         text-shadow:

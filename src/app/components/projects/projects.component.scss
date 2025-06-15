@@ -1,0 +1,273 @@
+.projects-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 40px;
+    padding: 80px 40px;
+    max-width: 1920px;
+    margin: 0 auto;
+
+    // Title Section (Grid Position: Row 1, Col 1)
+    .title-section {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-right: 40px;
+
+        .craft-label {
+            font-family: var(--font-main);
+            font-size: 18px;
+            font-weight: 400;
+            color: #666;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .projects-title {
+            position: relative;
+            font-family: var(--font-main);
+            font-size: 72px;
+            font-weight: 700;
+            color: #000;
+            margin: 0;
+            line-height: 1.1;
+
+            .title-underline {
+                position: absolute;
+                bottom: -10px;
+                left: 0;
+                width: 280px;
+                height: auto;
+                max-width: 100%;
+            }
+        }
+
+        .title-description {
+            font-family: var(--font-main);
+            font-size: 18px;
+            font-weight: 400;
+            color: #333;
+            line-height: 1.6;
+            margin: 20px 0 0 0;
+            max-width: 400px;
+        }
+    }
+
+    // Project Cards
+    .project-card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        .project-image {
+            position: relative;
+            height: 500px;
+            width: 500px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-self: center;
+
+            .laptop-image {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            .featured-sticker {
+                position: absolute;
+                bottom: 20px;
+                left: 20px;
+                width: 120px;
+                height: 120px;
+                z-index: 2;
+            }
+
+            .image-placeholder {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #f8f8f8;
+                color: #666;
+                font-family: var(--font-main);
+                font-size: 18px;
+                font-weight: 500;
+            }
+        }
+
+        .project-info {
+            padding: 30px 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            .project-title {
+                font-family: var(--font-main);
+                font-size: 32px;
+                font-weight: 700;
+                color: #000;
+                margin: 0;
+            }
+
+            .project-description {
+                font-family: var(--font-main);
+                font-size: 16px;
+                font-weight: 400;
+                color: #555;
+                line-height: 1.6;
+                margin: 0;
+            }
+        }
+    }
+
+    // Join Project (Grid Position: Row 1, Col 2)
+    .join-project {
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    // El Pollo Loco Project (Grid Position: Row 2, Col 1)
+    .el-pollo-loco-project {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    // DABubble Project (Grid Position: Row 2, Col 2)
+    .dabubble-project {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    // Responsive Design
+    @media (max-width: 1200px) {
+        gap: 30px;
+        padding: 60px 30px;
+
+        .title-section {
+            .projects-title {
+                font-size: 60px;
+            }
+        }
+
+        .project-card {
+            .project-image {
+                height: 250px;
+            }
+
+            .project-info {
+                padding: 25px;
+
+                .project-title {
+                    font-size: 28px;
+                }
+
+                .project-description {
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 870px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        gap: 40px;
+        padding: 40px 20px;
+
+        .title-section {
+            grid-column: 1;
+            grid-row: 1;
+            padding-right: 0;
+            text-align: center;
+
+            .projects-title {
+                font-size: 48px;
+            }
+
+            .title-description {
+                max-width: 100%;
+            }
+        }
+
+        .join-project {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .el-pollo-loco-project {
+            grid-column: 1;
+            grid-row: 3;
+        }
+
+        .dabubble-project {
+            grid-column: 1;
+            grid-row: 4;
+        }
+
+        .project-card {
+            height: auto; // Mobile: auto height
+
+            .project-image {
+                height: 220px;
+            }
+
+            .project-info {
+                padding: 20px;
+
+                .project-title {
+                    font-size: 24px;
+                }
+
+                .project-description {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        padding: 30px 15px;
+        gap: 30px;
+
+        .title-section {
+            .projects-title {
+                font-size: 36px;
+            }
+
+            .title-description {
+                font-size: 16px;
+            }
+        }
+
+        .project-card {
+            .project-image {
+                height: 180px;
+
+                .featured-sticker {
+                    width: 80px;
+                    height: 80px;
+                    top: 15px;
+                    right: 15px;
+                }
+            }
+
+            .project-info {
+                padding: 15px;
+
+                .project-title {
+                    font-size: 20px;
+                }
+
+                .project-description {
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+}

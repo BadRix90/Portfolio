@@ -3,7 +3,7 @@
     justify-content: flex-end;
     align-items: center;
     gap: 80px;
-    padding: 80px 40px;
+    padding: 0 80px 40px;
     max-width: 1920px;
     margin: 0 auto;
 
@@ -28,30 +28,22 @@
             cursor: pointer;
 
             &:hover {
-                transform: translateY(-10px) scale(1.1);
-
+                
                 .tech-icon {
-                    filter: drop-shadow(0 10px 20px rgba(74, 222, 128, 0.4)) grayscale(0%);
+                    filter: grayscale(0%);
+                    transform: scale(0.8);
                 }
 
-                .tech-name {
-                    color: rgb(74, 222, 128);
-                    text-shadow: 0 0 5px rgb(74, 222, 128);
-                }
+            
             }
 
             .tech-icon {
-                width: 80px;
-                height: 80px;
+                width: 90px;
+                height: 90px;
                 object-fit: contain;
                 transition: all 0.3s ease;
                 filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) grayscale(100%);
 
-                &[alt="Material Design System"] {
-                    width: 100px;
-                    height: 100px;
-                    padding-top: 25px;
-                }
             }
         }
     }

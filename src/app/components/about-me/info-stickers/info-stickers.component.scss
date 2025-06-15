@@ -17,7 +17,6 @@
         background-color: transparent;
         border: none;
         transition: transform 0.3s ease;
-        cursor: pointer;
         font-weight: 600;
         font-size: clamp(14px, 4vw, 36px);
         width: clamp(280px, 80vw, 840px);
@@ -40,11 +39,6 @@
         &:last-child {
             z-index: 1;
             margin-left: clamp(10px, 3vw, 30px);
-        }
-
-        &:hover {
-            transform: scale(1.05) !important;
-            z-index: 10;
         }
 
         .sticker-icon {

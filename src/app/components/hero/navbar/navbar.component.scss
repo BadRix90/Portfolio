@@ -5,7 +5,7 @@
     align-items: center;
     background: transparent;
     color: white;
-    padding: 20px 40px;
+    padding: 20px 0;
     max-width: 1920px;
     width: 100%;
     margin: 0 auto;
@@ -13,6 +13,11 @@
 
     .logo img {
         height: 40px;
+    }
+
+    .logo-video {
+        height: 80px;
+        width: auto;
     }
 
     .nav-links {
@@ -25,7 +30,7 @@
         li a {
             font-family: var(--font-main);
             font-weight: 700;
-            font-size: 18px;
+            font-size: 32px;
             color: white;
             text-decoration: none;
             transition: color 0.3s;
@@ -33,45 +38,47 @@
 
             .image-hover {
                 position: absolute;
-                bottom: -40px;
+                bottom: -50px;
                 left: 50%;
                 transform: translateX(-50%) scale(0.8);
                 opacity: 0;
-                width: 100px;
-                height: 100px;
+                width: 170px;
+                height: 140px;
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center;
                 pointer-events: none;
                 z-index: 99;
                 transition: all 0.4s ease;
-                
+
                 &.about {
                     background-image: url('/assets/img/B.1_1.png');
                 }
-                
+
                 &.skills {
                     background-image: url('/assets/img/B.1_1-1.png');
                 }
-                
+
                 &.projects {
                     background-image: url('/assets/img/B.1_1-3.png');
                 }
-                
+
                 &.contact {
                     background-image: url('/assets/img/B.1_1-2.png');
                 }
             }
 
-            &:hover .image-hover {
+             &:hover .image-hover {
                 opacity: 1;
                 transform: translateX(-50%) scale(1);
-                
+
                 &.about {
                     animation: slideDown 0.3s ease;
                 }
-                
-                &.skills, &.projects, &.contact {
+
+                &.skills,
+                &.projects,
+                &.contact {
                     animation: slideLeft 0.3s ease;
                 }
             }
@@ -86,7 +93,7 @@
         .lang {
             font-family: var(--font-main) !important;
             font-weight: 600 !important;
-            font-size: 16px !important;
+            font-size: 32px !important;
             color: white !important;
 
             &.active {
@@ -96,7 +103,7 @@
 
         .switch {
             position: relative;
-            width: 32px;
+            width: 40px;
             height: 8px;
             display: flex;
             align-items: center;
@@ -169,7 +176,7 @@
     // ==================== MOBILE VERSION ====================
     @media (max-width: 870px) {
         padding: 15px 20px;
-        
+
         // Die vorhandenen nav-links werden zum Mobile Menu
         .nav-links {
             // Verstecken und als Dropdown positionieren
@@ -192,34 +199,34 @@
             transform: translateY(-20px);
             transition: all 0.3s ease;
             z-index: 1000;
-            
+
             li {
                 width: 100%;
-                
+
                 a {
                     display: block;
                     padding: 15px 40px;
                     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                     transition: all 0.3s ease;
-                    
+
                     &:hover {
                         background: rgba(51, 85, 255, 0.2);
                         color: #3355FF;
                         padding-left: 50px;
                     }
-                    
+
                     // Verstecke die Image Hover Effekte im Mobile
                     .image-hover {
                         display: none;
                     }
                 }
-                
+
                 &:last-child a {
                     border-bottom: none;
                 }
             }
         }
-        
+
         // Language Toggle als Menu Item
         .language-toggle {
             position: absolute;
@@ -240,7 +247,7 @@
             transition: all 0.3s ease;
             z-index: 999;
         }
-        
+
         // Menu Button erstellen (aus dem Logo machen wir den Button)
         &::after {
             content: '';
@@ -253,28 +260,28 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         // Hover Effekt für Menu Button
         &:hover::after {
             background-image: url('/assets/img/menu_hover.png');
         }
-        
+
         // Wenn Menu offen ist (über eine CSS Klasse die per JS hinzugefügt wird)
         &.mobile-menu-open {
             &::after {
                 background-image: url('/assets/img/close_menu.png');
             }
-            
+
             &:hover::after {
                 background-image: url('/assets/img/close_menu_hover.png');
             }
-            
+
             .nav-links {
                 opacity: 1;
                 visibility: visible;
                 transform: translateY(0);
             }
-            
+
             .language-toggle {
                 opacity: 1;
                 visibility: visible;

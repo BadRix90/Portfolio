@@ -31,19 +31,19 @@ export class InfoStickersComponent {
     {
       key: 'basedIn',
       background: 'yellow.png',
-      icon: 'Property 1=State Location.png',
+      icon: 'location.png',
       color: 'yellow'
     },
     {
       key: 'relocate', 
       background: 'blue.png',
-      icon: 'Property 1=State Relocation.png',
+      icon: 'relocation.png',
       color: 'blue'
     },
     {
       key: 'remote',
       background: 'orange.png',
-      icon: 'Property 1=Status Remote.png', 
+      icon: 'remote.png', 
       color: 'orange'
     }
   ];

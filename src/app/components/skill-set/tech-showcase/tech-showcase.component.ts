@@ -15,16 +15,16 @@ export class TechShowcaseComponent {
   isAnimating = false;
 
   techStack = [
-    { name: 'HTML', icon: 'Property 1=Default-3.png', alt: 'HTML5 Technology' },
-    { name: 'CSS', icon: 'Property 1=CSS.png', alt: 'CSS3 Styling' },
-    { name: 'JavaScript', icon: 'Property 1=Js.png', alt: 'JavaScript Programming' },
-    { name: 'TypeScript', icon: 'Property 1=Ts.png', alt: 'TypeScript Development' },
-    { name: 'Angular', icon: 'Property 1=Angular.png', alt: 'Angular Framework' },
-    { name: 'Firebase', icon: 'Property 1=Firebase.png', alt: 'Firebase Backend' },
-    { name: 'Git', icon: 'Property 1=Git.png', alt: 'Git Version Control' },
-    { name: 'Rest-Api', icon: 'Property 1=Rest-Api.png', alt: 'REST API Development' },
-    { name: 'Scrum', icon: 'Property 1=Scrum.png', alt: 'Scrum Methodology' },
-    { name: 'Material Design', icon: 'Property 1=Material Design.png', alt: 'Material Design System' }
+    { name: 'HTML', icon: 'html.png', alt: 'HTML5 Technology' },
+    { name: 'CSS', icon: 'css.png', alt: 'CSS3 Styling' },
+    { name: 'JavaScript', icon: 'js.png', alt: 'JavaScript Programming' },
+    { name: 'TypeScript', icon: 'ts.png', alt: 'TypeScript Development' },
+    { name: 'Angular', icon: 'angular.png', alt: 'Angular Framework' },
+    { name: 'Firebase', icon: 'firebase.png', alt: 'Firebase Backend' },
+    { name: 'Git', icon: 'git.png', alt: 'Git Version Control' },
+    { name: 'Rest-Api', icon: 'rest-api.png', alt: 'REST API Development' },
+    { name: 'Scrum', icon: 'scrum.png', alt: 'Scrum Methodology' },
+    { name: 'Material Design', icon: 'material-design.png', alt: 'Material Design System' }
   ];
 
   get currentPeelImage() {

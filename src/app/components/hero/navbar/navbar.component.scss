@@ -16,8 +16,10 @@
     }
 
     .logo-video {
-        height: 80px;
-        width: auto;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
     }
 
     .nav-links {
@@ -68,7 +70,7 @@
                 }
             }
 
-             &:hover .image-hover {
+            &:hover .image-hover {
                 opacity: 1;
                 transform: translateX(-50%) scale(1);
 

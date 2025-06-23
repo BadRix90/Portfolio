@@ -1,13 +1,13 @@
 .projects-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: 1fr 1fr; // Geändert von 'auto auto' zu '1fr 1fr'
     gap: 40px;
-    padding: 0 100px;
+    padding: 0 150px 0;
     max-width: 1920px;
     margin: 0 auto;
+    aspect-ratio: 1620 / 1620; 
 
-    // Title Section (Grid Position: Row 1, Col 1)
     .title-section {
         grid-column: 1;
         grid-row: 1;
@@ -17,6 +17,7 @@
         justify-content: center;
         gap: 20px;
         padding-right: 40px;
+        aspect-ratio: 1; // Macht das title-section Feld quadratisch
 
         .craft-label {
             font-family: var(--font-main);
@@ -62,21 +63,25 @@
         display: flex;
         flex-direction: column;
         height: 100%;
+        aspect-ratio: 1; // Macht jede project-card quadratisch
 
         .project-image {
             position: relative;
-            height: 500px;
-            width: 500px;
+            height: 60%; // Angepasst für quadratisches Layout
+            width: 100%;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            align-self: center;
+
+            img {
+                border-radius: 25px;
+            }
 
             .laptop-image {
                 width: 100%;
                 height: 100%;
-                object-fit: contain;
+                object-fit: cover; // Hinzugefügt für bessere Bilddarstellung
             }
 
             .featured-sticker {
@@ -108,6 +113,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            width: 100%; // Geändert von fixer Breite zu 100%
 
             .project-title {
                 font-family: var(--font-main);
@@ -159,11 +165,11 @@
 
         .project-card {
             .project-image {
-                height: 250px;
+                height: 60%; // Konsistent mit dem Hauptlayout
             }
 
             .project-info {
-                padding: 25px;
+                padding: 25px 0; // Angepasst
 
                 .project-title {
                     font-size: 28px;
@@ -181,12 +187,14 @@
         grid-template-rows: auto auto auto auto;
         gap: 40px;
         padding: 40px 20px;
+        aspect-ratio: unset; // Entfernt aspect-ratio für mobile Ansicht
 
         .title-section {
             grid-column: 1;
             grid-row: 1;
             padding-right: 0;
             text-align: center;
+            aspect-ratio: unset; // Entfernt aspect-ratio für mobile Ansicht
 
             .projects-title {
                 font-size: 48px;
@@ -213,14 +221,15 @@
         }
 
         .project-card {
-            height: auto; // Mobile: auto height
+            height: auto;
+            aspect-ratio: unset; // Entfernt aspect-ratio für mobile Ansicht
 
             .project-image {
                 height: 220px;
             }
 
             .project-info {
-                padding: 20px;
+                padding: 20px 0; // Angepasst
 
                 .project-title {
                     font-size: 24px;
@@ -260,7 +269,7 @@
             }
 
             .project-info {
-                padding: 15px;
+                padding: 15px 0; // Angepasst
 
                 .project-title {
                     font-size: 20px;

@@ -6,16 +6,12 @@
 
       <!-- Left Side - Contact Text -->
       <div class="contact-text">
-        <h3 class="contact-label">CONTACT ME</h3>
-        <h2 class="contact-title">Ready to work together?</h2>
+        <h3 class="contact-label">{{ getText('contactLabel') }}</h3>
+        <h2 class="contact-title">{{ getText('contactTitle') }}</h2>
 
         <div class="contact-description">
-          <p>Encourage people to contact you and describe what role you are interested in. Express confidence in your
-            ability to make a meaningful contribution to a team through your expertise and enthusiasm for improving your
-            skills.</p>
-
-          <p>Show interest in contributing to a new project, while highlighting the value and skills you can bring to
-            the table.</p>
+          <p>{{ getText('contactDescription1') }}</p>
+          <p>{{ getText('contactDescription2') }}</p>
         </div>
 
         <img src="assets/img/footer_arrow.png" alt="Arrow" class="footer-arrow">
@@ -28,26 +24,30 @@
         <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
           <div class="form-group">
-            <label for="name" class="form-label">What's your name?</label>
-            <input type="text" id="name" formControlName="name" class="form-input" placeholder="Your name goes here">
+            <label for="name" class="form-label">{{ getText('nameLabel') }}</label>
+            <input type="text" id="name" formControlName="name" class="form-input"
+              [placeholder]="getText('namePlaceholder')">
           </div>
 
           <div class="form-group">
-            <label for="email" class="form-label">What's your email?</label>
-            <input type="email" id="email" formControlName="email" class="form-input" placeholder="youremail@email.com">
+            <label for="name" class="form-label">{{ getText('emailLabel') }}</label>
+            <input type="email" id="email" formControlName="email" class="form-input"
+              [placeholder]="getText('emailPlaceholder')">
           </div>
 
           <div class="form-group">
-            <label for="message" class="form-label">How can I help you?</label>
+            <label for="name" class="form-label">{{ getText('messageLabel') }}</label>
             <textarea id="message" formControlName="message" class="form-textarea"
-              placeholder="Hello Lukas, I am interested in..."></textarea>
+              [placeholder]="getText('messagePlaceholder')"></textarea>
           </div>
 
           <div class="form-checkbox">
             <input type="checkbox" id="privacy" formControlName="privacy">
             <label for="privacy" class="checkbox-label">
-              I've read the <a href="#" class="privacy-link">privacy policy</a> and agree to the processing of my data
-              as outlined.
+              {{ getText('privacyText').split('privacy policy')[0] }}
+              <a href="#" class="privacy-link">{{ getText('privacyLink') }}</a>
+              {{ getText('privacyText').split('privacy policy')[1] ||
+              getText('privacyText').split('Datenschutzerklärung')[1] }}
             </label>
           </div>
 

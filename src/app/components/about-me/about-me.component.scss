@@ -1,16 +1,18 @@
+// src/app/components/about-me/about-me.component.scss
 .about-me-section {
     height: 1000px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 100px;
+    padding: 0 100px; // Desktop padding
+    
     .about-me-container {
         max-width: 1920px;
         width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 40px;
+        padding: 0 40px; // Zusätzliches Container-Padding
         gap: 70px;
 
         .stickers-side {
@@ -33,49 +35,78 @@
     }
 }
 
-// KRITISCHE Änderung für unter 1130px
-@media (max-width: 1130px) {
+// 🔥 FRÜHER Breakpoint für bessere Responsive
+@media (max-width: 1400px) {
     .about-me-section {
-        padding: 50px 0; // Deutlich reduziert
-        min-height: auto; // Entferne min-height komplett
-        height: auto; // Flexible Höhe
-        margin-top: 0; // Stelle sicher, dass kein margin nach oben ist
+        padding: 0 60px; // Reduziere padding früher
+        
+        .about-me-container {
+            padding: 0 20px;
+            gap: 50px;
+        }
     }
+}
 
-    .about-me-container {
-        flex-direction: column;
-        gap: 30px; // Reduziert von 40px
-        text-align: center;
-        padding: 0 20px;
+@media (max-width: 1200px) {
+    .about-me-section {
+        padding: 0 40px; // Noch weniger padding
+        height: auto; // Flexible Höhe
+        min-height: 800px;
+        
+        .about-me-container {
+            padding: 0 10px;
+            gap: 40px;
+            
+            .stickers-side,
+            .text-side {
+                max-width: 100%;
+            }
+        }
+    }
+}
 
-        .stickers-side,
-        .text-side {
-            max-width: 100%;
-            max-height: none; // Entferne alle Höhenbegrenzungen
-            height: auto;
-            flex: none; // Entferne flex-grow
+// 🔥 NEUER Breakpoint: Früher zu Column Layout wechseln
+@media (max-width: 1000px) {
+    .about-me-section {
+        padding: 50px 20px; // Deutlich reduziert
+        min-height: auto; // Entferne min-height
+        height: auto; // Flexible Höhe
+
+        .about-me-container {
+            flex-direction: column; // 🔥 Früher zu Column
+            gap: 40px;
+            text-align: center;
+            padding: 0 15px;
+
+            .stickers-side,
+            .text-side {
+                max-width: 100%;
+                max-height: none; // Entferne Höhenbegrenzungen
+                height: auto;
+                flex: none; // Entferne flex-grow
+            }
         }
     }
 }
 
 @media (max-width: 768px) {
     .about-me-section {
-        padding: 30px 0; // Noch weniger Padding
-    }
-
-    .about-me-container {
-        gap: 20px;
-        padding: 0 15px;
+        padding: 40px 15px;
+        
+        .about-me-container {
+            gap: 30px;
+            padding: 0 10px;
+        }
     }
 }
 
 @media (max-width: 480px) {
     .about-me-section {
-        padding: 20px 0; // Minimal padding
-    }
-
-    .about-me-container {
-        gap: 15px;
-        padding: 0 10px;
+        padding: 30px 10px;
+        
+        .about-me-container {
+            gap: 20px;
+            padding: 0 5px;
+        }
     }
 }

@@ -1,3 +1,4 @@
+// src/app/components/about-me/about-text/about-text.component.scss
 .about-text-container {
     color: #333;
     font-family: var(--font-main);
@@ -29,8 +30,6 @@
             background-repeat: no-repeat;
         }
     }
-
-    // <- about-header schließt HIER
 
     .about-content {
         margin-bottom: 40px;
@@ -73,6 +72,146 @@
             border-color: #F87A55;
             box-shadow: none;
             transform: translate(2px, 2px);
+        }
+    }
+}
+
+// 🔥 RESPONSIVE Verbesserungen
+@media (max-width: 1200px) {
+    .about-text-container {
+        .about-header {
+            .who-is {
+                font-size: 20px;
+            }
+
+            .about-title {
+                font-size: 42px;
+            }
+
+            .underline {
+                width: 220px;
+                height: 18px;
+            }
+        }
+
+        .about-content {
+            .description {
+                font-size: 20px;
+            }
+        }
+
+        .lets-talk-btn {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .about-text-container {
+        // 🔥 Center alignment für mobile
+        text-align: center;
+        
+        .about-header {
+            .who-is {
+                font-size: 18px;
+            }
+
+            .about-title {
+                font-size: 36px;
+            }
+
+            .underline {
+                width: 200px;
+                height: 16px;
+                // 🔥 Center the underline
+                margin: 0 auto;
+            }
+        }
+
+        .about-content {
+            margin-bottom: 30px;
+            
+            .description {
+                font-size: 18px;
+            }
+        }
+
+        .lets-talk-btn {
+            // 🔥 Center button für mobile
+            margin: 0 auto;
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .about-text-container {
+        .about-header {
+            margin-bottom: 25px;
+            
+            .who-is {
+                font-size: 16px;
+            }
+
+            .about-title {
+                font-size: 32px;
+            }
+
+            .underline {
+                width: 180px;
+                height: 14px;
+            }
+        }
+
+        .about-content {
+            margin-bottom: 25px;
+            
+            .description {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+        }
+
+        .lets-talk-btn {
+            font-size: 16px;
+            padding: 8px 18px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .about-text-container {
+        .about-header {
+            margin-bottom: 20px;
+            
+            .who-is {
+                font-size: 14px;
+            }
+
+            .about-title {
+                font-size: 28px;
+            }
+
+            .underline {
+                width: 160px;
+                height: 12px;
+            }
+        }
+
+        .about-content {
+            margin-bottom: 20px;
+            
+            .description {
+                font-size: 14px;
+                line-height: 1.4;
+            }
+        }
+
+        .lets-talk-btn {
+            font-size: 14px;
+            padding: 6px 16px;
+            box-shadow: 2px 2px 0 #333;
         }
     }
 }

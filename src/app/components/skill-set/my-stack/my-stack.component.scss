@@ -3,6 +3,7 @@
   align-items: flex-start;
   gap: 60px;
   max-width: 1920px;
+  width: 100%;
   margin: 0 auto;
 
   .stack-title-section {
@@ -101,10 +102,11 @@
     flex-direction: column;
     gap: 40px;
     padding: 40px 20px;
+    align-items: flex-end;
 
     .stack-title-section {
-      align-items: center;
-      text-align: center;
+      align-items: flex-end;
+      text-align: end;
 
       .stack-title {
         font-size: 36px;
@@ -113,11 +115,11 @@
       .skill-set-wrapper {
         .skill-set-text {
           font-size: 48px;
-          padding-left: 60px;
+
         }
 
         .line-decoration {
-          height: 45px;
+          height: 60px;
         }
       }
     }

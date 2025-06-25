@@ -1,6 +1,9 @@
 <section class="contact-section">
   <div class="contact-container">
 
+    <!-- Orange Seal - jetzt separat für mobile Reihenfolge -->
+    <img src="assets/img/siegel_orange.png" alt="Seal" class="orange-seal">
+
     <!-- Contact Content Area -->
     <div class="contact-content">
 
@@ -19,8 +22,6 @@
 
       <!-- Right Side - Contact Form -->
       <div class="contact-form-wrapper">
-        <img src="assets/img/siegel_orange.png" alt="Seal" class="orange-seal">
-
         <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
           <div class="form-group">
@@ -30,13 +31,13 @@
           </div>
 
           <div class="form-group">
-            <label for="name" class="form-label">{{ getText('emailLabel') }}</label>
+            <label for="email" class="form-label">{{ getText('emailLabel') }}</label>
             <input type="email" id="email" formControlName="email" class="form-input"
               [placeholder]="getText('emailPlaceholder')">
           </div>
 
           <div class="form-group">
-            <label for="name" class="form-label">{{ getText('messageLabel') }}</label>
+            <label for="message" class="form-label">{{ getText('messageLabel') }}</label>
             <textarea id="message" formControlName="message" class="form-textarea"
               [placeholder]="getText('messagePlaceholder')"></textarea>
           </div>
@@ -51,36 +52,49 @@
             </label>
           </div>
 
-          <button type="submit" class="submit-button" [disabled]="!contactForm.valid">
-            {{ getText('submitButton') }}
-          </button>
+          <!-- Mobile: Arrow links, Send Button rechts -->
+          <div class="form-actions">
+            <img src="assets/img/footer_arrow.png" alt="Arrow" class="mobile-arrow">
+            <button type="submit" class="submit-button" [disabled]="!contactForm.valid">
+              {{ getText('submitButton') }}
+            </button>
+          </div>
 
         </form>
       </div>
 
     </div>
 
+    <!-- Footer -->
     <footer class="contact-footer">
-
       <div class="footer-content">
+        
+        <!-- Desktop: Links Spalte / Mobile: Top Row Links -->
         <div class="footer-left">
           <div class="footer-video-section">
             <video autoplay muted loop playsinline class="logo-video">
               <source src="assets/vid/logo-kay.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <p class="footer-copyright">© Kay Dietrich 2025</p>
           </div>
-
-          <div class="footer-links">
-            <a href="#" class="footer-link">Legal Notice</a>
-            <a href="#" class="footer-link">GitHub</a>
-            <a href="#" class="footer-link">LinkedIn</a>
-            <a href="#" class="footer-link">Email</a>
-          </div>
+          <p class="footer-copyright">{{ getText('copyrightText') }}</p>
+          <a href="#" class="footer-legal">{{ getText('legalNotice') }}</a>
         </div>
+        
+        <!-- Mobile: Top Row Rechts -->
+        <div class="footer-mobile-info">
+          <p class="footer-copyright">{{ getText('copyrightText') }}</p>
+          <p class="footer-legal-text">{{ getText('legalNotice') }}</p>
+        </div>
+        
+        <!-- Desktop: Rechts Spalte / Mobile: Bottom Row -->
+        <div class="footer-right">
+          <a href="#" class="footer-link">GitHub</a>
+          <a href="#" class="footer-link">LinkedIn</a>
+          <a href="#" class="footer-link">Email</a>
+        </div>
+        
       </div>
-
     </footer>
 
   </div>

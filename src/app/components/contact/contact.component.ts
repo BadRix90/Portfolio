@@ -77,8 +77,12 @@ export class ContactComponent {
       en: 'Please fill in all required fields and accept the privacy policy.'
     },
     copyrightText: {
-      de: '© Kay Iwe 2024',
-      en: '© Kay Iwe 2024'
+      de: '© Kay Dietrich 2025',
+      en: '© Kay Dietrich 2025'
+    },
+    legalNotice: {
+      de: 'Legal Notice',
+      en: 'Legal Notice'
     }
   };
 

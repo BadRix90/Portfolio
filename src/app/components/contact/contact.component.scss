@@ -1,3 +1,4 @@
+// ===== DESKTOP LAYOUT (über 1000px) =====
 .contact-section {
   background-image: url('/assets/img/06_Footer.png');
   background-size: cover;
@@ -20,6 +21,16 @@
     padding: 100px 0 50px;
     display: flex;
     flex-direction: column;
+  }
+
+  // Orange Seal - Desktop Position
+  .orange-seal {
+    position: absolute;
+    top: 150px;
+    right: 150px;
+    width: 150px;
+    height: 150px;
+    z-index: 2;
   }
 
   .contact-content {
@@ -76,15 +87,6 @@
 
   .contact-form-wrapper {
     position: relative;
-
-    .orange-seal {
-      position: absolute;
-      top: -100px;
-      right: 50px;
-      width: 150px;
-      height: 150px;
-      z-index: 2;
-    }
   }
 
   .contact-form {
@@ -175,6 +177,13 @@
       }
     }
 
+    // Desktop: nur Submit Button
+    .form-actions {
+      .mobile-arrow {
+        display: none;
+      }
+    }
+
     .submit-button {
       background: linear-gradient(135deg, #ff6b35, #ff8a65);
       color: white;
@@ -203,6 +212,7 @@
     }
   }
 
+  // Desktop Footer
   .contact-footer {
     margin-top: auto;
     padding-top: 40px;
@@ -210,164 +220,206 @@
 
     .footer-content {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: space-between;
+      align-items: flex-end;
     }
 
     .footer-left {
       display: flex;
       flex-direction: column;
-      gap: 30px;
-      width: 100%;
+      gap: 15px;
 
       .footer-video-section {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-
         .logo-video {
           width: 60px;
           height: 60px;
           border-radius: 50%;
           object-fit: cover;
         }
+      }
 
-        .footer-copyright {
-          font-family: var(--font-main);
-          font-size: 16px;
-          color: #ccc;
-          margin: 0;
+      .footer-copyright {
+        font-family: var(--font-main);
+        font-size: 16px;
+        color: #ccc;
+        margin: 0;
+      }
+
+      .footer-legal {
+        font-family: var(--font-main);
+        font-size: 16px;
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+
+    // Desktop: Mobile Info verstecken
+    .footer-mobile-info {
+      display: none;
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 40px;
+
+      .footer-link {
+        font-family: var(--font-main);
+        font-size: 24px;
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+// ===== MOBILE LAYOUT (unter 1000px) =====
+@media (max-width: 1000px) {
+  .contact-section {
+    height: auto;
+    min-height: 100vh;
+    padding: 40px 20px;
+
+    .contact-container {
+      padding: 60px 0 40px;
+      max-width: 600px;
+    }
+
+    // Orange Seal ganz oben
+    .orange-seal {
+      position: relative;
+      top: 0;
+      right: auto;
+      left: auto;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 40px;
+      display: block;
+    }
+
+    .contact-content {
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: none;
+      gap: 40px;
+      margin-bottom: 60px;
+
+      .contact-text {
+        text-align: center;
+        order: 1;
+
+        .contact-title {
+          font-size: 42px;
+          margin-bottom: 30px;
+        }
+
+        .contact-description {
+          margin-bottom: 40px;
+        }
+
+        // Desktop Arrow verstecken
+        .footer-arrow {
+          display: none;
         }
       }
 
-      .footer-links {
-        display: flex;
-        justify-content: space-between;
-        gap: 40px;
+      .contact-form-wrapper {
+        order: 2;
 
-        .footer-link {
-          font-family: var(--font-main);
-          font-size: 24px;
-          color: #ccc;
-          text-decoration: none;
-          transition: color 0.3s ease;
+        .contact-form {
+          padding: 40px 30px;
+          border-radius: 12px;
 
-          &:hover {
-            color: white;
+          // Mobile: Arrow links, Button rechts
+          .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+
+            .mobile-arrow {
+              display: block;
+              width: 150px;
+              height: auto;
+            }
+
+            .submit-button {
+              padding: 12px 30px;
+              font-size: 16px;
+            }
           }
         }
       }
     }
-  }
-}
 
-// Responsive Design
-@media (max-width: 1200px) {
-  .contact-section {
-    .contact-container {
-      padding: 80px 40px 0;
-    }
-
-    .contact-content {
-      gap: 60px;
-    }
-
-    .contact-text .contact-title {
-      font-size: 48px;
-    }
-
-    .contact-form {
-      padding: 40px;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .contact-section {
-    .contact-container {
-      padding: 60px 20px 0;
-    }
-
-    .contact-content {
-      grid-template-columns: 1fr;
-      gap: 60px;
-      text-align: center;
-    }
-
-    .contact-text {
-      .contact-title {
-        font-size: 36px;
-      }
-
-      .footer-arrow {
-        width: 150px;
-      }
-    }
-
-    .contact-form-wrapper .orange-seal {
-      top: -30px;
-      right: -30px;
-      width: 100px;
-      height: 100px;
-    }
-
-    .contact-form {
-      padding: 30px;
-    }
-
+    // Mobile Footer Layout  
     .contact-footer {
-      .footer-left {
-        .footer-links {
-          gap: 20px;
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-section {
-    .contact-container {
-      padding: 40px 15px 0;
-    }
-
-    .contact-text {
-      .contact-title {
-        font-size: 28px;
-      }
-
-      .contact-description p {
-        font-size: 16px;
-      }
-    }
-
-    .contact-form {
-      padding: 20px;
-
-      .form-group {
-        margin-bottom: 30px;
-
-        .form-label {
-          font-size: 18px;
-        }
-      }
-
-      .form-checkbox .checkbox-label {
-        font-size: 13px;
-      }
-
-      .submit-button {
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
         width: 100%;
-        padding: 12px;
+        max-width: 600px;
+        margin: 0 auto;
       }
-    }
 
-    .contact-footer {
       .footer-left {
-        .footer-links {
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 15px;
+        flex: 0 0 auto;
+
+        .footer-video-section {
+          .logo-video {
+            width: 50px;
+            height: 50px;
+          }
+        }
+
+        // Mobile: Desktop Copyright/Legal verstecken
+        .footer-copyright,
+        .footer-legal {
+          display: none;
+        }
+      }
+
+      // Mobile: Copyright + Legal Notice rechts  
+      .footer-mobile-info {
+        display: block;
+        text-align: right;
+        flex: 1;
+
+        .footer-copyright {
+          font-family: var(--font-main);
+          font-size: 14px;
+          color: #ccc;
+          margin: 0 0 5px 0;
+        }
+
+        .footer-legal-text {
+          font-family: var(--font-main);
+          font-size: 12px;
+          color: #999;
+          margin: 0;
+        }
+      }
+
+      // Mobile: Links unten (volle Breite)
+      .footer-right {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex: 1 1 100%;
+
+        .footer-link {
+          font-size: 20px;
+          text-align: center;
         }
       }
     }

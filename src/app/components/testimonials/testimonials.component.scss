@@ -1,3 +1,4 @@
+// src/app/components/testimonials/testimonials.component.scss
 .testimonials-section {
   padding: 0 100px 0;
   height: 1000px;
@@ -176,25 +177,78 @@
   }
 }
 
-// Responsive Design
+// 🔥 NEUER Breakpoint bei 1200px - Cards untereinander MIT Rotation!
 @media (max-width: 1200px) {
   .testimonials-section {
     padding: 80px 40px;
+    height: auto; // Flexible Höhe
 
-    .testimonials-header .testimonials-title {
-      font-size: 60px;
+    .testimonials-header {
+      .testimonials-title {
+        font-size: 60px;
+      }
+    }
+
+    .testimonials-cards {
+      // 🔥 Wechsel zu Column Layout
+      flex-direction: column;
+      height: auto;
+      gap: 40px;
+      position: static; // Entferne relative positioning
+      align-items: center;
     }
 
     .testimonial-card {
-      width: 320px;
-      height: 280px;
+      // 🔥 Cards untereinander, aber MIT Rotation!
+      position: static !important;
+      width: 80%;
+      max-width: 600px;
+      height: 400px;
+      left: auto !important;
+      right: auto !important;
+
+      // 🔥 BEHALTE die Rotation bei!
+      &[data-testimonial="1"] {
+        transform: rotate(-8deg) !important;
+      }
+
+      &[data-testimonial="2"] {
+        transform: rotate(2deg) !important;
+      }
+
+      &[data-testimonial="3"] {
+        transform: rotate(6deg) !important;
+      }
+
+      // 🔥 Hover mit Rotation
+      &:hover {
+        &[data-testimonial="1"] {
+          transform: rotate(-8deg) scale(1.05) !important;
+        }
+
+        &[data-testimonial="2"] {
+          transform: rotate(2deg) scale(1.05) !important;
+        }
+
+        &[data-testimonial="3"] {
+          transform: rotate(6deg) scale(1.05) !important;
+        }
+      }
 
       .card-content {
         padding: 25px;
       }
 
       .testimonial-text {
-        font-size: 15px;
+        font-size: 20px;
+      }
+
+      .author-name {
+        font-size: 20px;
+      }
+
+      .author-position {
+        font-size: 16px;
       }
     }
   }
@@ -217,23 +271,39 @@
     }
 
     .testimonials-cards {
-      flex-direction: column;
-      height: auto;
       gap: 30px;
-      position: static;
     }
 
     .testimonial-card {
-      position: static !important;
       width: 100%;
       max-width: 400px;
-      height: 250px;
-      transform: none !important;
-      left: auto !important;
-      right: auto !important;
+      height: 300px;
+
+      // 🔥 Behalte Rotation auch auf Mobile bei (aber kleiner)
+      &[data-testimonial="1"] {
+        transform: rotate(-4deg) !important;
+      }
+
+      &[data-testimonial="2"] {
+        transform: rotate(1deg) !important;
+      }
+
+      &[data-testimonial="3"] {
+        transform: rotate(3deg) !important;
+      }
 
       &:hover {
-        transform: scale(1.02) !important;
+        &[data-testimonial="1"] {
+          transform: rotate(-4deg) scale(1.02) !important;
+        }
+
+        &[data-testimonial="2"] {
+          transform: rotate(1deg) scale(1.02) !important;
+        }
+
+        &[data-testimonial="3"] {
+          transform: rotate(3deg) scale(1.02) !important;
+        }
       }
 
       .card-content {
@@ -279,7 +349,20 @@
     }
 
     .testimonial-card {
-      height: 220px;
+      height: 250px;
+
+      // 🔥 Noch kleinere Rotation für Mobile
+      &[data-testimonial="1"] {
+        transform: rotate(-2deg) !important;
+      }
+
+      &[data-testimonial="2"] {
+        transform: rotate(0.5deg) !important;
+      }
+
+      &[data-testimonial="3"] {
+        transform: rotate(1.5deg) !important;
+      }
 
       .card-content {
         padding: 15px;

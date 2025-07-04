@@ -88,18 +88,17 @@
     }
 
     &:hover {
-      transform: scale(1.05);
 
       &[data-testimonial="1"] {
-        transform: rotate(-8deg) scale(1.05);
+        transform: rotate(-8deg);
       }
 
       &[data-testimonial="2"] {
-        transform: translateX(-50%) rotate(2deg) scale(1.05);
+        transform: translateX(-50%) rotate(2deg);
       }
 
       &[data-testimonial="3"] {
-        transform: rotate(6deg) scale(1.05);
+        transform: rotate(6deg);
       }
     }
 

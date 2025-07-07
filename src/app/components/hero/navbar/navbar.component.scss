@@ -1,3 +1,5 @@
+// navbar.component.scss - COMPLETE RESPONSIVE VERSION
+
 .navbar {
     box-sizing: border-box;
     display: flex;
@@ -9,11 +11,7 @@
     max-width: 1920px;
     width: 100%;
     margin: 0 auto;
-    position: relative; // HINZUGEFÜGT für Mobile Dropdown
-
-    .logo img {
-        height: 40px;
-    }
+    position: relative;
 
     .logo-video {
         width: 60px;
@@ -22,12 +20,15 @@
         object-fit: cover;
     }
 
+    // ===== DESKTOP: Nav-Links sichtbar, Burger-Menu versteckt =====
     .nav-links {
         list-style: none;
-        display: flex;
+        display: flex; // Desktop: sichtbar
         width: 100%;
         justify-content: space-evenly;
         gap: 40px;
+        margin: 0;
+        padding: 0;
 
         li a {
             font-family: var(--font-main);
@@ -85,6 +86,10 @@
                 }
             }
         }
+    }
+
+    .burger-menu {
+        display: none; // Desktop: versteckt
     }
 
     .language-toggle {
@@ -150,50 +155,27 @@
             }
         }
     }
+}
 
-    @keyframes slideDown {
-        from {
-            transform: translate(-50%, -20px) scale(0.8);
-            opacity: 0;
+
+@media (max-width: 1100px) {
+    .navbar {
+        .nav-links li a {
+            font-size: 18px;
         }
 
-        to {
-            transform: translate(-50%, 0) scale(1);
-            opacity: 1;
-        }
-    }
-
-    @keyframes slideLeft {
-        from {
-            transform: translate(-80%, 0) scale(0.8);
-            opacity: 0;
-        }
-
-        to {
-            transform: translate(-50%, 0) scale(1);
-            opacity: 1;
+        .language-toggle .lang {
+            font-size: 18px !important;
         }
     }
+}
 
-    @media (max-width: 1100px) {
-        .nav-links {
-            li a {
-                font-size: 18px;
-            }
-        }
-
-        .language-toggle {
-            .lang {
-                font-size: 18px !important;
-            }
-        }
-    }
-
-
-    @media (max-width: 870px) {
+@media (max-width: 870px) {
+    .navbar {
         padding: 15px 20px;
 
         .nav-links {
+            display: none; // Standard: versteckt
             position: absolute;
             top: 100%;
             left: 50%;
@@ -235,54 +217,71 @@
             }
         }
 
-        .language-toggle {
-            position: absolute;
-            top: calc(100% + 200px); // Abstand zu Menü
-            left: 50%;
-            transform: translateX(-50%) translateY(-20px);
+        .burger-menu {
+            display: block; // Mobile: sichtbar
             background: transparent;
             border: none;
-            justify-content: center;
-            padding: 10px 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
-
-        // Burger-Menü-Button (über Pseudoelement)
-        &::after {
-            content: '';
-            width: 32px;
-            height: 32px;
-            background-image: url('/assets/img/menu.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
+            padding: 0;
             cursor: pointer;
             transition: all 0.3s ease;
+
+            .menu-icon {
+                width: 32px;
+                height: 32px;
+                transition: all 0.3s ease;
+            }
+
+            &:hover .menu-icon {
+                content: url('/assets/img/menu_hover.png');
+            }
         }
 
-        &:hover::after {
-            background-image: url('/assets/img/menu_hover.png');
-        }
+
 
         &.mobile-menu-open {
-            &::after {
-                background-image: url('/assets/img/close_menu.png');
+            .burger-menu .menu-icon {
+                content: url('/assets/img/close_menu.png');
+
+                &:hover {
+                    content: url('/assets/img/close_menu_hover.png');
+                }
             }
 
-            &:hover::after {
-                background-image: url('/assets/img/close_menu_hover.png');
-            }
-
-            .nav-links,
-            .language-toggle {
+            .nav-links {
+                display: flex; // Wird sichtbar
                 opacity: 1;
                 visibility: visible;
                 transform: translateX(-50%) translateY(0);
             }
+
+            .language-toggle {
+                opacity: 1;
+                visibility: visible;
+            }
         }
     }
+}
 
+
+
+@keyframes slideDown {
+    from {
+        transform: translate(-50%, -20px) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translate(-80%, 0) scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 1;
+    }
 }

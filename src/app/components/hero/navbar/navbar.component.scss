@@ -175,30 +175,38 @@
         }
     }
 
-    // ==================== MOBILE VERSION ====================
+    @media (max-width: 1100px) {
+        .nav-links {
+            li a {
+                font-size: 18px;
+            }
+        }
+
+        .language-toggle {
+            .lang {
+                font-size: 18px !important;
+            }
+        }
+    }
+
+
     @media (max-width: 870px) {
         padding: 15px 20px;
 
-        // Die vorhandenen nav-links werden zum Mobile Menu
         .nav-links {
-            // Verstecken und als Dropdown positionieren
             position: absolute;
             top: 100%;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            border: 2px solid #3355FF;
-            border-top: none;
-            border-radius: 0 0 15px 15px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            background: transparent;
+            border: none;
             flex-direction: column;
-            width: 100%;
-            justify-content: flex-start;
-            gap: 0;
-            padding: 20px 0;
+            align-items: center;
+            width: max-content;
+            gap: 20px;
+            padding: 10px 0;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(-20px);
             transition: all 0.3s ease;
             z-index: 1000;
 
@@ -207,50 +215,42 @@
 
                 a {
                     display: block;
-                    padding: 15px 40px;
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                    padding: 10px 20px;
+                    text-align: center;
+                    color: white;
+                    background: transparent;
+                    border: none;
                     transition: all 0.3s ease;
 
                     &:hover {
-                        background: rgba(51, 85, 255, 0.2);
                         color: #3355FF;
-                        padding-left: 50px;
+                        padding-left: 20px;
+                        background: none;
                     }
 
-                    // Verstecke die Image Hover Effekte im Mobile
                     .image-hover {
                         display: none;
                     }
                 }
-
-                &:last-child a {
-                    border-bottom: none;
-                }
             }
         }
 
-        // Language Toggle als Menu Item
         .language-toggle {
             position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            border: 2px solid #3355FF;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 0 0 15px 15px;
+            top: calc(100% + 200px); // Abstand zu Menü
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            background: transparent;
+            border: none;
             justify-content: center;
-            padding: 20px 40px;
-            margin-top: 280px; // Unter den nav-links
+            padding: 10px 0;
             opacity: 0;
             visibility: hidden;
-            transform: translateY(-20px);
             transition: all 0.3s ease;
             z-index: 999;
         }
 
-        // Menu Button erstellen (aus dem Logo machen wir den Button)
+        // Burger-Menü-Button (über Pseudoelement)
         &::after {
             content: '';
             width: 32px;
@@ -263,12 +263,10 @@
             transition: all 0.3s ease;
         }
 
-        // Hover Effekt für Menu Button
         &:hover::after {
             background-image: url('/assets/img/menu_hover.png');
         }
 
-        // Wenn Menu offen ist (über eine CSS Klasse die per JS hinzugefügt wird)
         &.mobile-menu-open {
             &::after {
                 background-image: url('/assets/img/close_menu.png');
@@ -278,17 +276,13 @@
                 background-image: url('/assets/img/close_menu_hover.png');
             }
 
-            .nav-links {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            }
-
+            .nav-links,
             .language-toggle {
                 opacity: 1;
                 visibility: visible;
-                transform: translateY(0);
+                transform: translateX(-50%) translateY(0);
             }
         }
     }
+
 }

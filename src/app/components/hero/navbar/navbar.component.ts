@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter, HostListener} from '@angular/core';
+
+import { Component, Input, Output, EventEmitter } from '@angular/core'; // HostListener entfernt!
 
 @Component({
   selector: 'app-navbar',
@@ -8,20 +9,12 @@ import { Component, Input, Output, EventEmitter, HostListener} from '@angular/co
   styleUrl: './navbar.component.scss'
 })
 
-// In navbar.component.ts
 export class NavbarComponent {
   @Input() currentLanguage: string = 'en';
   @Output() languageChange = new EventEmitter<string>();
+  @Output() mobileMenuToggle = new EventEmitter<boolean>();
   
   isMobileMenuOpen = false;
-
-  @HostListener('click', ['$event'])
-  onNavbarClick(event: Event) {
-    // Nur bei Mobile (unter 870px) den Menu Toggle handhaben
-    if (window.innerWidth <= 870) {
-      this.toggleMobileMenu();
-    }
-  }
 
   toggleLanguage() {
     const newLanguage = this.currentLanguage === 'en' ? 'de' : 'en';
@@ -38,5 +31,8 @@ export class NavbarComponent {
     } else {
       navbar?.classList.remove('mobile-menu-open');
     }
+    
+    // Event an Hero Component senden
+    this.mobileMenuToggle.emit(this.isMobileMenuOpen);
   }
 }

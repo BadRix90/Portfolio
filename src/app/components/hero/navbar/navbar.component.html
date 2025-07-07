@@ -4,7 +4,6 @@
         Your browser does not support the video tag.
     </video>
 
-
     <ul class="nav-links">
         <li>
             <a href="#about">About me
@@ -26,15 +25,21 @@
                 <span class="image-hover contact"></span>
             </a>
         </li>
+        <li>
+            <div class="language-toggle">
+                <span class="lang" [class.active]="currentLanguage === 'en'">EN</span>
+                <label class="switch">
+                    <input type="checkbox" [checked]="currentLanguage === 'de'" (change)="toggleLanguage()" />
+                    <span class="slider"></span>
+                </label>
+                <span class="lang" [class.active]="currentLanguage === 'de'">DE</span>
+            </div>
+        </li>
     </ul>
 
+    <button class="burger-menu" (click)="toggleMobileMenu()">
+        <img src="assets/img/menu.png" alt="Menu" class="menu-icon">
+    </button>
 
-    <div class="language-toggle">
-        <span class="lang" [class.active]="currentLanguage === 'en'">EN</span>
-        <label class="switch">
-            <input type="checkbox" [checked]="currentLanguage === 'de'" (change)="toggleLanguage()" />
-            <span class="slider"></span>
-        </label>
-        <span class="lang" [class.active]="currentLanguage === 'de'">DE</span>
-    </div>
+
 </nav>

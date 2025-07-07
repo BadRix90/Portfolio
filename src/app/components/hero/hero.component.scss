@@ -24,10 +24,14 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+
   }
 
-
-
+  &.menu-open .hero-content {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 
   @media (max-width: 1210px) {
     .hero-content {

@@ -40,10 +40,13 @@
 
   }
 
+  @media (max-width: 870px) {
+    padding: 0;
+  }
+
 
   @media (max-width: 320px) {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 0;
   }
 
 

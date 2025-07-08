@@ -353,13 +353,15 @@
         justify-content: flex-start;
     }
 
+}
+
+@media (max-width: 1130px) {
     .lower-content .hero-text.developer {
         order: 2;
         left: 0;
         justify-content: flex-start;
     }
 }
-
 
 @media (max-width: 870px) {
     .frame-container {
@@ -373,7 +375,7 @@
         align-items: flex-start;
 
         .hero-text.frontend {
-            font-size: clamp(40px, 8vw, 128px);
+            font-size: 100px;
             width: 100%;
             top: 80px;
         }
@@ -385,7 +387,7 @@
         margin-bottom: 64px;
 
         .hero-text.developer {
-            font-size: clamp(40px, 8vw, 128px);
+            font-size: 100px;
             left: 0;
             width: 100%;
             justify-content: center;

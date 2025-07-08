@@ -373,24 +373,47 @@
         padding: 0 0 0 0;
         height: 180px;
         align-items: flex-start;
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
 
         .hero-text.frontend {
             font-size: 100px;
             width: 100%;
-            top: 80px;
         }
     }
 
     .lower-content {
         align-items: flex-start;
-        height: 120px;
+        height: auto;
         margin-bottom: 64px;
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
 
         .hero-text.developer {
             font-size: 100px;
             left: 0;
             width: 100%;
             justify-content: center;
+        }
+    }
+}
+
+@media (max-width: 570px) {
+    .top-content {
+        height: 120px;
+
+        .hero-text.frontend {
+            font-size: 50px;
+        }
+    }
+
+    .lower-content {
+        gap: 0;
+        height: 120px;
+        .hero-text.developer {
+            font-size: 50px;
         }
     }
 }

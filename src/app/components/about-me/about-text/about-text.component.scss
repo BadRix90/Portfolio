@@ -109,7 +109,6 @@
 
 @media (max-width: 1000px) {
     .about-text-container {
-        // 🔥 Center alignment für mobile
         text-align: center;
         
         .about-header {
@@ -124,7 +123,6 @@
             .underline {
                 width: 200px;
                 height: 16px;
-                // 🔥 Center the underline
                 margin: 0 auto;
             }
         }
@@ -138,8 +136,6 @@
         }
 
         .lets-talk-btn {
-            // 🔥 Center button für mobile
-            margin: 0 auto;
             display: block;
         }
     }

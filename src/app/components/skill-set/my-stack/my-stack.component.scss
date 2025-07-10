@@ -97,11 +97,10 @@
     }
   }
 
-  // Responsive Design
   @media (max-width: 870px) {
     flex-direction: column;
     gap: 40px;
-    padding: 40px 20px;
+    padding: 0 20px 100px 20px;
     align-items: flex-end;
 
     .stack-title-section {
@@ -135,6 +134,8 @@
   }
 
   @media (max-width: 480px) {
+    padding: 0 0 80px 0;
+
     .stack-title-section {
       .stack-title {
         font-size: 28px;
@@ -147,7 +148,8 @@
         }
 
         .line-decoration {
-          height: 35px;
+          height: 42px;
+          right: 0;
         }
       }
     }
@@ -160,5 +162,6 @@
         background-size: 100% 100%; // Behält das Stretching bei
       }
     }
+
   }
 }

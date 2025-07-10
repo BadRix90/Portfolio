@@ -1,13 +1,12 @@
-// src/app/components/projects/projects.component.scss
 .projects-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 40px;
-    padding: 0 150px 0; // Desktop padding
+    padding: 0 50px;
     max-width: 1920px;
     margin: 0 auto;
-    aspect-ratio: 1620 / 1620; 
+    aspect-ratio: 1620 / 1620;
 
     .title-section {
         grid-column: 1;
@@ -69,7 +68,6 @@
             position: relative;
             height: 60%;
             width: 100%;
-            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -81,13 +79,13 @@
             .laptop-image {
                 width: 100%;
                 height: 100%;
-                object-fit: cover;
+                object-fit: contain;
             }
 
             .featured-sticker {
                 position: absolute;
-                bottom: 20px;
-                left: 20px;
+                bottom: 15%;
+                left: 15%;
                 width: 120px;
                 height: 120px;
                 z-index: 2;
@@ -121,7 +119,6 @@
         }
     }
 
-    // Grid Positions
     .join-project {
         grid-column: 2;
         grid-row: 1;
@@ -137,14 +134,13 @@
         grid-row: 2;
     }
 
-    // 🔥 CRITICAL FIX: Früher Breakpoint für bessere Responsive
     @media (max-width: 1400px) {
-        padding: 0 80px; // Reduziere padding früher
+        padding: 0 80px;
         gap: 30px;
-        
+
         .title-section {
             padding-right: 20px;
-            
+
             .projects-title {
                 font-size: 64px;
             }
@@ -152,16 +148,16 @@
     }
 
     @media (max-width: 1200px) {
-        padding: 0 40px; // Noch weniger padding
+        padding: 0 40px;
         gap: 25px;
 
         .title-section {
             padding-right: 15px;
-            
+
             .projects-title {
                 font-size: 56px;
             }
-            
+
             .title-description {
                 font-size: 16px;
                 max-width: 350px;
@@ -183,14 +179,13 @@
         }
     }
 
-    // 🔥 NEUER Breakpoint zwischen 1200px und 870px
     @media (max-width: 1000px) {
-        padding: 0 30px; // Noch weniger padding
+        padding: 0 30px;
         gap: 20px;
-        
+
         .title-section {
             padding-right: 10px;
-            
+
             .projects-title {
                 font-size: 48px;
             }
@@ -198,15 +193,13 @@
     }
 
     @media (max-width: 870px) {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto;
-        gap: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
         padding: 40px 20px;
         aspect-ratio: unset;
 
         .title-section {
-            grid-column: 1;
-            grid-row: 1;
             padding-right: 0;
             text-align: center;
             aspect-ratio: unset;
@@ -220,38 +213,27 @@
             }
         }
 
-        .join-project {
-            grid-column: 1;
-            grid-row: 2;
-        }
-
-        .el-pollo-loco-project {
-            grid-column: 1;
-            grid-row: 3;
-        }
-
+        .join-project,
+        .el-pollo-loco-project,
         .dabubble-project {
-            grid-column: 1;
-            grid-row: 4;
+            grid-column: unset;
+            grid-row: unset;
         }
 
         .project-card {
-            height: auto;
             aspect-ratio: unset;
+            height: auto;
 
             .project-image {
                 height: 220px;
-            }
+                width: 480px;
+                align-self: center;
 
-            .project-info {
-                padding: 20px 0;
-
-                .project-title {
-                    font-size: 24px;
-                }
-
-                .project-description {
-                    font-size: 14px;
+                .featured-sticker {
+                    bottom: 50px;
+                    left: 120px;
+                    width: 70px;
+                    height: 70px;
                 }
             }
         }
@@ -268,30 +250,18 @@
 
             .title-description {
                 font-size: 16px;
+                padding: 0 0 80px 0;
             }
         }
 
         .project-card {
             .project-image {
-                height: 180px;
+                height: 220px;
+                width: 320px;
 
                 .featured-sticker {
-                    width: 80px;
-                    height: 80px;
-                    top: 15px;
-                    right: 15px;
-                }
-            }
-
-            .project-info {
-                padding: 15px 0;
-
-                .project-title {
-                    font-size: 20px;
-                }
-
-                .project-description {
-                    font-size: 13px;
+                    bottom: 25%;
+                    left: 20%;
                 }
             }
         }

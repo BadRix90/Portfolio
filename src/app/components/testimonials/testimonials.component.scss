@@ -1,4 +1,4 @@
-// src/app/components/testimonials/testimonials.component.scss
+
 .testimonials-section {
   padding: 0 100px 0;
   height: 1000px;
@@ -62,8 +62,8 @@
 
   .testimonial-card {
     position: absolute;
-    width: 700px;
-    height: 450px;
+    width: clamp(280px, 60vw, 630px);
+    aspect-ratio: 630 / 430;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -176,12 +176,10 @@
   }
 }
 
-// 🔥 NEUER Breakpoint bei 1200px - Cards untereinander MIT Rotation!
 @media (max-width: 1200px) {
   .testimonials-section {
     padding: 80px 40px;
-    height: auto; // Flexible Höhe
-
+    height: auto;
     .testimonials-header {
       .testimonials-title {
         font-size: 60px;
@@ -189,16 +187,13 @@
     }
 
     .testimonials-cards {
-      // 🔥 Wechsel zu Column Layout
       flex-direction: column;
       height: auto;
-      gap: 40px;
-      position: static; // Entferne relative positioning
+      position: static;
       align-items: center;
     }
 
     .testimonial-card {
-      // 🔥 Cards untereinander, aber MIT Rotation!
       position: static !important;
       width: 80%;
       max-width: 600px;
@@ -271,7 +266,7 @@
     }
 
     .testimonials-cards {
-      gap: 30px;
+      gap: 0;
     }
 
     .testimonial-card {

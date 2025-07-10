@@ -56,7 +56,6 @@
         width: 400px;
         height: 100%;
         position: relative;
-        overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -181,6 +180,8 @@
             gap: 0;
             width: 100%;
             max-width: 350px;
+            height: 100%;
+            max-height: 455px;
             margin: 0 auto;
 
             .tech-icon-item {

@@ -1,10 +1,9 @@
-// src/app/components/about-me/about-me.component.scss
 .about-me-section {
     height: 1000px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 100px; // Desktop padding
+    padding: 0 100px;
     
     .about-me-container {
         max-width: 1920px;
@@ -12,7 +11,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 40px; // Zusätzliches Container-Padding
+        padding: 0 40px;
         gap: 70px;
 
         .stickers-side {
@@ -35,10 +34,9 @@
     }
 }
 
-// 🔥 FRÜHER Breakpoint für bessere Responsive
 @media (max-width: 1400px) {
     .about-me-section {
-        padding: 0 60px; // Reduziere padding früher
+        padding: 0 60px;
         
         .about-me-container {
             padding: 0 20px;
@@ -49,8 +47,8 @@
 
 @media (max-width: 1200px) {
     .about-me-section {
-        padding: 0 40px; // Noch weniger padding
-        height: auto; // Flexible Höhe
+        padding: 0 40px;
+        height: auto;
         min-height: 800px;
         
         .about-me-container {
@@ -65,26 +63,35 @@
     }
 }
 
-// 🔥 NEUER Breakpoint: Früher zu Column Layout wechseln
 @media (max-width: 1000px) {
     .about-me-section {
-        padding: 50px 20px; // Deutlich reduziert
-        min-height: auto; // Entferne min-height
-        height: auto; // Flexible Höhe
+        padding: 50px 20px;
+        min-height: auto;
+        height: auto; 
 
         .about-me-container {
-            flex-direction: column; // 🔥 Früher zu Column
+            flex-direction: column;
             gap: 40px;
             text-align: center;
             padding: 0 15px;
 
-            .stickers-side,
             .text-side {
+                order: 1;
                 max-width: 100%;
-                max-height: none; // Entferne Höhenbegrenzungen
+                max-height: none;
                 height: auto;
-                flex: none; // Entferne flex-grow
+                flex: none;
             }
+
+            .stickers-side {
+                order: 2;
+                max-width: 100%;
+                max-height: none;
+                height: auto;
+                flex: none;
+            }
+
+
         }
     }
 }

@@ -23,14 +23,29 @@
     flex-direction: column;
   }
 
-  // Orange Seal - Desktop Position
-  .orange-seal {
+  .seal-logo {
     position: absolute;
     top: 150px;
     right: 150px;
     width: 150px;
     height: 150px;
     z-index: 2;
+
+    .orange-seal {
+      width: 100%;
+      height: 100%;
+    }
+
+    .logo-video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
   }
 
   .contact-content {
@@ -176,7 +191,6 @@
       }
     }
 
-    // Desktop: nur Submit Button
     .form-actions {
       .mobile-arrow {
         display: none;
@@ -211,7 +225,6 @@
     }
   }
 
-  // Desktop Footer
   .contact-footer {
     margin-top: auto;
     padding-top: 40px;
@@ -257,7 +270,6 @@
       }
     }
 
-    // Desktop: Mobile Info verstecken
     .footer-mobile-info {
       display: none;
     }
@@ -285,7 +297,6 @@
 @media (max-width: 1000px) {
   .contact-section {
     height: auto;
-    min-height: 100vh;
     padding: 40px 20px;
 
     .contact-container {
@@ -293,8 +304,7 @@
       max-width: 600px;
     }
 
-    // Orange Seal ganz oben
-    .orange-seal {
+    .seal-logo {
       position: relative;
       top: 0;
       right: auto;
@@ -303,6 +313,16 @@
       height: 120px;
       margin: 0 auto 40px;
       display: block;
+
+      .orange-seal {
+        width: 100%;
+        height: 100%;
+      }
+
+      .logo-video {
+        width: 50px;
+        height: 50px;
+      }
     }
 
     .contact-content {
@@ -325,7 +345,6 @@
           margin-bottom: 40px;
         }
 
-        // Desktop Arrow verstecken
         .footer-arrow {
           display: none;
         }
@@ -338,7 +357,6 @@
           padding: 40px 30px;
           border-radius: 12px;
 
-          // Mobile: Arrow links, Button rechts
           .form-actions {
             display: flex;
             justify-content: space-between;
@@ -360,7 +378,6 @@
       }
     }
 
-    // Mobile Footer Layout  
     .contact-footer {
       .footer-content {
         display: flex;
@@ -381,14 +398,12 @@
           }
         }
 
-        // Mobile: Desktop Copyright/Legal verstecken
         .footer-copyright,
         .footer-legal {
           display: none;
         }
       }
 
-      // Mobile: Copyright + Legal Notice rechts  
       .footer-mobile-info {
         display: block;
         text-align: right;
@@ -409,7 +424,6 @@
         }
       }
 
-      // Mobile: Links unten (volle Breite)
       .footer-right {
         display: flex;
         justify-content: center;

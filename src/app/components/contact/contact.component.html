@@ -1,13 +1,17 @@
 <section class="contact-section">
   <div class="contact-container">
 
-    <!-- Orange Seal - jetzt separat für mobile Reihenfolge -->
-    <img src="assets/img/siegel_orange.png" alt="Seal" class="orange-seal">
+    <div class="seal-logo">
+      <img src="assets/img/siegel_orange.png" alt="Seal" class="orange-seal">
+      <video autoplay muted loop playsinline class="logo-video">
+        <source src="assets/vid/logo-kay.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
 
     <!-- Contact Content Area -->
     <div class="contact-content">
 
-      <!-- Left Side - Contact Text -->
       <div class="contact-text">
         <h3 class="contact-label">{{ getText('contactLabel') }}</h3>
         <h2 class="contact-title">{{ getText('contactTitle') }}</h2>
@@ -20,7 +24,6 @@
         <img src="assets/img/footer_arrow.png" alt="Arrow" class="footer-arrow">
       </div>
 
-      <!-- Right Side - Contact Form -->
       <div class="contact-form-wrapper">
         <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
@@ -51,8 +54,6 @@
               getText('privacyText').split('Datenschutzerklärung')[1] }}
             </label>
           </div>
-
-          <!-- Mobile: Arrow links, Send Button rechts -->
           <div class="form-actions">
             <img src="assets/img/footer_arrow.png" alt="Arrow" class="mobile-arrow">
             <button type="submit" class="submit-button" [disabled]="!contactForm.valid">
@@ -65,11 +66,9 @@
 
     </div>
 
-    <!-- Footer -->
     <footer class="contact-footer">
       <div class="footer-content">
-        
-        <!-- Desktop: Links Spalte / Mobile: Top Row Links -->
+
         <div class="footer-left">
           <div class="footer-video-section">
             <video autoplay muted loop playsinline class="logo-video">
@@ -80,20 +79,18 @@
           <p class="footer-copyright">{{ getText('copyrightText') }}</p>
           <a href="#" class="footer-legal">{{ getText('legalNotice') }}</a>
         </div>
-        
-        <!-- Mobile: Top Row Rechts -->
+
         <div class="footer-mobile-info">
           <p class="footer-copyright">{{ getText('copyrightText') }}</p>
           <p class="footer-legal-text">{{ getText('legalNotice') }}</p>
         </div>
-        
-        <!-- Desktop: Rechts Spalte / Mobile: Bottom Row -->
+
         <div class="footer-right">
           <a href="#" class="footer-link">GitHub</a>
           <a href="#" class="footer-link">LinkedIn</a>
           <a href="#" class="footer-link">Email</a>
         </div>
-        
+
       </div>
     </footer>
 

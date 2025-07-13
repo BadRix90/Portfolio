@@ -1,4 +1,3 @@
-// src/app/components/contact/contact.component.ts
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -12,8 +11,11 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 })
 export class ContactComponent {
   @Input() currentLanguage = 'en';
-
   contactForm: FormGroup;
+  
+  // Modal State
+  showLegalNotice = false;
+  showPrivacyPolicy = false;
 
   texts = {
     contactLabel: {
@@ -25,12 +27,12 @@ export class ContactComponent {
       en: 'Ready to work together?'
     },
     contactDescription1: {
-      de: 'Ermutige Leute, dich zu kontaktieren und beschreibe, an welcher Rolle du interessiert bist. Zeige Vertrauen in deine Fähigkeit, durch dein Fachwissen und deine Begeisterung einen sinnvollen Beitrag zu einem Team zu leisten.',
-      en: 'Encourage people to contact you and describe what role you are interested in. Express confidence in your ability to make a meaningful contribution to a team through your expertise and enthusiasm for improving your skills.'
+      de: 'Ermutige Leute, dich zu kontaktieren und beschreibe, an welcher Rolle du interessiert bist.',
+      en: 'Encourage people to contact you and describe what role you are interested in.'
     },
     contactDescription2: {
-      de: 'Zeige Interesse daran, zu einem neuen Projekt beizutragen und hebe dabei den Wert und die Fähigkeiten hervor, die du einbringen kannst.',
-      en: 'Show interest in contributing to a new project, while highlighting the value and skills you can bring to the table.'
+      de: 'Zeige Interesse daran, zu einem neuen Projekt beizutragen.',
+      en: 'Show interest in contributing to a new project.'
     },
     nameLabel: {
       de: 'Wie ist dein Name?',
@@ -57,8 +59,8 @@ export class ContactComponent {
       en: 'Hello Kay, I am interested in...'
     },
     privacyText: {
-      de: 'Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.',
-      en: 'I\'ve read the privacy policy and agree to the processing of my data as outlined.'
+      de: 'Ich habe die Datenschutzerklärung gelesen und stimme der Verarbeitung meiner Daten zu.',
+      en: 'I\'ve read the privacy policy and agree to the processing of my data.'
     },
     privacyLink: {
       de: 'Datenschutzerklärung',
@@ -69,19 +71,19 @@ export class ContactComponent {
       en: 'Send'
     },
     successMessage: {
-      de: 'Vielen Dank für deine Nachricht! Ich melde mich bald bei dir.',
-      en: 'Thank you for your message! I will get back to you soon.'
+      de: 'Vielen Dank für deine Nachricht!',
+      en: 'Thank you for your message!'
     },
     errorMessage: {
-      de: 'Bitte fülle alle Pflichtfelder aus und akzeptiere die Datenschutzerklärung.',
-      en: 'Please fill in all required fields and accept the privacy policy.'
+      de: 'Bitte fülle alle Felder aus.',
+      en: 'Please fill in all fields.'
     },
     copyrightText: {
       de: '© Kay Dietrich 2025',
       en: '© Kay Dietrich 2025'
     },
     legalNotice: {
-      de: 'Legal Notice',
+      de: 'Impressum',
       en: 'Legal Notice'
     }
   };
@@ -108,6 +110,23 @@ export class ContactComponent {
       this.contactForm.markAllAsTouched();
       alert(this.getText('errorMessage'));
     }
+  }
+
+  // Modal Functions
+  openLegalNotice() {
+    this.showLegalNotice = true;
+    document.body.style.overflow = 'hidden';
+  }
+
+  openPrivacyPolicy() {
+    this.showPrivacyPolicy = true;
+    document.body.style.overflow = 'hidden';
+  }
+
+  closeModals() {
+    this.showLegalNotice = false;
+    this.showPrivacyPolicy = false;
+    document.body.style.overflow = 'auto';
   }
 
   get isFormValid(): boolean {

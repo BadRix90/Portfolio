@@ -25,8 +25,8 @@
 
   .seal-logo {
     position: absolute;
-    top: 150px;
-    right: 150px;
+    top: 100px;
+    right: 100px;
     width: 150px;
     height: 150px;
     z-index: 2;
@@ -36,13 +36,13 @@
       height: 100%;
     }
 
-    .logo-video {
+    .logo-img {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
+      width: 150px;
+      height: 150px;
       border-radius: 50%;
       object-fit: cover;
     }
@@ -66,6 +66,7 @@
       letter-spacing: 2px;
       text-transform: uppercase;
       margin: 0 0 20px 0;
+
     }
 
     .contact-title {
@@ -79,6 +80,7 @@
 
     .contact-description {
       margin-bottom: 60px;
+      text-align: justify;
 
       p {
         font-family: var(--font-main);
@@ -95,8 +97,10 @@
     }
 
     .footer-arrow {
-      width: 200px;
+      width: 320px;
       height: auto;
+      display: block;
+      margin-left: auto;
     }
   }
 
@@ -198,28 +202,34 @@
     }
 
     .submit-button {
-      background: linear-gradient(135deg, #ff6b35, #ff8a65);
+      padding: 12px 24px;
+      background-color: transparent;
       color: white;
-      border: none;
-      border-radius: 50px;
-      padding: 15px 50px;
-      font-family: var(--font-main);
-      font-size: 18px;
-      font-weight: 600;
+      border: 2px solid white;
+      border-radius: 25px;
+      box-shadow: 4px 4px 0 white;
+      font-weight: bold;
+      font-size: 20px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
+      font-family: var(--font-main);
       min-width: 120px;
 
       &:hover:not(:disabled) {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        background-color: #F87A55;
+        color: white;
+        border-color: #F87A55;
+        box-shadow: none;
+        transform: translate(2px, 2px);
       }
 
       &:disabled {
-        background: linear-gradient(135deg, #666, #777);
+        background-color: transparent;
+        color: #F8F9FA;
+        border-color: #F8F9FA;
+        box-shadow: 2px 2px 0 #666;
         cursor: not-allowed;
         transform: none;
-        box-shadow: none;
         opacity: 0.6;
       }
     }
@@ -241,8 +251,8 @@
       flex-direction: column;
       gap: 15px;
 
-      .footer-video-section {
-        .logo-video {
+      .footer-logo-section {
+        .logo-img {
           width: 60px;
           height: 60px;
           border-radius: 50%;
@@ -302,6 +312,7 @@
     .contact-container {
       padding: 60px 0 40px;
       max-width: 600px;
+      width: 100%;
     }
 
     .seal-logo {
@@ -311,7 +322,7 @@
       left: auto;
       width: 120px;
       height: 120px;
-      margin: 0 auto 40px;
+      margin: 0 0 40px auto;
       display: block;
 
       .orange-seal {
@@ -319,9 +330,9 @@
         height: 100%;
       }
 
-      .logo-video {
-        width: 50px;
-        height: 50px;
+      .logo-img {
+        width: 120px;
+        height: 120px;
       }
     }
 
@@ -333,11 +344,11 @@
       margin-bottom: 60px;
 
       .contact-text {
-        text-align: center;
+        text-align: justify;
         order: 1;
 
         .contact-title {
-          font-size: 42px;
+          font-size: 32px;
           margin-bottom: 30px;
         }
 
@@ -352,9 +363,9 @@
 
       .contact-form-wrapper {
         order: 2;
+        width: 100%;
 
         .contact-form {
-          padding: 40px 30px;
           border-radius: 12px;
 
           .form-actions {
@@ -391,8 +402,8 @@
       .footer-left {
         flex: 0 0 auto;
 
-        .footer-video-section {
-          .logo-video {
+        .footer-logo-section {
+          .logo-img {
             width: 50px;
             height: 50px;
           }

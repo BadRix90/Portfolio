@@ -9,7 +9,6 @@
     box-sizing: border-box;
 }
 
-// ===== TITLE SECTION =====
 .title-section {
     flex: 1 1 calc(50% - 20px);
     display: flex;
@@ -58,6 +57,7 @@
     line-height: 1.6;
     margin: 20px 0 0 0;
     max-width: 400px;
+    text-align: justify;
 }
 
 .project-card {
@@ -134,7 +134,8 @@
     font-family: var(--font-main);
     font-size: 16px;
     font-weight: 400;
-    color: #555;
+    color: black;
+    text-align: justify;
     line-height: 1.6;
     margin: 0;
     word-wrap: break-word;
@@ -142,7 +143,6 @@
     hyphens: auto;
 }
 
-// ===== RESPONSIVE BREAKPOINTS =====
 @media (max-width: 1400px) {
     .projects-container {
         padding: 0 80px;

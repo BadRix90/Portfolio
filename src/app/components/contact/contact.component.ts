@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -12,7 +13,7 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angula
 export class ContactComponent {
   @Input() currentLanguage = 'en';
   contactForm: FormGroup;
-  
+
   // Modal State
   showLegalNotice = false;
   showPrivacyPolicy = false;
@@ -88,7 +89,7 @@ export class ContactComponent {
     }
   };
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
@@ -103,14 +104,29 @@ export class ContactComponent {
 
   onSubmit(): void {
     if (this.contactForm.valid) {
-      console.log('Form submitted:', this.contactForm.value);
-      alert(this.getText('successMessage'));
-      this.contactForm.reset();
+      const formData = new FormData();
+      formData.append('name', this.contactForm.value.name);
+      formData.append('email', this.contactForm.value.email);
+      formData.append('message', this.contactForm.value.message);
+
+      this.http.post('./contact.php', formData, { responseType: 'text' })
+        .subscribe({
+          next: (res) => {
+            console.log('Serverantwort:', res);
+            alert(res === 'success' ? 'Nachricht gesendet!' : `Fehler: ${res}`);
+          },
+          error: (err) => {
+            console.error('HTTP-Fehler:', err);
+            alert('Serverfehler – bitte später noch einmal.');
+          }
+        });
+
     } else {
       this.contactForm.markAllAsTouched();
-      alert(this.getText('errorMessage'));
+      alert("Bitte fülle alle Felder korrekt aus.");
     }
   }
+
 
   // Modal Functions
   openLegalNotice() {

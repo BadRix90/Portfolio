@@ -1,35 +1,27 @@
 <nav class="navbar">
-   <img src="assets/img/logo_kay.png" alt="Logo" class="logo-img" />
+    <img src="assets/img/logo_kay.png" alt="Logo" class="logo-img" />
 
     <ul class="nav-links">
         <li>
-            <a href="#about">About me
-                <span class="image-hover about"></span>
-            </a>
+            <a href="#about" class="nav-link">About me</a>
         </li>
         <li>
-            <a href="#skills">Skills
-                <span class="image-hover skills"></span>
-            </a>
+            <a href="#skills" class="nav-link">Skills</a>
         </li>
         <li>
-            <a href="#projects">Projects
-                <span class="image-hover projects"></span>
-            </a>
+            <a href="#projects" class="nav-link">Projects</a>
         </li>
         <li>
-            <a href="#contact">Contact
-                <span class="image-hover contact"></span>
-            </a>
+            <a href="#contact" class="nav-link">Contact</a>
         </li>
         <li>
             <div class="language-toggle">
-                <span class="lang" [class.active]="currentLanguage === 'en'">EN</span>
+                <span class="lang nav-lang" [class.active]="currentLanguage === 'en'">EN</span>
                 <label class="switch">
                     <input type="checkbox" [checked]="currentLanguage === 'de'" (change)="toggleLanguage()" />
                     <span class="slider"></span>
                 </label>
-                <span class="lang" [class.active]="currentLanguage === 'de'">DE</span>
+                <span class="lang nav-lang" [class.active]="currentLanguage === 'de'">DE</span>
             </div>
         </li>
         <li class="mobile-social-icons">

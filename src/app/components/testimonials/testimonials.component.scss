@@ -34,7 +34,6 @@
 
       .header-label {
         font-family: var(--font-main);
-        font-size: 24px;
         font-weight: 700;
         color: #666;
         letter-spacing: 2px;
@@ -44,7 +43,6 @@
 
     .testimonials-title {
       font-family: var(--font-main);
-      font-size: 100px;
       font-weight: 700;
       color: #333;
       margin: 0;
@@ -114,7 +112,6 @@
 
     .testimonial-text {
       font-family: var(--font-main);
-      font-size: 24px;
       font-weight: 400;
       text-align: justify;
       line-height: 1.5;
@@ -134,7 +131,6 @@
 
       .author-name {
         font-family: var(--font-main);
-        font-size: 24px;
         font-weight: 700;
         margin: 0 0 5px 0;
         color: #333;
@@ -142,7 +138,6 @@
 
       .author-position {
         font-family: var(--font-main);
-        font-size: 20px;
         font-weight: 400;
         margin: 0;
         color: #555;
@@ -171,7 +166,6 @@
 
       .profile-text {
         font-family: var(--font-main);
-        font-size: 20px;
         font-weight: 600;
       }
     }
@@ -182,12 +176,6 @@
   .testimonials-section {
     padding: 80px 40px;
     height: auto;
-
-    .testimonials-header {
-      .testimonials-title {
-        font-size: 60px;
-      }
-    }
 
     .testimonials-cards {
       flex-direction: column;
@@ -204,7 +192,6 @@
       left: auto !important;
       right: auto !important;
 
-      // 🔥 BEHALTE die Rotation bei!
       &[data-testimonial="1"] {
         transform: rotate(-8deg) !important;
       }
@@ -235,18 +222,6 @@
       .card-content {
         padding: 25px;
       }
-
-      .testimonial-text {
-        font-size: 20px;
-      }
-
-      .author-name {
-        font-size: 20px;
-      }
-
-      .author-position {
-        font-size: 16px;
-      }
     }
   }
 }
@@ -262,10 +237,6 @@
       .header-content .arrow-icon {
         width: 50px;
       }
-
-      .testimonials-title {
-        font-size: 48px;
-      }
     }
 
     .testimonials-cards {
@@ -277,7 +248,6 @@
       max-width: 400px;
       height: 300px;
 
-      // 🔥 Behalte Rotation auch auf Mobile bei (aber kleiner)
       &[data-testimonial="1"] {
         transform: rotate(-4deg) !important;
       }
@@ -307,18 +277,6 @@
       .card-content {
         padding: 20px;
       }
-
-      .testimonial-text {
-        font-size: 14px;
-      }
-
-      .author-name {
-        font-size: 16px;
-      }
-
-      .author-position {
-        font-size: 13px;
-      }
     }
   }
 }
@@ -335,21 +293,12 @@
         .arrow-icon {
           width: 40px;
         }
-
-        .header-label {
-          font-size: 16px;
-        }
-      }
-
-      .testimonials-title {
-        font-size: 36px;
       }
     }
 
     .testimonial-card {
       height: 250px;
 
-      // 🔥 Noch kleinere Rotation für Mobile
       &[data-testimonial="1"] {
         transform: rotate(-2deg) !important;
       }
@@ -367,7 +316,6 @@
       }
 
       .testimonial-text {
-        font-size: 13px;
         margin-bottom: 15px;
       }
 

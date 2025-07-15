@@ -60,7 +60,6 @@
 .frame-text {
     position: absolute;
     font-family: var(--font-handwriting);
-    font-size: 18px;
     color: #333;
     bottom: -32px;
     left: 50%;
@@ -120,7 +119,6 @@
         }
 
         .HelloWorld {
-            font-size: 20px;
             margin: 0;
             border: 2px solid white;
             border-radius: 25px;
@@ -137,7 +135,6 @@
     }
 
     .hero-text.frontend {
-        font-size: 128px;
         margin: 0;
         display: flex;
         color: rgb(74 222 128);
@@ -177,7 +174,6 @@
 
 
     .hero-text.developer {
-        font-size: 128px;
         margin: 0 0 20px 0;
         display: flex;
         color: rgb(236 72 153);
@@ -239,6 +235,7 @@
 }
 
 .swap-char {
+    font-size: inherit;
     display: inline-block;
     width: 0.65em;
     text-align: center;
@@ -255,7 +252,6 @@
     border-radius: 25px;
     box-shadow: 4px 4px 0 white;
     font-weight: bold;
-    font-size: 20px;
     cursor: pointer;
     transition: all 0.2s ease;
 
@@ -412,6 +408,7 @@
     .lower-content {
         gap: 0;
         height: 120px;
+
         .hero-text.developer {
             font-size: 50px;
         }

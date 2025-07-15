@@ -17,37 +17,29 @@
         background-color: transparent;
         border: none;
         transition: transform 0.3s ease;
-        font-weight: 600;
-        
-        // 🔥 NOCH KLEINERE Responsive Werte
-        font-size: clamp(10px, 2.8vw, 28px); // Deutlich kleinere Schrift
-        width: clamp(200px, 60vw, 650px);    // Deutlich kleinere Breite
-        height: clamp(52px, 16vw, 180px);    // Deutlich kleinere Höhe
-        
+        width: clamp(200px, 60vw, 650px);
+        height: clamp(52px, 16vw, 140px);
         color: white;
         position: relative;
         font-family: var(--font-main);
 
         &:first-child {
             z-index: 3;
-            margin-bottom: clamp(-22px, -7vw, -70px); // Angepasste Überlappung
+            margin-bottom: -46px;
         }
 
         &:nth-child(2) {
             z-index: 2;
-            margin-left: clamp(12px, 4vw, 45px);     // Angepasster Offset
-            margin-bottom: clamp(-16px, -5vw, -55px); // Angepasste Überlappung
+            margin-bottom: -48px;
         }
 
         &:last-child {
             z-index: 1;
-            margin-left: clamp(6px, 2vw, 22px);      // Angepasster Offset
         }
 
         .sticker-icon {
-            // 🔥 KLEINERE Icon-Größen
-            width: clamp(10px, 2.8vw, 28px);  // Deutlich kleiner
-            height: clamp(10px, 2.8vw, 28px); // Deutlich kleiner
+            width: clamp(10px, 2.8vw, 28px);
+            height: clamp(10px, 2.8vw, 28px);
             object-fit: contain;
             filter: brightness(0) invert(1);
         }
@@ -56,39 +48,28 @@
             white-space: nowrap;
             color: white;
             text-shadow: none;
-            font-family: var(--font-main);
-            font-weight: 400;
         }
-        
-        // 🔥 HOVER Effekt für bessere Interaktion
+
         &:hover {
             transform: scale(1.05) translateY(-2px);
         }
     }
 }
 
-// 🔥 ZUSÄTZLICHE Breakpoints für feinere Kontrolle
 @media (max-width: 768px) {
     .info-stickers-container {
         .sticker {
-            // Noch kleinere Werte für Tablets
-            font-size: clamp(8px, 3vw, 20px);
             width: clamp(160px, 70vw, 450px);
             height: clamp(42px, 14vw, 120px);
-            
+
             &:first-child {
-                margin-bottom: clamp(-18px, -6vw, -45px);
+                margin-bottom: -32px;
             }
 
             &:nth-child(2) {
-                margin-left: clamp(10px, 3vw, 30px);
-                margin-bottom: clamp(-12px, -4vw, -35px);
+                margin-bottom: -24px;
             }
 
-            &:last-child {
-                margin-left: clamp(5px, 1.5vw, 15px);
-            }
-            
             .sticker-icon {
                 width: clamp(8px, 3vw, 20px);
                 height: clamp(8px, 3vw, 20px);
@@ -100,25 +81,19 @@
 @media (max-width: 480px) {
     .info-stickers-container {
         .sticker {
-            // Mobile Optimierung - noch kleiner
-            font-size: clamp(7px, 3.5vw, 16px);
             width: clamp(130px, 80vw, 320px);
             height: clamp(64px, 12vw, 90px);
             gap: clamp(4px, 1.5vw, 8px);
-            
+
             &:first-child {
-                margin-bottom: clamp(-14px, -4vw, -25px);
+                margin-bottom: -22px;
             }
 
             &:nth-child(2) {
-                margin-left: clamp(6px, 2vw, 18px);
-                margin-bottom: clamp(-10px, -3vw, -20px);
+                margin-bottom: -16px;
             }
 
-            &:last-child {
-                margin-left: clamp(3px, 1vw, 9px);
-            }
-            
+
             .sticker-icon {
                 width: clamp(7px, 3.5vw, 16px);
                 height: clamp(7px, 3.5vw, 16px);

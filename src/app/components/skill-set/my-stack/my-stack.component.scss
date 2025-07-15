@@ -14,7 +14,6 @@
 
     .stack-title {
       font-family: var(--font-main);
-      font-size: 20px;
       font-weight: 400;
       color: white;
       margin: 0 0 20px 0;
@@ -32,13 +31,12 @@
         top: 50%;
         transform: translateY(-50%);
         width: auto;
-        height: 80px;
+        height: 5.2em;
         z-index: 1;
       }
 
       .skill-set-text {
         font-family: var(--font-main);
-        font-size: 64px;
         font-weight: 700;
         color: white;
         margin: 0;
@@ -60,9 +58,6 @@
     max-width: 800px;
 
     .description-text {
-      font-family: var(--font-main);
-      font-size: 24px;
-      font-weight: 400;
       color: black;
       text-align: justify;
       margin: 0;
@@ -108,28 +103,19 @@
       align-items: flex-end;
       text-align: end;
 
-      .stack-title {
-        font-size: 36px;
-      }
-
       .skill-set-wrapper {
-        .skill-set-text {
-          font-size: 48px;
-
-        }
 
         .line-decoration {
-          height: 60px;
+          height: 4.8rem;
         }
       }
     }
 
     .description-section {
       .description-text {
-        font-size: 16px;
         padding: 20px;
-        height: 150px; // Kleinere Höhe für Tablet
-        background-size: 100% 100%; // Behält das Stretching bei
+        height: 150px;
+        background-size: 100% 100%;
       }
     }
   }
@@ -138,13 +124,9 @@
     padding: 0 0 80px 0;
 
     .stack-title-section {
-      .stack-title {
-        font-size: 28px;
-      }
 
       .skill-set-wrapper {
         .skill-set-text {
-          font-size: 36px;
           padding-left: 50px;
         }
 
@@ -157,10 +139,9 @@
 
     .description-section {
       .description-text {
-        font-size: 14px;
         padding: 15px;
-        height: 120px; // Noch kleinere Höhe für Mobile
-        background-size: 100% 100%; // Behält das Stretching bei
+        height: 120px;
+        background-size: 100% 100%;
       }
     }
 

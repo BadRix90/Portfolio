@@ -13,17 +13,17 @@ export class NavbarComponent {
   @Input() currentLanguage: string = 'en';
   @Output() languageChange = new EventEmitter<string>();
   @Output() mobileMenuToggle = new EventEmitter<boolean>();
-  
+
   isMobileMenuOpen = false;
 
   toggleLanguage() {
     const newLanguage = this.currentLanguage === 'en' ? 'de' : 'en';
     this.languageChange.emit(newLanguage);
   }
-  
+
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
-    
+
     // CSS Klasse für Styling hinzufügen/entfernen
     const navbar = document.querySelector('.navbar');
     if (this.isMobileMenuOpen) {
@@ -31,8 +31,12 @@ export class NavbarComponent {
     } else {
       navbar?.classList.remove('mobile-menu-open');
     }
-    
+
     // Event an Hero Component senden
     this.mobileMenuToggle.emit(this.isMobileMenuOpen);
+  }
+
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
   }
 }

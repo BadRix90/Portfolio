@@ -1,0 +1,287 @@
+// src/app/components/project-detail/project-detail.component.scss
+.project-detail-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #1D1D1D;
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+.background-image-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/img/note_book_paper.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -1;
+}
+
+.project-detail-content {
+  padding: 40px 50px;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+// ===== GO BACK BUTTON =====
+.go-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: transparent;
+  color: #333;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-weight: 600;
+  margin-bottom: 40px;
+
+  .back-arrow-img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+// ===== PROJECT INFO SECTION =====
+.project-info-section {
+  display: flex;
+  gap: 300px;
+  align-items: flex-start;
+}
+
+// ===== LEFT SIDE: DESCRIPTION =====
+.project-description-card {
+  flex: 1;
+  background: transparent;
+  padding: 0;
+  max-width: 600px;
+
+  .project-main-title {
+    font-family: var(--font-main);
+    font-size: 48px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 40px 0;
+    text-decoration: underline;
+    text-decoration-color: #4285f4;
+    text-underline-offset: 8px;
+  }
+
+  .description-section,
+  .implementation-section {
+    margin-bottom: 30px;
+
+    h2 {
+      font-family: var(--font-main);
+      font-size: 24px;
+      font-weight: 700;
+      color: #333;
+      margin: 0 0 15px 0;
+    }
+
+    p {
+      font-family: var(--font-main);
+      font-size: 16px;
+      font-weight: 400;
+      color: #333;
+      line-height: 1.6;
+      margin: 0;
+      text-align: justify;
+    }
+  }
+
+  .duration-section {
+    font-family: var(--font-main);
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+  }
+
+  .technologies-section {
+    .tech-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .tech-badge {
+        padding: 8px 16px;
+        background-color: transparent;
+        color: #333;
+        border: 2px solid #333;
+        border-radius: 20px;
+        font-family: var(--font-main);
+        font-size: 14px;
+        font-weight: 600;
+
+        &.tech-css {
+          border-color: #1572b6;
+          color: #1572b6;
+        }
+
+        &.tech-html {
+          border-color: #e34f26;
+          color: #e34f26;
+        }
+
+        &.tech-firebase {
+          border-color: #ffca28;
+          color: #ffca28;
+        }
+
+        &.tech-angular {
+          border-color: #dd0031;
+          color: #dd0031;
+        }
+
+        &.tech-typescript {
+          border-color: #3178c6;
+          color: #3178c6;
+        }
+
+        &.tech-javascript {
+          border-color: #f7df1e;
+          color: #f7df1e;
+          background-color: #333;
+        }
+      }
+    }
+  }
+}
+
+// ===== RIGHT SIDE: IMAGE & BUTTONS =====
+.project-image-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 30px;
+  max-width: 600px;
+}
+
+.project-preview {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  .project-main-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .featured-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.primary-btn {
+  padding: 12px 24px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 25px;
+  box-shadow: 4px 4px 0 white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgb(74 222 128);
+    color: black;
+    box-shadow: none;
+    transform: translate(2px, 2px);
+  }
+
+  &.github-btn {
+    &:hover {
+      background-color: rgb(74 222 128);
+      color: black;
+      box-shadow: none;
+      transform: translate(2px, 2px);
+    }
+  }
+
+  &.live-btn {
+    &:hover {
+      background-color: rgb(74 222 128);
+      color: black;
+      box-shadow: none;
+      transform: translate(2px, 2px);
+    }
+  }
+
+  &:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 currentColor;
+  }
+}
+
+.next-project-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: transparent;
+  color: #F8F9FA;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-weight: 600;
+
+  .forward-arrow-img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .background-image-wrapper {
+    transform: rotate(90deg);
+  }
+
+  .project-info-section {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .project-description-card {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-detail-content {
+    padding: 20px;
+  }
+
+  .project-description-card .project-main-title {
+    font-size: 36px;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+
+    .action-btn {
+      text-align: center;
+    }
+  }
+}

@@ -75,6 +75,33 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    cursor: pointer;
+
+    &::after {
+        content: 'View Project';
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 24px;
+        background-color: transparent;
+        color: #333;
+        border: 2px solid #333;
+        border-radius: 25px;
+        box-shadow: 4px 4px 0 #333;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: var(--font-main);
+        margin-left: auto;
+        display: block;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 10;
+    }
+
+    &:hover::after {
+        opacity: 1;
+        pointer-events: all;
+    }
 }
 
 .laptop-image {

@@ -1,44 +1,56 @@
-<div class="projects-container">
-    <!-- Title Section -->
-    <div class="title-section">
-        <span class="craft-label">{{ getText('craftLabel') }}</span>
-        <h2 class="projects-title">{{ getText('projectsTitle') }}
-            <img src="assets/img/projects-title-line.png" alt="underline" class="title-underline">
-        </h2>
-        <p class="title-description">{{ getText('titleDescription') }}</p>
-    </div>
+<!-- src/app/components/projects/projects.component.html -->
+<div *ngIf="!showProjectDetail">
+  <div class="projects-container">
+      <!-- Title Section -->
+      <div class="title-section">
+          <span class="craft-label">{{ getText('craftLabel') }}</span>
+          <h2 class="projects-title">{{ getText('projectsTitle') }}
+              <img src="assets/img/projects-title-line.png" alt="underline" class="title-underline">
+          </h2>
+          <p class="title-description">{{ getText('titleDescription') }}</p>
+      </div>
 
-    <!-- Join Project -->
-    <div class="project-card join-project">
-        <div class="project-image">
-            <img src="assets/img/Laptop.png" alt="Join Task Manager" class="laptop-image">
-            <img src="assets/img/Sticker.png" alt="Featured Project" class="featured-sticker">
-        </div>
-        <div class="project-info">
-            <h3 class="project-title">{{ getText('joinTitle') }}</h3>
-            <p class="project-description">{{ getText('joinDescription') }}</p>
-        </div>
-    </div>
+      <!-- Join Project -->
+      <div class="project-card join-project">
+          <div class="project-image" (click)="openProjectDetail('join')">
+              <img src="assets/img/Laptop.png" alt="Join Task Manager" class="laptop-image">
+              <img src="assets/img/Sticker.png" alt="Featured Project" class="featured-sticker">
+          </div>
+          <div class="project-info">
+              <h3 class="project-title">{{ getText('joinTitle') }}</h3>
+              <p class="project-description">{{ getText('joinDescription') }}</p>
+          </div>
+      </div>
 
-    <!-- El Pollo Loco Project -->
-    <div class="project-card el-pollo-loco-project">
-        <div class="project-image">
-            <img src="assets/img/PowerOfTheBeast.png" alt="Power of the Beast" class="epl-image">
-        </div>
-        <div class="project-info">
-            <h3 class="project-title">{{ getText('powerTitle') }}</h3>
-            <p class="project-description">{{ getText('powerDescription') }}</p>
-        </div>
-    </div>
+      <!-- El Pollo Loco Project -->
+      <div class="project-card el-pollo-loco-project">
+          <div class="project-image" (click)="openProjectDetail('powerofthebeast')">
+              <img src="assets/img/PowerOfTheBeast.png" alt="Power of the Beast" class="epl-image">
+          </div>
+          <div class="project-info">
+              <h3 class="project-title">{{ getText('powerTitle') }}</h3>
+              <p class="project-description">{{ getText('powerDescription') }}</p>
+          </div>
+      </div>
 
-    <!-- DABubble Project -->
-    <div class="project-card dabubble-project">
-        <div class="project-image">
-            <img src="assets/img/DABubble.png" alt="DABubble" class="dab-image">
-        </div>
-        <div class="project-info">
-           <h3 class="project-title">{{ getText('dabubbleTitle') }}</h3>
-            <p class="project-description">{{ getText('dabubbleDescription') }}</p>
-        </div>
-    </div>
+      <!-- DABubble Project -->
+      <div class="project-card dabubble-project">
+          <div class="project-image" (click)="openProjectDetail('dabubble')">
+              <img src="assets/img/DABubble.png" alt="DABubble" class="dab-image">
+          </div>
+          <div class="project-info">
+             <h3 class="project-title">{{ getText('dabubbleTitle') }}</h3>
+              <p class="project-description">{{ getText('dabubbleDescription') }}</p>
+          </div>
+      </div>
+  </div>
 </div>
+
+<!-- Project Detail View -->
+<app-project-detail 
+  *ngIf="showProjectDetail"
+  [projectId]="selectedProjectId"
+  [currentLanguage]="currentLanguage"
+  (goBack)="closeProjectDetail()"
+  (languageChange)="onLanguageChange($event)">
+</app-project-detail>

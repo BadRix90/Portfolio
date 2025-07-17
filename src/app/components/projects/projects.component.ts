@@ -1,15 +1,21 @@
 // src/app/components/projects/projects.component.ts
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProjectDetailComponent } from '../projects/project-detail/project-detail.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, ProjectDetailComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
   @Input() currentLanguage = 'en';
+  
+  // View State Management
+  showProjectDetail = false;
+  selectedProjectId = '';
 
   texts = {
     craftLabel: {
@@ -52,5 +58,21 @@ export class ProjectsComponent {
 
   getText(key: string): string {
     return this.texts[key as keyof typeof this.texts][this.currentLanguage as 'de' | 'en'];
+  }
+
+  // Navigation Methods
+  openProjectDetail(projectId: string) {
+    this.selectedProjectId = projectId;
+    this.showProjectDetail = true;
+  }
+
+  closeProjectDetail() {
+    this.showProjectDetail = false;
+    this.selectedProjectId = '';
+  }
+
+  onLanguageChange(language: string) {
+    // Propagate language change to parent if needed
+    // You might need to add @Output() for this
   }
 }

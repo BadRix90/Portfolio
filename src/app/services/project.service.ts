@@ -14,7 +14,7 @@ export class ProjectService {
       description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
       implementationDetails: 'Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.',
       duration: '5 weeks',
-      image: 'assets/img/Laptop.png',
+      image: 'assets/img/join.png',
       technologies: ['CSS', 'HTML', 'Firebase', 'Angular', 'TypeScript'],
       githubUrl: 'https://github.com/your-username/join',
       liveUrl: 'https://your-join-app.com'

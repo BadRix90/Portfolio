@@ -1,83 +1,84 @@
 <!-- src/app/components/project-detail/project-detail.component.html -->
 <div class="project-detail-wrapper">
-  <!-- Background Wrapper - nur für das Image -->
-  <div class="background-image-wrapper"></div>
-  
-  <!-- Navbar -->
-  <app-navbar 
-    [currentLanguage]="currentLanguage" 
-    (languageChange)="onLanguageChange($event)">
-  </app-navbar>
+  <div class="background-image-wrapper">
+    <img src="/assets/img/note_book_paper.png" alt="">
+    <div class="project-content">
 
-  <!-- Project Detail Content -->
-  <div class="project-detail-content" *ngIf="project">
-    
-    <!-- Go Back Button -->
-    <button class="go-back-btn" (click)="onGoBack()">
-      <img src="assets/img/arrow_back.png" alt="Back" class="back-arrow-img">
-      Go Back
-    </button>
+      <!-- Navbar -->
+      <app-navbar [currentLanguage]="currentLanguage" (languageChange)="onLanguageChange($event)">
+      </app-navbar>
 
-    <!-- Project Info Section -->
-    <div class="project-info-section">
-      
-      <!-- Left Side: Project Description -->
-      <div class="project-description-card">
-        <h1 class="project-main-title">{{ project.title }}</h1>
-        
-        <div class="description-section">
-          <h2>Description</h2>
-          <p>{{ project.description }}</p>
-        </div>
+      <!-- Project Detail Content -->
+      <div class="project-detail-content" *ngIf="project">
 
-        <div class="implementation-section">
-          <h2>Implementation Details</h2>
-          <p>{{ project.implementationDetails }}</p>
-        </div>
-
-        <div class="duration-section">
-          <strong>Duration:</strong> {{ project.duration }}
-        </div>
-
-        <!-- Technologies -->
-        <div class="technologies-section">
-          <div class="tech-icons">
-            <span 
-              *ngFor="let tech of project.technologies" 
-              class="tech-badge"
-              [ngClass]="'tech-' + tech.toLowerCase()">
-              {{ tech }}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Side: Project Image -->
-      <div class="project-image-section">
-        <div class="project-preview">
-          <img [src]="project.image" [alt]="project.title" class="project-main-image">
-          <div class="featured-badge">
-            Featured Project
-          </div>
-        </div>
-
-        <!-- Action Buttons -->
-        <div class="action-buttons">
-          <button class="action-btn github-btn" (click)="openGithub()">
-            GitHub
-          </button>
-          <button class="action-btn live-btn" (click)="openLiveTest()">
-            Live Test
-          </button>
-        </div>
-
-        <!-- Next Project Button -->
-        <button class="next-project-btn" (click)="onNextProject()" *ngIf="nextProject">
-          Next Project 
-          <img src="assets/img/arrow_forward.png" alt="Forward" class="forward-arrow-img">
+        <!-- Go Back Button -->
+        <button class="go-back-btn" (click)="onGoBack()">
+          <img src="assets/img/arrow_back.png" alt="Back" class="back-arrow-img">
+          Go Back
         </button>
-      </div>
 
+        <!-- Project Info Section -->
+        <div class="project-info-section">
+
+          <!-- Left Side: Project Description -->
+          <div class="project-description-card">
+            <h1 class="project-main-title">{{ project.title }}</h1>
+
+            <div class="description-section">
+              <h2>Description</h2>
+              <p>{{ project.description }}</p>
+            </div>
+
+            <div class="implementation-section">
+              <h2>Implementation Details</h2>
+              <p>{{ project.implementationDetails }}</p>
+            </div>
+
+            <div class="duration-section">
+              <strong>Duration:</strong> {{ project.duration }}
+            </div>
+            <div class="technologies-section">
+              <div class="tech-icons">
+                <span *ngFor="let tech of project.technologies" class="tech-badge"
+                  [ngClass]="'tech-' + tech.toLowerCase()">
+                  {{ tech }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side: Project Image -->
+          <div class="project-image-section">
+            <div class="project-preview">
+              <img [src]="project.image" [alt]="project.title" class="project-main-image">
+              <div class="featured-badge">
+                <img *ngIf="project.id === 'join'" src="assets/img/Sticker.png" alt="Featured Project"
+                  class="featured-sticker">
+
+                <img *ngIf="project.id !== 'join'" src="assets/img/placeholder.png" alt="Project Badge"
+                  class="featured-sticker">
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+              <button class="primary-btn github-btn" (click)="openGithub()">
+                GitHub
+              </button>
+              <button class="primary-btn live-btn" (click)="openLiveTest()">
+                Live Test
+              </button>
+            </div>
+
+            <!-- Next Project Button -->
+            <button class="next-project-btn" (click)="onNextProject()" *ngIf="nextProject">
+              Next Project
+              <img src="assets/img/arrow_forward.png" alt="Forward" class="forward-arrow-img">
+            </button>
+          </div>
+
+        </div>
+      </div>
     </div>
   </div>
 </div>

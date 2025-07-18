@@ -38,10 +38,10 @@
             </div>
             <div class="technologies-section">
               <div class="tech-icons">
-                <span *ngFor="let tech of project.technologies" class="tech-badge"
-                  [ngClass]="'tech-' + tech.toLowerCase()">
-                  {{ tech }}
-                </span>
+                <div *ngFor="let tech of project.technologies" class="tech-badge">
+                  <img [src]="getTechIcon(tech)" [alt]="getTechAlt(tech)" class="tech-icon">
+                  <span class="tech-name">{{ tech }}</span>
+                </div>
               </div>
             </div>
           </div>

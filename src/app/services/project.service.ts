@@ -6,7 +6,20 @@ import { Project } from '../interfaces/project.interface';
   providedIn: 'root'
 })
 export class ProjectService {
-  
+
+  private techStack = [
+    { name: 'HTML', icon: 'html.png', alt: 'HTML5 Technology' },
+    { name: 'CSS', icon: 'css.png', alt: 'CSS3 Styling' },
+    { name: 'JavaScript', icon: 'js.png', alt: 'JavaScript Programming' },
+    { name: 'TypeScript', icon: 'ts.png', alt: 'TypeScript Development' },
+    { name: 'Angular', icon: 'angular.png', alt: 'Angular Framework' },
+    { name: 'Firebase', icon: 'firebase.png', alt: 'Firebase Backend' },
+    { name: 'Git', icon: 'git.png', alt: 'Git Version Control' },
+    { name: 'Rest-Api', icon: 'rest-api.png', alt: 'REST API Development' },
+    { name: 'Scrum', icon: 'scrum.png', alt: 'Scrum Methodology' },
+    { name: 'Material Design', icon: 'material-design.png', alt: 'Material Design System' }
+  ];
+
   private projects: { [key: string]: Project } = {
     join: {
       id: 'join',
@@ -64,4 +77,19 @@ export class ProjectService {
     const prevIndex = currentIndex === 0 ? projectIds.length - 1 : currentIndex - 1;
     return this.projects[projectIds[prevIndex]];
   }
+
+  getTechIcon(techName: string): string {
+    const tech = this.techStack.find(t => t.name.toLowerCase() === techName.toLowerCase());
+    return tech ? `assets/img/${tech.icon}` : 'assets/img/default.png';
+  }
+
+  // ← NEU: Methode für Tech-Alt Text
+  getTechAlt(techName: string): string {
+    const tech = this.techStack.find(t => t.name.toLowerCase() === techName.toLowerCase());
+    return tech ? tech.alt : techName;
+  }
+
+  getTechStack() {
+  return this.techStack;
+}
 }

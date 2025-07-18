@@ -28,7 +28,6 @@
   margin: 0 auto;
 }
 
-// ===== GO BACK BUTTON =====
 .go-back-btn {
   display: flex;
   align-items: center;
@@ -110,44 +109,20 @@
       gap: 10px;
 
       .tech-badge {
-        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
         background-color: transparent;
-        color: #333;
-        border: 2px solid #333;
-        border-radius: 20px;
         font-family: var(--font-main);
         font-size: 14px;
         font-weight: 600;
+        color: #333;
 
-        &.tech-css {
-          border-color: #1572b6;
-          color: #1572b6;
-        }
-
-        &.tech-html {
-          border-color: #e34f26;
-          color: #e34f26;
-        }
-
-        &.tech-firebase {
-          border-color: #ffca28;
-          color: #ffca28;
-        }
-
-        &.tech-angular {
-          border-color: #dd0031;
-          color: #dd0031;
-        }
-
-        &.tech-typescript {
-          border-color: #3178c6;
-          color: #3178c6;
-        }
-
-        &.tech-javascript {
-          border-color: #f7df1e;
-          color: #f7df1e;
-          background-color: #333;
+        .tech-icon {
+          width: 20px;
+          height: 20px;
+          object-fit: contain;
         }
       }
     }

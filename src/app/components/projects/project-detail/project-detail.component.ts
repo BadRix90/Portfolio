@@ -21,7 +21,7 @@ export class ProjectDetailComponent {
   project: Project | null = null;
   nextProject: Project | null = null;
 
-  constructor(private projectService: ProjectService) {}
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit() {
     this.loadProject();
@@ -63,5 +63,13 @@ export class ProjectDetailComponent {
     if (this.project?.liveUrl) {
       window.open(this.project.liveUrl, '_blank');
     }
+  }
+
+  getTechIcon(techName: string): string {
+    return this.projectService.getTechIcon(techName);
+  }
+
+  getTechAlt(techName: string): string {
+    return this.projectService.getTechAlt(techName);
   }
 }

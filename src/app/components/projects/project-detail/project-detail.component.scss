@@ -26,6 +26,8 @@
   padding: 40px 50px;
   max-width: 1920px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .go-back-btn {
@@ -47,14 +49,12 @@
   }
 }
 
-// ===== PROJECT INFO SECTION =====
 .project-info-section {
   display: flex;
   gap: 300px;
   align-items: flex-start;
 }
 
-// ===== LEFT SIDE: DESCRIPTION =====
 .project-description-card {
   flex: 1;
   background: transparent;
@@ -129,7 +129,6 @@
   }
 }
 
-// ===== RIGHT SIDE: IMAGE & BUTTONS =====
 .project-image-section {
   flex: 1;
   display: flex;
@@ -182,29 +181,6 @@
     box-shadow: none;
     transform: translate(2px, 2px);
   }
-
-  &.github-btn {
-    &:hover {
-      background-color: rgb(74 222 128);
-      color: black;
-      box-shadow: none;
-      transform: translate(2px, 2px);
-    }
-  }
-
-  &.live-btn {
-    &:hover {
-      background-color: rgb(74 222 128);
-      color: black;
-      box-shadow: none;
-      transform: translate(2px, 2px);
-    }
-  }
-
-  &:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 currentColor;
-  }
 }
 
 .next-project-btn {
@@ -225,35 +201,102 @@
   }
 }
 
+.mobile-navigation {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .project-detail-wrapper {
+    position: absolute;
+    height: auto;
+    min-height: 100vh;
+  }
+
   .background-image-wrapper {
-    background-image: url('/assets/img/note_book_paper_mobile.png'); // ← NEU: Mobiles Image
+    position: absolute;
+    height: 100%;
+    min-height: 100vh;
+    background-image: url('/assets/img/note_book_paper_mobile.png');
+    background-attachment: scroll;
+  }
+
+  .project-detail-content {
+    padding: 20px;
+    min-height: 100vh;
+    padding-bottom: 100px;
+  }
+
+  .go-back-btn {
+    display: none;
   }
 
   .project-info-section {
     flex-direction: column;
     gap: 40px;
-    align-items: center; // ← NEU: Zentriert alle Kinder
+    align-items: center;
   }
 
   .project-description-card {
     max-width: 100%;
+
+    .project-main-title {
+      font-size: 36px;
+    }
   }
 
   .project-image-section {
-    align-items: center; // ← NEU: Zentriert den Inhalt der Section
-  }
+    align-items: center;
 
-  .project-detail-content {
-    padding: 20px;
-  }
-
-  .project-description-card .project-main-title {
-    font-size: 36px;
+    .next-project-btn {
+      display: none;
+    }
   }
 
   .action-buttons {
-    flex-direction: column;
     width: 100%;
+    justify-content: flex-end;
+  }
+
+  .mobile-navigation {
+    display: flex;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    justify-content: space-between;
+    z-index: 1000;
+
+
+    .mobile-go-back {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      color: #F8F9FA;
+      cursor: pointer;
+      font-family: var(--font-main);
+      font-weight: 600;
+
+      .back-arrow-img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    .mobile-next-project {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-family: var(--font-main);
+      font-weight: 600;
+      color: #F8F9FA;
+
+      .forward-arrow-img {
+        width: 18px;
+        height: 18px;
+      }
+    }
   }
 }

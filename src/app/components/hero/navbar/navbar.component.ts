@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +14,8 @@ export class NavbarComponent {
   @Output() mobileMenuToggle = new EventEmitter<boolean>();
 
   isMobileMenuOpen = false;
+
+  constructor(private elRef: ElementRef<HTMLElement>) { }
 
   toggleLanguage() {
     const newLanguage = this.currentLanguage === 'en' ? 'de' : 'en';
@@ -33,7 +35,7 @@ export class NavbarComponent {
   }
 
   private updateNavbarClass() {
-    const navbar = document.querySelector('.navbar');
+    const navbar = this.elRef.nativeElement.querySelector('.navbar');
     if (this.isMobileMenuOpen) {
       navbar?.classList.add('mobile-menu-open');
     } else {

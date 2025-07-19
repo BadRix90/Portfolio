@@ -17,7 +17,7 @@ export class HeroComponent {
   @Input() currentLanguage = 'en';
   @Output() languageChange = new EventEmitter<string>();
   
-  isMobileMenuOpen = false; // ← NEU HINZUGEFÜGT!
+  isMobileMenuOpen = false;
 
   onLanguageChange(language: string) {
     console.log('Hero received language change:', language);
@@ -25,16 +25,18 @@ export class HeroComponent {
     console.log('Hero emitted language change');
   }
   
-  // ← NEU: Mobile Menu State empfangen
   onMobileMenuToggle(isOpen: boolean) {
     this.isMobileMenuOpen = isOpen;
     
-    // CSS Klasse für Hero Content Hiding
     const heroSection = document.querySelector('.hero');
+    const body = document.body;
+    
     if (isOpen) {
       heroSection?.classList.add('menu-open');
+      body.style.overflow = 'hidden';
     } else {
       heroSection?.classList.remove('menu-open');
+      body.style.overflow = 'auto';
     }
   }
 }

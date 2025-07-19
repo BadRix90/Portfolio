@@ -4,7 +4,10 @@
     <div class="project-content">
 
       <!-- Navbar -->
-      <app-navbar [currentLanguage]="currentLanguage" (languageChange)="onLanguageChange($event)">
+      <app-navbar 
+        [currentLanguage]="currentLanguage" 
+        (languageChange)="onLanguageChange($event)"
+        (mobileMenuToggle)="onMobileMenuToggle($event)">
       </app-navbar>
 
       <!-- Project Detail Content -->

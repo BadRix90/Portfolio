@@ -20,6 +20,7 @@ export class ProjectDetailComponent {
 
   project: Project | null = null;
   nextProject: Project | null = null;
+  isMobileMenuOpen = false;
 
   constructor(private projectService: ProjectService) { }
 
@@ -51,6 +52,10 @@ export class ProjectDetailComponent {
 
   onLanguageChange(language: string) {
     this.languageChange.emit(language);
+  }
+
+  onMobileMenuToggle(isOpen: boolean) {
+    this.isMobileMenuOpen = isOpen;
   }
 
   openGithub() {

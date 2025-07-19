@@ -1,5 +1,4 @@
-
-import { Component, Input, Output, EventEmitter } from '@angular/core'; // HostListener entfernt!
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -23,20 +22,22 @@ export class NavbarComponent {
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    this.updateNavbarClass();
+    this.mobileMenuToggle.emit(this.isMobileMenuOpen);
+  }
 
-    // CSS Klasse für Styling hinzufügen/entfernen
+  closeMobileMenu() {
+    this.isMobileMenuOpen = false;
+    this.updateNavbarClass();
+    this.mobileMenuToggle.emit(this.isMobileMenuOpen);
+  }
+
+  private updateNavbarClass() {
     const navbar = document.querySelector('.navbar');
     if (this.isMobileMenuOpen) {
       navbar?.classList.add('mobile-menu-open');
     } else {
       navbar?.classList.remove('mobile-menu-open');
     }
-
-    // Event an Hero Component senden
-    this.mobileMenuToggle.emit(this.isMobileMenuOpen);
-  }
-
-  closeMobileMenu() {
-    this.isMobileMenuOpen = false;
   }
 }

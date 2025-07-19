@@ -56,6 +56,17 @@ export class ProjectDetailComponent {
 
   onMobileMenuToggle(isOpen: boolean) {
     this.isMobileMenuOpen = isOpen;
+    
+    const projectWrapper = document.querySelector('.project-detail-wrapper');
+    const body = document.body;
+    
+    if (isOpen) {
+      projectWrapper?.classList.add('menu-open');
+      body.style.overflow = 'hidden';
+    } else {
+      projectWrapper?.classList.remove('menu-open');
+      body.style.overflow = 'auto';
+    }
   }
 
   openGithub() {

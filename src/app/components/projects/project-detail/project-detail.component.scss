@@ -7,6 +7,17 @@
   background-color: #1D1D1D;
   z-index: 9999;
   overflow-y: auto;
+
+  app-navbar {
+    position: relative;
+    z-index: 10000;
+  }
+
+  &.menu-open .project-detail-content {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
 .background-image-wrapper {
@@ -28,7 +39,7 @@
   margin: 0 auto;
   position: relative;
   z-index: 1;
-  
+  transition: all 0.3s ease;
 }
 
 .go-back-btn {
@@ -211,6 +222,10 @@
     position: absolute;
     height: auto;
     min-height: 100vh;
+
+    app-navbar {
+      z-index: 10001;
+    }
   }
 
   .background-image-wrapper {
@@ -264,8 +279,7 @@
     left: 20px;
     right: 20px;
     justify-content: space-between;
-    z-index: 1000;
-
+    z-index: 10000;
 
     .mobile-go-back {
       display: flex;

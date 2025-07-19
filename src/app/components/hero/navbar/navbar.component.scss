@@ -161,25 +161,28 @@
         padding: 15px 20px;
 
         .nav-links {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%) translateY(-20px);
-            background: transparent;
-            border: none;
+            position: fixed;
+            top: 0;
+            left: -100vw;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('/assets/img/01_Hero.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            width: max-content;
-            gap: 20px;
-            padding: 10px 0;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
+            gap: 30px;
+            padding: 0;
+            z-index: 9998;
+            transition: left 0.3s ease;
+            opacity: 1;
+            visibility: visible;
 
             li {
-                width: 100%;
+                width: auto;
 
                 a {
                     display: block;
@@ -187,10 +190,13 @@
                     color: white;
                     background: transparent;
                     border: none;
+                    font-size: 24px;
+                    padding: 15px 30px;
                     transition: all 0.3s ease;
 
                     &:hover {
-                        background: none;
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 10px;
                     }
 
                     .image-hover {
@@ -201,8 +207,8 @@
 
             .mobile-social-icons {
                 display: block;
-                width: 100%;
-                margin-top: 20px;
+                width: auto;
+                margin-top: 40px;
 
                 .social-icons-container {
                     display: flex;
@@ -215,11 +221,12 @@
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        width: 35px;
-                        height: 35px;
+                        width: 50px;
+                        height: 50px;
 
                         &:hover {
                             transform: scale(1.1);
+                            background: rgba(255, 255, 255, 0.1);
                         }
 
                         img {
@@ -238,6 +245,7 @@
             padding: 0;
             cursor: pointer;
             transition: all 0.3s ease;
+            z-index: 9999;
 
             .menu-icon {
                 width: 32px;
@@ -260,15 +268,7 @@
             }
 
             .nav-links {
-                display: flex;
-                opacity: 1;
-                visibility: visible;
-                transform: translateX(-50%) translateY(0);
-            }
-
-            .language-toggle {
-                opacity: 1;
-                visibility: visible;
+                left: 0;
             }
         }
     }

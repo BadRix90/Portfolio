@@ -28,14 +28,11 @@ export class HeroComponent {
   onMobileMenuToggle(isOpen: boolean) {
     this.isMobileMenuOpen = isOpen;
     
-    const heroSection = document.querySelector('.hero');
     const body = document.body;
     
     if (isOpen) {
-      heroSection?.classList.add('menu-open');
       body.style.overflow = 'hidden';
     } else {
-      heroSection?.classList.remove('menu-open');
       body.style.overflow = 'auto';
     }
   }

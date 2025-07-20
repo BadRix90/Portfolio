@@ -21,6 +21,18 @@
   font-family: var(--font-main);
 }
 
+@mixin hide-scrollbars {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  -ms-overflow-style: none;
+}
+
 html,
 body {
   margin: 0;
@@ -29,6 +41,7 @@ body {
   height: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  @include hide-scrollbars;
 }
 
 button {
@@ -42,6 +55,10 @@ button {
   font-size: 20px;
   font-weight: 700;
   font-family: var(--font-main);
+}
+
+* {
+  @include hide-scrollbars;
 }
 
 @mixin desktop-typography {

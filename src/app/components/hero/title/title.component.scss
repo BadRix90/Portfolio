@@ -137,28 +137,16 @@
     .hero-text.frontend {
         margin: 0;
         display: flex;
-        color: rgb(74 222 128);
+        color: rgb(74 222 128); // Grün bleibt
         position: relative;
         width: 800px;
         left: 0;
         justify-content: flex-start;
-
-        text-shadow:
-            0 0 3px rgb(74 222 128),
-            0 0 6px rgb(74 222 128),
-            0 0 9px rgb(74 222 128),
-            0 0 12px rgb(74 222 128),
-            0 0 15px rgb(74 222 128);
-
-        animation: neonFlicker 2s ease-in-out infinite alternate;
+        // ENTFERNT: text-shadow und animation
 
         .swap-char:hover {
-            color: rgb(236 72 153); // Wird PINK beim Hover
-            text-shadow:
-                0 0 3px rgb(236 72 153),
-                0 0 6px rgb(236 72 153),
-                0 0 9px rgb(236 72 153),
-                0 0 12px rgb(236 72 153);
+            color: rgb(236 72 153); // Pink beim Hover bleibt
+            // ENTFERNT: text-shadow
             transform: scale(1.1);
         }
     }
@@ -176,31 +164,18 @@
     .hero-text.developer {
         margin: 0 0 20px 0;
         display: flex;
-        color: rgb(236 72 153);
+        color: rgb(236 72 153); // Pink bleibt
         position: absolute;
         left: 29%;
         top: 0;
         width: 750px;
         justify-content: flex-start;
         white-space: nowrap;
-
-        text-shadow:
-            0 0 3px rgb(236 72 153),
-            0 0 6px rgb(236 72 153),
-            0 0 9px rgb(236 72 153),
-            0 0 12px rgb(236 72 153),
-            0 0 15px rgb(236 72 153);
-
-        animation: neonFlicker 2s ease-in-out infinite alternate;
-        animation-delay: 1s;
+        // ENTFERNT: text-shadow, animation und animation-delay
 
         .swap-char:hover {
-            color: rgb(74 222 128); // Wird GRÜN beim Hover
-            text-shadow:
-                0 0 3px rgb(74 222 128),
-                0 0 6px rgb(74 222 128),
-                0 0 9px rgb(74 222 128),
-                0 0 12px rgb(74 222 128);
+            color: rgb(74 222 128); // Grün beim Hover bleibt
+            // ENTFERNT: text-shadow
             transform: scale(1.1);
         }
     }
@@ -241,7 +216,7 @@
     text-align: center;
     transition: all 0.15s ease;
     cursor: default;
-
+    font-weight: 700 !important;
 }
 
 .primary-btn {

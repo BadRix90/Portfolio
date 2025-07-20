@@ -243,11 +243,13 @@
     .project-card {
         height: auto;
         min-height: auto;
+        max-width: 100%;  // Hinzugefügt
     }
 
     .project-image {
         height: 220px;
-        width: 480px;
+        width: 100%; 
+        max-width: 480px;
         align-self: center;
     }
 }
@@ -264,7 +266,8 @@
 
     .project-image {
         height: 220px;
-        width: 320px;
+        width: 100%;
+        max-width: 320px; 
     }
 
     .featured-sticker {

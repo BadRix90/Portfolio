@@ -1,4 +1,10 @@
-<nav class="navbar">
+<nav class="navbar" 
+     [ngClass]="{
+       'horizontal': slideDirection === 'horizontal',
+       'vertical': slideDirection === 'vertical',
+       'mobile-menu-open': isMobileMenuOpen
+     }">
+    
     <img src="assets/img/logo_kay.png" alt="Logo" class="logo-img" />
 
     <ul class="nav-links">

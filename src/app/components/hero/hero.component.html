@@ -1,9 +1,7 @@
 <!-- hero.component.html -->
 <section class="hero">
-  <app-navbar 
-    [currentLanguage]="currentLanguage" 
-    (languageChange)="onLanguageChange($event)"
-    (mobileMenuToggle)="onMobileMenuToggle($event)">
+  <app-navbar [currentLanguage]="currentLanguage" [slideDirection]="'vertical'"
+    (languageChange)="onLanguageChange($event)" (mobileMenuToggle)="onMobileMenuToggle($event)">
   </app-navbar>
 
   <div class="hero-content">

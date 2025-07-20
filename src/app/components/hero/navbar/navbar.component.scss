@@ -138,7 +138,7 @@
         .nav-links {
             position: fixed;
             width: 100vw;
-            height: 100vh;
+            height: 72vh;
             background-image: url('/assets/img/01_Hero.png');
             background-size: cover;
             background-repeat: no-repeat;
@@ -157,13 +157,13 @@
         &.horizontal .nav-links {
             top: 0;
             left: -100vw;
-            transition: left 0.5s ease;
+            transition: left 0.3s ease; /* ← HIER: Horizontal slide speed */
         }
 
         &.vertical .nav-links {
             top: -100vh;
             left: 0;
-            transition: top 0.5s ease;
+            transition: top 0.3s ease; /* ← HIER: Vertical slide speed */
         }
 
         li {
@@ -206,6 +206,7 @@
                     justify-content: center;
                     width: 50px;
                     height: 50px;
+                    padding: 0;
 
                     &:hover {
                         transform: scale(1.1);

@@ -5,7 +5,8 @@
 
       <!-- Navbar -->
       <app-navbar 
-        [currentLanguage]="currentLanguage" 
+        [currentLanguage]="currentLanguage"
+        [slideDirection]="'horizontal'"
         (languageChange)="onLanguageChange($event)"
         (mobileMenuToggle)="onMobileMenuToggle($event)">
       </app-navbar>

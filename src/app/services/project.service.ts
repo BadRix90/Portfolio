@@ -17,7 +17,7 @@ export class ProjectService {
     { name: 'Git', icon: 'git.png', alt: 'Git Version Control' },
     { name: 'Rest-Api', icon: 'rest-api.png', alt: 'REST API Development' },
     { name: 'Scrum', icon: 'scrum.png', alt: 'Scrum Methodology' },
-    { name: 'Material Design', icon: 'material-design.png', alt: 'Material Design System' }
+    { name: 'Material Design', icon: 'material-design.png', alt: 'Material Design System' },
   ];
 
   private projects: { [key: string]: Project } = {
@@ -28,9 +28,9 @@ export class ProjectService {
       implementationDetails: 'Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.',
       duration: '5 weeks',
       image: 'assets/img/join.png',
-      technologies: ['CSS', 'HTML', 'Firebase', 'Angular', 'TypeScript'],
-      githubUrl: 'https://github.com/your-username/join',
-      liveUrl: 'https://your-join-app.com'
+      technologies: ['JavaScript', 'CSS', 'HTML', 'Firebase'],
+      githubUrl: 'https://github.com/BadRix90/join',
+      liveUrl: 'https://kaydietrich.com/join/'
     },
     powerofthebeast: {
       id: 'powerofthebeast',
@@ -39,9 +39,9 @@ export class ProjectService {
       implementationDetails: 'Object-oriented JavaScript game with canvas rendering, collision detection, and smooth character controls. Implemented game mechanics including jumping, running, and throwing objects.',
       duration: '4 weeks',
       image: 'assets/img/PowerOfTheBeast.png',
-      technologies: ['JavaScript', 'HTML5 Canvas', 'CSS', 'OOP'],
-      githubUrl: 'https://github.com/your-username/power-of-the-beast',
-      liveUrl: 'https://your-power-game.com'
+      technologies: ['JavaScript', 'HTML', 'CSS'],
+      githubUrl: 'https://github.com/BadRix90/El-Pollo-Loco',
+      liveUrl: 'https://kaydietrich.com/epl/'
     },
     dabubble: {
       id: 'dabubble',

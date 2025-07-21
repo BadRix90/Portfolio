@@ -30,7 +30,6 @@ export class AboutTextComponent {
   };
 
   getText(key: string): string {
-    console.log('Getting text for key:', key, 'in language:', this.currentLanguage); // Debug
     return this.texts[key as keyof typeof this.texts][this.currentLanguage as 'de' | 'en'];
   }
 }

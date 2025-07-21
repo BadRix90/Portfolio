@@ -20,9 +20,7 @@ export class HeroComponent {
   isMobileMenuOpen = false;
 
   onLanguageChange(language: string) {
-    console.log('Hero received language change:', language);
     this.languageChange.emit(language);
-    console.log('Hero emitted language change');
   }
   
   onMobileMenuToggle(isOpen: boolean) {

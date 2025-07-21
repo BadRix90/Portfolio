@@ -28,8 +28,6 @@ export class AppComponent {
   selectedLanguage = 'en';
 
  onLanguageChange(language: string) {
-    console.log('App received language change:', language); // Debug
     this.selectedLanguage = language;
-    console.log('App selectedLanguage is now:', this.selectedLanguage); // Debug
   }
 }

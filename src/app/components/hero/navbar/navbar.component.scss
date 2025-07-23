@@ -1,3 +1,5 @@
+@import '../../../../breakpoints';
+
 .navbar {
     box-sizing: border-box;
     display: flex;
@@ -160,7 +162,7 @@
     display: none;
 }
 
-@media (max-width: 870px) {
+@include tablet-lg {
     .navbar {
         padding: 15px 20px;
 
@@ -168,11 +170,11 @@
             position: fixed;
             top: 0;
             width: 100vw;
-            height: 92vh;
+            height: 56vh;
             background-image: url('/assets/img/01_Hero.png');
             background-size: cover;
             background-repeat: no-repeat;
-            background-position: center;
+            background-position: bottom;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -188,14 +190,12 @@
             top: 0;
             left: -100vw;
             transition: left 0.3s ease;
-            /* ← HIER: Horizontal slide speed */
         }
 
         &.vertical .nav-links {
             top: -100vh;
             left: 0;
             transition: top 0.3s ease;
-            /* ← HIER: Vertical slide speed */
         }
 
         li {
@@ -309,7 +309,7 @@
     }
 
     .navbar .nav-links .mobile-logo {
-        display: block; // ← Nur in der geöffneten Mobile Navigation sichtbar
+        display: block;
     }
 }
 

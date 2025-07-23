@@ -1,3 +1,5 @@
+@import '../../../../breakpoints';
+
 .title-section {
     position: relative;
     display: flex;
@@ -137,21 +139,18 @@
     .hero-text.frontend {
         margin: 0;
         display: flex;
-        color: rgb(74 222 128); // Grün bleibt
+        color: rgb(74 222 128);
         position: relative;
         width: 800px;
         left: 0;
         justify-content: flex-start;
-        // ENTFERNT: text-shadow und animation
 
         .swap-char:hover {
-            color: rgb(236 72 153); // Pink beim Hover bleibt
-            // ENTFERNT: text-shadow
+            color: rgb(236 72 153);
             transform: scale(1.1);
         }
     }
 }
-
 
 .lower-content {
     color: white;
@@ -160,22 +159,19 @@
     align-items: flex-end;
     position: relative;
 
-
     .hero-text.developer {
         margin: 0 0 20px 0;
         display: flex;
-        color: rgb(236 72 153); // Pink bleibt
+        color: rgb(236 72 153);
         position: absolute;
         left: 29%;
         top: 0;
         width: 750px;
         justify-content: flex-start;
         white-space: nowrap;
-        // ENTFERNT: text-shadow, animation und animation-delay
 
         .swap-char:hover {
-            color: rgb(74 222 128); // Grün beim Hover bleibt
-            // ENTFERNT: text-shadow
+            color: rgb(74 222 128);
             transform: scale(1.1);
         }
     }
@@ -187,9 +183,7 @@
     }
 
     @keyframes neonFlicker {
-
-        0%,
-        100% {
+        0%, 100% {
             text-shadow:
                 0 0 5px currentColor,
                 0 0 10px currentColor,
@@ -257,7 +251,6 @@
     }
 }
 
-
 @keyframes rollRightAndFadeIn {
     0% {
         transform: translateX(0) rotate(0deg);
@@ -284,22 +277,13 @@
     }
 }
 
-
-
-
-
-
-
-
-
-@media (max-width: 1340px) {
-
+@include desktop-ultra {
     .frame-container {
         right: -200px;
     }
 }
 
-@media (max-width: 1210px) {
+@include desktop-xxl {
     .title-section {
         padding: 0;
         flex-direction: column;
@@ -323,10 +307,9 @@
         left: 0;
         justify-content: flex-start;
     }
-
 }
 
-@media (max-width: 1130px) {
+@include desktop-lg {
     .lower-content .hero-text.developer {
         order: 2;
         left: 0;
@@ -334,7 +317,7 @@
     }
 }
 
-@media (max-width: 870px) {
+@include tablet-lg {
     .frame-container {
         top: 50px;
         right: 20px;
@@ -371,7 +354,7 @@
     }
 }
 
-@media (max-width: 570px) {
+@include mobile-lg {
     .top-content {
         height: 120px;
 

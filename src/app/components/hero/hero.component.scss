@@ -1,3 +1,4 @@
+@import '../../../breakpoints';
 
 .primary-btn {
   display: inline-block;
@@ -42,7 +43,6 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-
   }
 
   &.menu-open .hero-content {
@@ -51,16 +51,13 @@
     pointer-events: none;
   }
 
-  
-
-  @media (max-width: 1210px) {
+  @include desktop-xxl {
     .hero-content {
       padding-left: 0px !important;
     }
-
   }
 
-  @media (max-width: 870px) {
+  @include tablet-lg {
     padding: 0;
 
     .hero{
@@ -68,8 +65,7 @@
     }
   }
 
-  @media (max-width: 320px) {
+  @include mobile-xs {
     padding: 0;
   }
-
 }

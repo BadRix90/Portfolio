@@ -1,3 +1,5 @@
+@import '../../../../breakpoints';
+
 .social-hero {
   position: absolute;
   bottom: 100px;
@@ -26,13 +28,8 @@
       height: 50px;
     }
   }
-}
 
-
-@media (max-width: 870px) {
-
-  .social-hero {
+  @include tablet-lg {
     display: none;
   }
-  
 }

@@ -1,3 +1,6 @@
+// ===== testimonials.component.scss REFACTORED =====
+@import '../../../breakpoints.scss';
+
 .testimonials-section {
   padding: 0 50px;
   max-width: 1920px;
@@ -87,7 +90,6 @@
     }
 
     &:hover {
-
       &[data-testimonial="1"] {
         transform: rotate(-8deg);
       }
@@ -171,7 +173,8 @@
   }
 }
 
-@media (max-width: 1200px) {
+// ===== RESPONSIVE BREAKPOINTS =====
+@include desktop-xl {
   .testimonials-section {
     padding: 80px 40px;
     height: auto;
@@ -225,8 +228,7 @@
   }
 }
 
-
-@media (max-width: 870px) {
+@include tablet-lg {
   .testimonials-section {
     padding: 60px 20px;
 
@@ -280,7 +282,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@include mobile {
   .testimonials-section {
     padding: 40px 15px;
 

@@ -1,4 +1,5 @@
-// src/app/components/about-me/info-stickers/info-stickers.component.scss
+@import '../../../../breakpoints.scss';
+
 .info-stickers-container {
     display: flex;
     flex-direction: column;
@@ -56,7 +57,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@include tablet {
     .info-stickers-container {
         .sticker {
             width: clamp(160px, 70vw, 450px);
@@ -78,7 +79,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@include mobile {
     .info-stickers-container {
         .sticker {
             width: clamp(130px, 80vw, 320px);
@@ -92,7 +93,6 @@
             &:nth-child(2) {
                 margin-bottom: -16px;
             }
-
 
             .sticker-icon {
                 width: clamp(7px, 3.5vw, 16px);

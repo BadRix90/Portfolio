@@ -1,3 +1,5 @@
+@import '../../../../breakpoints.scss';
+
 .about-text-container {
     color: #333;
     font-family: var(--font-main);
@@ -69,10 +71,9 @@
     }
 }
 
-@media (max-width: 1200px) {
+@include desktop-xl {
     .about-text-container {
         .about-header {
-
             .underline {
                 width: 220px;
                 height: 18px;
@@ -91,7 +92,7 @@
     }
 }
 
-@media (max-width: 1000px) {
+@include desktop {
     .about-text-container {
         text-align: center;
         
@@ -105,7 +106,6 @@
 
         .about-content {
             margin-bottom: 30px;
-            
         }
 
         .lets-talk-btn {
@@ -114,7 +114,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@include tablet {
     .about-text-container {
         .about-header {
             margin-bottom: 25px;
@@ -139,7 +139,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@include mobile {
     .about-text-container {
         .about-header {
             margin-bottom: 20px;

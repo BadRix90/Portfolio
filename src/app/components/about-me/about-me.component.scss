@@ -1,3 +1,5 @@
+@import '../../../breakpoints.scss';
+
 .about-me-section {
     height: 1000px;
     display: flex;
@@ -33,7 +35,7 @@
     }
 }
 
-@media (max-width: 1400px) {
+@include desktop-max {
     .about-me-section {
         padding: 0 60px;
         
@@ -44,7 +46,7 @@
     }
 }
 
-@media (max-width: 1200px) {
+@include desktop-xl {
     .about-me-section {
         padding: 0 40px;
         height: auto;
@@ -62,7 +64,7 @@
     }
 }
 
-@media (max-width: 1000px) {
+@include desktop {
     .about-me-section {
         padding: 50px 20px;
         min-height: auto;
@@ -89,13 +91,11 @@
                 height: auto;
                 flex: none;
             }
-
-
         }
     }
 }
 
-@media (max-width: 768px) {
+@include tablet {
     .about-me-section {
         padding: 40px 15px;
         
@@ -106,7 +106,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@include mobile {
     .about-me-section {
         padding: 30px 10px;
         

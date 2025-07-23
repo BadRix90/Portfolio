@@ -1,3 +1,5 @@
+@import '../../../../breakpoints';
+
 .project-detail-wrapper {
   position: fixed;
   top: 0;
@@ -217,7 +219,7 @@
   display: none;
 }
 
-@media (max-width: 768px) {
+@include tablet {
   .project-detail-wrapper {
     position: absolute;
     height: auto;

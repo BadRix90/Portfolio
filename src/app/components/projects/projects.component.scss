@@ -1,3 +1,5 @@
+@import '../../../breakpoints';
+
 // ===== MAIN CONTAINER =====
 .projects-container {
     display: flex;
@@ -73,7 +75,6 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    
 }
 
 .view-project-btn {
@@ -175,7 +176,19 @@
     hyphens: auto;
 }
 
-@media (max-width: 1400px) {
+// ===== ANIMATIONS =====
+@keyframes laptop-float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-16px);
+    }
+}
+
+// ===== RESPONSIVE BREAKPOINTS =====
+@include desktop-max {
     .projects-container {
         padding: 0 80px;
         gap: 30px;
@@ -191,10 +204,9 @@
         width: 150px;
         height: 150px;
     }
-
 }
 
-@media (max-width: 1200px) {
+@include desktop-xl {
     .projects-container {
         padding: 0 40px;
         gap: 25px;
@@ -220,7 +232,7 @@
     }
 }
 
-@media (max-width: 1000px) {
+@include desktop {
     .projects-container {
         padding: 0 30px;
         gap: 20px;
@@ -229,10 +241,9 @@
     .title-section {
         padding-right: 10px;
     }
-
 }
 
-@media (max-width: 870px) {
+@include tablet-lg {
     .projects-container {
         flex-direction: column;
         gap: 20px;
@@ -292,7 +303,7 @@
     }
 }
 
-@media (max-width: 480px) {
+@include mobile {
     .projects-container {
         padding: 30px 15px;
         gap: 30px;
@@ -309,18 +320,5 @@
         left: 15%;
         width: 80px;
         height: 80px;
-    }
-}
-
-// ===== ANIMATIONS =====
-@keyframes laptop-float {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-16px);
     }
 }

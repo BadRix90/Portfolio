@@ -1,4 +1,3 @@
-// ===== testimonials.component.scss REFACTORED =====
 @import '../../../breakpoints.scss';
 
 .testimonials-section {
@@ -103,6 +102,29 @@
       }
     }
 
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/assets/img/imonials_hover.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+
     .card-content {
       padding: 30px;
       height: 80%;
@@ -110,6 +132,8 @@
       flex-direction: column;
       justify-content: space-between;
       color: #333;
+      position: relative;
+      z-index: 3;
     }
 
     .testimonial-text {

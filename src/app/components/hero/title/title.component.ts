@@ -95,4 +95,11 @@ export class TitleComponent implements OnInit {
   onFrameLeave() {
     this.frameText = 'Kay :)';
   }
+
+  scrollToContact(): void {
+  const element = document.getElementById('contact');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
 }

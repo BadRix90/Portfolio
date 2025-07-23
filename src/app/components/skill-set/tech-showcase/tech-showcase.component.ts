@@ -15,8 +15,9 @@ export class TechShowcaseComponent {
 
   constructor(private projectService: ProjectService) { }
 
-  
+
   currentPeelState = 1;
+  isPeeled = false;
   isAnimating = false;
 
   get techStack() {
@@ -30,23 +31,11 @@ export class TechShowcaseComponent {
   onPeelClick(): void {
     if (this.isAnimating) return;
 
-    if (this.currentPeelState === 1) {
-      // Vorwärts: 1 → 2 → 3
-      this.currentPeelState = 2;
+    this.isAnimating = true;
+    this.isPeeled = !this.isPeeled;
 
-      setTimeout(() => {
-        const front = document.querySelector('.peel-front') as HTMLElement;
-        if (front) front.classList.add('fly-out');
-
-        setTimeout(() => {
-          this.currentPeelState = 3;
-        }, 200);
-      }, 50);
-
-    } else if (this.currentPeelState === 3) {
-      // Rückwärts: 3 → 1
-      this.currentPeelState = 1;
-    }
+    setTimeout(() => {
+      this.isAnimating = false;
+    }, 100);
   }
-
 }

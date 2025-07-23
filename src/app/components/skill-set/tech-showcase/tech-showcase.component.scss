@@ -60,58 +60,40 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
+        
 
-        // State 1 & 3: Einzelne Images - konsistente Position
-        &>img {
-            width: 50%;
-            height: 50%;
+        .peel-image,
+        .peel-result {
             position: absolute;
-            top: 10px;
-            left: 10px;
-            transform: rotate(5deg);
-            transform-origin: center;
+            width: 200px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(5deg);
             object-fit: contain;
+            transition: transform 0.1s ease, opacity 0.1s ease;
         }
 
-        // State 2: Peel Container - gleiche Position wie Images
-        .peel-container {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 50%;
-            height: 50%;
-            overflow: hidden;
-            border-radius: 8px;
+        .peel-image {
+            z-index: 2;
 
-            .peel-background {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                transform: rotate(5deg);
-                z-index: 1;
+            &.slide-away {
+                transform: translate(-150%, 50%) rotate(-15deg);
+                opacity: 0;
             }
+        }
 
-            .peel-front {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                transform: rotate(5deg);
-                z-index: 2;
+        .peel-result {
+            z-index: 1;
+            opacity: 0;
 
-                &.fly-out {
-                    animation: flyOutDiagonal 0.1s ease-in forwards;
-                }
+            &.visible {
+                opacity: 1;
             }
         }
     }
 
-    // Pull-to-Peel Animation
     @keyframes flyOutDiagonal {
         0% {
             transform: translate(0, 0) rotate(5deg);
@@ -158,12 +140,9 @@
         }
 
         .pull-to-peel-section {
-            &>img {
-                width: 160px;
-                height: 160px;
-            }
 
-            .peel-container {
+            .peel-image,
+            .peel-result {
                 width: 160px;
                 height: 160px;
             }
@@ -208,16 +187,12 @@
             width: 140px;
             height: 140px;
 
-            &>img {
-                width: 100px;
-                height: 100px;
-                top: -130px;
-                left: 80px;
-            }
-
-            .peel-container {
-                width: 120px;
-                height: 120px;
+            .peel-image,
+            .peel-result {
+                width: 130px;
+                height: 130px;
+                top: -80px;
+                left: 120px;
             }
         }
     }
@@ -247,16 +222,6 @@
             width: 120px;
             height: 120px;
             right: 10px;
-
-            &>img {
-                width: 100px;
-                height: 100px;
-            }
-
-            .peel-container {
-                width: 100px;
-                height: 100px;
-            }
         }
     }
 }

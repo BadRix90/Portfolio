@@ -1,3 +1,5 @@
+@import '../../../../breakpoints';
+
 .my-stack-container {
   display: flex;
   align-items: flex-start;
@@ -74,9 +76,7 @@
   }
 
   @keyframes neonFlicker {
-
-    0%,
-    100% {
+    0%, 100% {
       text-shadow:
         0 0 3px rgb(74 222 128),
         0 0 6px rgb(74 222 128),
@@ -93,7 +93,7 @@
     }
   }
 
-  @media (max-width: 870px) {
+  @include tablet-lg {
     flex-direction: column;
     gap: 40px;
     padding: 0 20px 100px 20px;
@@ -104,7 +104,6 @@
       text-align: end;
 
       .skill-set-wrapper {
-
         .line-decoration {
           height: 4.8rem;
         }
@@ -120,11 +119,10 @@
     }
   }
 
-  @media (max-width: 480px) {
+  @include mobile {
     padding: 0 0 80px 0;
 
     .stack-title-section {
-
       .skill-set-wrapper {
         .skill-set-text {
           padding-left: 50px;
@@ -144,6 +142,5 @@
         background-size: 100% 100%;
       }
     }
-
   }
 }

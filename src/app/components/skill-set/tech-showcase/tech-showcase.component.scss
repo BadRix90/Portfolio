@@ -1,3 +1,5 @@
+@import '../../../../breakpoints';
+
 .tech-showcase-container {
     display: flex;
     justify-content: flex-end;
@@ -139,9 +141,7 @@
         }
     }
 
-
-    @media (max-width: 1200px) {
-
+    @include desktop-xl {
         .tech-icons-grid {
             gap: 30px;
 
@@ -170,12 +170,11 @@
         }
     }
 
-    @media (max-width: 870px) {
+    @include tablet-lg {
         flex-direction: column;
         gap: 30px;
         padding: 30px 20px;
         position: relative;
-
 
         .tech-icons-grid {
             grid-template-columns: repeat(3, 1fr);
@@ -203,7 +202,6 @@
                     grid-row: 4;
                 }
             }
-
         }
 
         .pull-to-peel-section {
@@ -224,7 +222,7 @@
         }
     }
 
-    @media (max-width: 480px) {
+    @include mobile {
         padding: 40px 15px;
 
         .tech-icons-grid {

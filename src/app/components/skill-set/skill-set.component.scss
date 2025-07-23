@@ -1,3 +1,5 @@
+@import '../../../breakpoints';
+
 .skill-set-section {
   background-image: url("/assets/img/skills-bgd.png");
   background-size: cover;
@@ -30,12 +32,11 @@
     z-index: 2;
   }
 
-  @media (max-width: 870px) {
+  @include tablet-lg {
     background-attachment: scroll;
   }
 
-  @media (max-width: 480px) {
+  @include mobile {
     padding: 0 14px !important;
   }
-
 }

@@ -56,10 +56,15 @@
             <div class="project-preview">
               <img [src]="project.image" [alt]="project.title" class="project-main-image">
               <div class="featured-badge">
+                <!-- Join behält den Sticker -->
                 <img *ngIf="project.id === 'join'" src="assets/img/Sticker.png" alt="Featured Project"
                   class="featured-sticker">
-                <img *ngIf="project.id !== 'join'" src="assets/img/placeholder.png" alt="Project Badge"
-                  class="featured-sticker">
+
+                <!-- Power of the Beast und DABubble bekommen Seal-Logo -->
+                <div *ngIf="project.id !== 'join'" class="seal-logo">
+                  <img src="assets/img/siegel_orange.png" alt="Seal" class="orange-seal">
+                  <img src="assets/img/logo_kay.png" alt="Logo" class="logo-img" />
+                </div>
               </div>
             </div>
 
@@ -74,12 +79,11 @@
             </div>
 
             <!-- Next Project Button (Desktop only) -->
-<button class="next-project-btn" (click)="onNextProject()">
-  {{ nextButtonText }}
-  <img [src]="'assets/img/' + nextButtonIcon" 
-       [alt]="nextProject ? 'Forward' : 'Back'" 
-       class="nav-arrow-img">
-</button>
+            <button class="next-project-btn" (click)="onNextProject()">
+              {{ nextButtonText }}
+              <img [src]="'assets/img/' + nextButtonIcon" [alt]="nextProject ? 'Forward' : 'Back'"
+                class="nav-arrow-img">
+            </button>
           </div>
 
         </div>

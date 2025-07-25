@@ -130,7 +130,7 @@
             cursor: pointer;
 
             &:hover {
-                background-color: rgb(236 72 153);
+                background-color: #3355FF;
                 color: white;
             }
         }
@@ -139,14 +139,14 @@
     .hero-text.frontend {
         margin: 0;
         display: flex;
-        color: rgb(74 222 128);
+        color: #F8F9FA;
         position: relative;
         width: 800px;
         left: 0;
         justify-content: flex-start;
 
         .swap-char:hover {
-            color: rgb(236 72 153);
+            color: #F7C518;
             transform: scale(1.1);
         }
     }
@@ -162,7 +162,7 @@
     .hero-text.developer {
         margin: 0 0 20px 0;
         display: flex;
-        color: rgb(236 72 153);
+        color: #F8F9FA;
         position: absolute;
         left: 29%;
         top: 0;
@@ -171,7 +171,7 @@
         white-space: nowrap;
 
         .swap-char:hover {
-            color: rgb(74 222 128);
+            color: #F7C518;
             transform: scale(1.1);
         }
     }
@@ -225,7 +225,7 @@
     transition: all 0.2s ease;
 
     &:hover {
-        background-color: rgb(74 222 128);
+        background-color: #F87A55;
         color: black;
         box-shadow: none;
         transform: translate(2px, 2px);

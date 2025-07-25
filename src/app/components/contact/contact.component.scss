@@ -297,7 +297,6 @@
         transition: all 0.3s ease;
         position: relative;
         cursor: pointer;
-        padding: 8px 16px;
         border-radius: 25px;
         @include hand-roll-animation;
 
@@ -442,7 +441,6 @@
   }
 }
 
-// Animation für slideLeft (falls noch nicht vorhanden)
 @keyframes slideLeft {
   from {
     transform: translate(-80%, 0) scale(0.8);
@@ -618,7 +616,7 @@
 
       .footer-right {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         gap: 40px;
         flex: 1 1 100%;
 
@@ -647,5 +645,12 @@
         padding: 20px;
       }
     }
+  }
+}
+
+@include mobile-lg {
+  .footer-right {
+    margin-left: unset !important;
+    gap: 0 !important;
   }
 }

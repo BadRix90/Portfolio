@@ -173,28 +173,31 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 30px;
-  max-width: 600px;
+  max-width: 500px;
+  min-width: 320px;
 }
 
 .project-preview {
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
-  padding-right: 88px;
+  justify-content: flex-start;
 
   .project-main-image {
     width: 100%;
     max-width: 500px;
+    min-width: 300px;
     height: auto;
     border-radius: 25px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 16/10;
+    object-fit: cover;
   }
 
   .featured-badge {
     position: absolute;
-    bottom: 64px;
-    right: 0;
+    bottom: 100px;
+    right: -80px;
 
     img {
       width: 150px;
@@ -269,7 +272,74 @@
   display: none;
 }
 
-@include tablet {
+@include desktop-widescreen {
+  .project-info-section {
+    gap: 200px
+  }
+
+  .project-description-card {
+    max-width: 500px;
+  }
+}
+
+@include desktop-max {
+  .project-info-section {
+    gap: 136px
+  }
+
+
+}
+
+@include desktop-ultra {
+
+  .seal-logo {
+    width: 99px !important;
+    height: auto;
+    position: relative;
+
+    .orange-seal {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .project-image-section {
+    max-width: 400px;
+  }
+
+  .project-info-section {
+    gap: 180px
+  }
+
+  .featured-badge {
+    bottom: 75px !important;
+    right: -50px !important;
+
+    img {
+      width: 100px !important;
+      height: auto !important;
+    }
+  }
+
+  .project-description-card {
+    max-width: 400px;
+  }
+}
+
+
+
+@include desktop-md {
+  .project-description-card {
+    max-width: 320px;
+  }
+
+  .project-info-section {
+    gap: 180px
+  }
+
+}
+
+@include desktop {
   .project-detail-wrapper {
     position: absolute;
     height: auto;
@@ -286,11 +356,11 @@
     min-height: 100vh;
     background-image: url('/assets/img/note_book_paper_mobile.png');
     background-attachment: scroll;
+    background-position: 50% 80%;
   }
 
   .project-detail-content {
     padding: 20px;
-    min-height: 100vh;
     padding-bottom: 100px;
   }
 
@@ -300,7 +370,7 @@
 
   .project-info-section {
     flex-direction: column;
-    gap: 40px;
+    gap: 100px;
     align-items: center;
   }
 
@@ -311,6 +381,7 @@
 
   .project-image-section {
     align-items: center;
+    max-width: 500px;
 
     .next-project-btn {
       display: none;
@@ -363,4 +434,29 @@
       }
     }
   }
+}
+
+@include tablet{
+    .project-image-section{
+      max-width: 400px;
+    }
+}
+
+@include mobile-lg {
+  .project-detail-content {
+    .project-image-section {
+      max-width: 280px;
+      min-width: 250px;
+      
+      .project-preview {
+        .project-main-image {
+          max-width: 280px;
+          min-width: 250px;
+        }
+      }
+    }
+  }
+    .featured-badge{
+      display: none;
+    }
 }

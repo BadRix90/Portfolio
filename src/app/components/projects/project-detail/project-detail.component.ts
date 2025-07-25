@@ -1,4 +1,4 @@
-// src/app/components/project-detail/project-detail.component.ts
+import { TextService } from '../../../services/text.service';
 import { Component, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project } from '../../../interfaces/project.interface';
@@ -22,7 +22,22 @@ export class ProjectDetailComponent implements AfterViewInit {
   nextProject: Project | null = null;
   isMobileMenuOpen = false;
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private textService: TextService) { }
+
+  getText(key: string): string {
+    const texts = this.textService.getProjectDetailTexts();
+    return (texts as any)[key][this.currentLanguage];
+  }
+
+  getProjectDescription(): string {
+  if (!this.project) return '';
+  return (this.project.description as any)[this.currentLanguage] || '';
+}
+
+getProjectImplementationDetails(): string {
+  if (!this.project) return '';
+  return (this.project.implementationDetails as any)[this.currentLanguage] || '';
+}
 
   ngAfterViewInit() {
     this.setDynamicUnderlineWidth();

@@ -69,6 +69,18 @@ export class TextService {
     };
   }
 
+  getProjectDetailTexts() {
+    return {
+      description: { de: 'Beschreibung', en: 'Description' },
+      implementationDetails: { de: 'Implementierungsdetails', en: 'Implementation Details' },
+      duration: { de: 'Dauer', en: 'Duration' },
+      goBack: { de: 'Zurück', en: 'Go Back' },
+      nextProject: { de: 'Nächstes Projekt', en: 'Next Project' },
+      github: { de: 'GitHub', en: 'GitHub' },
+      liveTest: { de: 'Live Test', en: 'Live Test' }
+    };
+  }
+
   getAboutTexts() {
     return {
       whoIs: { de: 'WER IST KAY?', en: "WHO'S KAY?" },

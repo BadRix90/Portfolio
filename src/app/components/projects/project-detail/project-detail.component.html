@@ -1,26 +1,22 @@
-<!-- src/app/components/project-detail/project-detail.component.html -->
+
 <div class="project-detail-wrapper">
   <div class="background-image-wrapper">
     <div class="project-content">
 
-      <!-- Navbar -->
+
       <app-navbar [currentLanguage]="currentLanguage" [slideDirection]="'horizontal'"
         (languageChange)="onLanguageChange($event)" (mobileMenuToggle)="onMobileMenuToggle($event)">
       </app-navbar>
 
-      <!-- Project Detail Content -->
       <div class="project-detail-content" *ngIf="project">
 
-        <!-- Go Back Button (Desktop only) -->
         <button class="go-back-btn" (click)="onGoBack()">
           <img src="assets/img/arrow_back.png" alt="Back" class="back-arrow-img">
-          Go Back
+          {{ getText('goBack') }}
         </button>
 
-        <!-- Project Info Section -->
         <div class="project-info-section">
 
-          <!-- Left Side: Project Description -->
           <div class="project-description-card">
             <h1 class="project-main-title">
               {{ project.title }}
@@ -28,17 +24,17 @@
             </h1>
 
             <div class="description-section">
-              <h2>Description</h2>
-              <p>{{ project.description }}</p>
+              <h2>{{ getText('description') }}</h2>
+              <p>{{ getProjectDescription() }}</p>
             </div>
 
             <div class="implementation-section">
-              <h2>Implementation Details</h2>
-              <p>{{ project.implementationDetails }}</p>
+              <h2>{{ getText('implementationDetails') }}</h2>
+              <p>{{ getProjectImplementationDetails() }}</p>
             </div>
 
             <div class="duration-section">
-              <strong>Duration:</strong> {{ project.duration }}
+              <strong>{{ getText('duration') }}:</strong> {{ project.duration }}
             </div>
 
             <div class="technologies-section">
@@ -51,7 +47,6 @@
             </div>
           </div>
 
-          <!-- Right Side: Project Image -->
           <div class="project-image-section">
             <div class="project-preview">
               <img [src]="project.image" [alt]="project.title" class="project-main-image">
@@ -68,19 +63,19 @@
               </div>
             </div>
 
-            <!-- Action Buttons -->
+
             <div class="action-buttons">
               <button class="primary-btn github-btn" (click)="openGithub()">
-                GitHub
+                {{ getText('github') }}
               </button>
+
               <button class="primary-btn live-btn" (click)="openLiveTest()">
-                Live Test
+                {{ getText('liveTest') }}
               </button>
             </div>
 
-            <!-- Next Project Button (Desktop only) -->
             <button class="next-project-btn" (click)="onNextProject()">
-              {{ nextButtonText }}
+              {{ nextProject ? getText('nextProject') : getText('goBack') }}
               <img [src]="'assets/img/' + nextButtonIcon" [alt]="nextProject ? 'Forward' : 'Back'"
                 class="nav-arrow-img">
             </button>
@@ -88,15 +83,14 @@
 
         </div>
 
-        <!-- Mobile Navigation (Mobile only) -->
         <div class="mobile-navigation">
           <button class="mobile-go-back" (click)="onGoBack()">
             <img src="assets/img/arrow_back.png" alt="Back" class="back-arrow-img">
-            Go Back
+            {{ getText('goBack') }}
           </button>
 
           <button class="mobile-next-project" (click)="onNextProject()" *ngIf="nextProject">
-            Next Project
+            {{ getText('nextProject') }}
             <img src="assets/img/arrow_forward.png" alt="Forward" class="forward-arrow-img">
           </button>
         </div>

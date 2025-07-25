@@ -1,9 +1,8 @@
-// src/app/interfaces/project.interface.ts
 export interface Project {
   id: string;
   title: string;
-  description: string;
-  implementationDetails: string;
+  description: { de: string; en: string }; // ← Geändert
+  implementationDetails: { de: string; en: string }; // ← Geändert
   duration: string;
   image: string;
   technologies: string[];

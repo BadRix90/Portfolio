@@ -66,7 +66,6 @@
     </div>
 </div>
 
-<!-- Project Detail View -->
 <app-project-detail *ngIf="showProjectDetail" [projectId]="selectedProjectId" [currentLanguage]="currentLanguage"
-    (goBack)="closeProjectDetail()" (languageChange)="onLanguageChange($event)">
+    (goBack)="closeProjectDetail()">
 </app-project-detail>

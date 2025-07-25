@@ -1,4 +1,5 @@
 @import '../../../breakpoints';
+@import '../../../styles';
 
 .contact-section {
   background-image: url('/assets/img/06_Footer.png');
@@ -27,7 +28,7 @@
 
   .seal-logo {
     position: absolute;
-    top: 0;
+    top: -40px;
     right: 50px;
     width: 150px;
     height: 150px;
@@ -250,6 +251,12 @@
           height: 60px;
           border-radius: 50%;
           object-fit: cover;
+          cursor: pointer;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.1);
+          }
         }
       }
 
@@ -277,19 +284,41 @@
 
     .footer-right {
       display: flex;
-      gap: 40px;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+      max-width: 1000px;
+      margin-left: 100px;
 
       .footer-link {
         font-family: var(--font-main);
         color: #ccc;
         text-decoration: none;
-        transition: color 0.3s ease;
+        transition: all 0.3s ease;
+        position: relative;
+        cursor: pointer;
+        padding: 8px 16px;
+        border-radius: 25px;
+        @include hand-roll-animation;
 
         &:hover {
           color: white;
+          background-color: #3355FF; // ← Blauer Background
         }
       }
     }
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px) scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
   }
 }
 
@@ -329,12 +358,13 @@
         margin: 0;
       }
 
-      .modal-close {
+      .close-btn {
         background: none;
         border: none;
         color: #ccc;
         cursor: pointer;
         transition: color 0.3s ease;
+        font-size: 24px;
 
         &:hover {
           color: #F87A55;
@@ -375,14 +405,53 @@
   }
 }
 
-.privacy-link,
+// Ergänzung für .footer-legal und .footer-legal-text
 .footer-legal,
 .footer-legal-text {
-  cursor: pointer;
+  font-family: var(--font-main);
+  color: #ccc;
+  text-decoration: none;
   transition: color 0.3s ease;
+  position: relative;
+  cursor: pointer;
+
+  .image-hover {
+    position: absolute;
+    bottom: -16px;
+    left: 24%;
+    transform: translateX(-50%) scale(0.8);
+    opacity: 0;
+    width: 120px;
+    height: 40px;
+    background-image: url('/assets/img/B.1_1-2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    z-index: 99;
+    transition: all 0.4s ease;
+  }
 
   &:hover {
-    color: #F87A55 !important;
+
+    .image-hover {
+      opacity: 1;
+      transform: translateX(-50%) scale(1);
+      animation: slideLeft 0.3s ease;
+    }
+  }
+}
+
+// Animation für slideLeft (falls noch nicht vorhanden)
+@keyframes slideLeft {
+  from {
+    transform: translate(-80%, 0) scale(0.8);
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, 0) scale(1);
+    opacity: 1;
   }
 }
 

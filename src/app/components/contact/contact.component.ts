@@ -91,6 +91,16 @@ export class ContactComponent {
       });
   }
 
+  scrollToHero(): void {
+    const heroElement = document.querySelector('.hero');
+    if (heroElement) {
+      heroElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
   private markAllFieldsAsTouched(): void {
     this.contactForm.markAllAsTouched();
   }

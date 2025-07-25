@@ -1,5 +1,5 @@
 // src/app/components/project-detail/project-detail.component.ts
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project } from '../../../interfaces/project.interface';
 import { ProjectService } from '../../../services/project.service';
@@ -12,7 +12,7 @@ import { NavbarComponent } from '../../hero/navbar/navbar.component';
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss'
 })
-export class ProjectDetailComponent {
+export class ProjectDetailComponent implements AfterViewInit {
   @Input() currentLanguage = 'en';
   @Input() projectId: string = '';
   @Output() goBack = new EventEmitter<void>();
@@ -24,12 +24,17 @@ export class ProjectDetailComponent {
 
   constructor(private projectService: ProjectService) { }
 
+  ngAfterViewInit() {
+    this.setDynamicUnderlineWidth();
+  }
+
   ngOnInit() {
     this.loadProject();
   }
 
   ngOnChanges() {
     this.loadProject();
+    setTimeout(() => this.setDynamicUnderlineWidth(), 0);
   }
 
   loadProject() {
@@ -47,6 +52,9 @@ export class ProjectDetailComponent {
     if (this.nextProject) {
       this.projectId = this.nextProject.id;
       this.loadProject();
+      setTimeout(() => this.setDynamicUnderlineWidth(), 0);
+    } else {
+      this.onGoBack();
     }
   }
 
@@ -56,10 +64,10 @@ export class ProjectDetailComponent {
 
   onMobileMenuToggle(isOpen: boolean) {
     this.isMobileMenuOpen = isOpen;
-    
+
     const projectWrapper = document.querySelector('.project-detail-wrapper');
     const body = document.body;
-    
+
     if (isOpen) {
       projectWrapper?.classList.add('menu-open');
       body.style.overflow = 'hidden';
@@ -87,5 +95,30 @@ export class ProjectDetailComponent {
 
   getTechAlt(techName: string): string {
     return this.projectService.getTechAlt(techName);
+  }
+
+  private setDynamicUnderlineWidth() {
+    const titleElement = document.querySelector('.project-main-title');
+    const underlineElement = document.querySelector('.animated-underline');
+
+    if (titleElement && underlineElement) {
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+      const computedStyle = window.getComputedStyle(titleElement);
+
+      if (context) {
+        context.font = `${computedStyle.fontWeight} ${computedStyle.fontSize} ${computedStyle.fontFamily}`;
+        const textWidth = context.measureText(titleElement.textContent || '').width;
+        (underlineElement as HTMLElement).style.width = `${textWidth}px`;
+      }
+    }
+  }
+
+  get nextButtonText(): string {
+    return this.nextProject ? 'Next Project' : 'Go Back';
+  }
+
+  get nextButtonIcon(): string {
+    return this.nextProject ? 'arrow_forward.png' : 'arrow_back.png';
   }
 }

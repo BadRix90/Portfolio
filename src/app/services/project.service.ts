@@ -64,12 +64,17 @@ export class ProjectService {
     return Object.values(this.projects);
   }
 
-  getNextProject(currentId: string): Project | null {
-    const projectIds = Object.keys(this.projects);
-    const currentIndex = projectIds.indexOf(currentId);
-    const nextIndex = (currentIndex + 1) % projectIds.length;
-    return this.projects[projectIds[nextIndex]];
+getNextProject(currentId: string): Project | null {
+  const projectIds = Object.keys(this.projects);
+  const currentIndex = projectIds.indexOf(currentId);
+  const nextIndex = currentIndex + 1;
+  
+  if (nextIndex >= projectIds.length) {
+    return null;
   }
+  
+  return this.projects[projectIds[nextIndex]];
+}
 
   getPreviousProject(currentId: string): Project | null {
     const projectIds = Object.keys(this.projects);

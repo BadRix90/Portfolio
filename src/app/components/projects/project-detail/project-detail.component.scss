@@ -76,14 +76,38 @@
   max-width: 600px;
 
   .project-main-title {
+    position: relative;
     font-family: var(--font-main);
     font-size: 48px;
     font-weight: 700;
     color: #333;
     margin: 0 0 40px 0;
-    text-decoration: underline;
-    text-decoration-color: #4285f4;
-    text-underline-offset: 8px;
+
+    .animated-underline {
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background-image: url('/assets/img/Blue_line.png');
+      background-size: 100% 20px;
+      background-repeat: no-repeat;
+      animation: fill-animation 5s ease-in-out infinite;
+    }
+  }
+
+  @keyframes fill-animation {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+
+    50% {
+      clip-path: inset(0 0 0 0);
+    }
+
+    100% {
+      clip-path: inset(0 100% 0 0);
+    }
   }
 
   .description-section,
@@ -257,9 +281,6 @@
   .project-description-card {
     max-width: 100%;
 
-    .project-main-title {
-      font-size: 36px;
-    }
   }
 
   .project-image-section {

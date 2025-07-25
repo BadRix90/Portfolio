@@ -4,11 +4,8 @@
     <div class="project-content">
 
       <!-- Navbar -->
-      <app-navbar 
-        [currentLanguage]="currentLanguage"
-        [slideDirection]="'horizontal'"
-        (languageChange)="onLanguageChange($event)"
-        (mobileMenuToggle)="onMobileMenuToggle($event)">
+      <app-navbar [currentLanguage]="currentLanguage" [slideDirection]="'horizontal'"
+        (languageChange)="onLanguageChange($event)" (mobileMenuToggle)="onMobileMenuToggle($event)">
       </app-navbar>
 
       <!-- Project Detail Content -->
@@ -25,7 +22,10 @@
 
           <!-- Left Side: Project Description -->
           <div class="project-description-card">
-            <h1 class="project-main-title">{{ project.title }}</h1>
+            <h1 class="project-main-title">
+              {{ project.title }}
+              <div class="animated-underline"></div>
+            </h1>
 
             <div class="description-section">
               <h2>Description</h2>
@@ -40,7 +40,7 @@
             <div class="duration-section">
               <strong>Duration:</strong> {{ project.duration }}
             </div>
-            
+
             <div class="technologies-section">
               <div class="tech-icons">
                 <div *ngFor="let tech of project.technologies" class="tech-badge">
@@ -74,10 +74,12 @@
             </div>
 
             <!-- Next Project Button (Desktop only) -->
-            <button class="next-project-btn" (click)="onNextProject()" *ngIf="nextProject">
-              Next Project
-              <img src="assets/img/arrow_forward.png" alt="Forward" class="forward-arrow-img">
-            </button>
+<button class="next-project-btn" (click)="onNextProject()">
+  {{ nextButtonText }}
+  <img [src]="'assets/img/' + nextButtonIcon" 
+       [alt]="nextProject ? 'Forward' : 'Back'" 
+       class="nav-arrow-img">
+</button>
           </div>
 
         </div>
@@ -88,7 +90,7 @@
             <img src="assets/img/arrow_back.png" alt="Back" class="back-arrow-img">
             Go Back
           </button>
-          
+
           <button class="mobile-next-project" (click)="onNextProject()" *ngIf="nextProject">
             Next Project
             <img src="assets/img/arrow_forward.png" alt="Forward" class="forward-arrow-img">

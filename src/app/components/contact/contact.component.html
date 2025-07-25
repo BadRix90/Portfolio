@@ -78,7 +78,7 @@
         </div>
 
         <div class="footer-right">
-          <a routerLink="/legal-notice" class="footer-link">{{ getText('legalNotice') }}</a>
+          <a (click)="openLegalNotice()" class="footer-link">Legal Notice</a>
           <a href="https://github.com/BadRix90" target="_blank" class="footer-link">Github</a>
           <a href="https://linkedin.com/in/kay-dietrich" target="_blank" class="footer-link">LinkedIn</a>
         </div>
@@ -88,46 +88,25 @@
 
   </div>
 
-  <!-- Legal Notice Modal -->
   <div *ngIf="showLegalNotice" class="modal-overlay" (click)="closeModals()">
     <div class="modal-content" (click)="$event.stopPropagation()">
       <div class="modal-header">
-        <h2>Legal Notice / Impressum</h2>
-        <button class="modal-close" (click)="closeModals()">&times;</button>
+        <h2>Legal Notice</h2>
+        <button (click)="closeModals()" class="close-btn">×</button>
       </div>
       <div class="modal-body">
-        <h3>Angaben gemäß § 5 TMG</h3>
+        <h3>Information according to § 5 TMG</h3>
         <p>Kay Dietrich<br>
-          [Adresse]<br>
-          [PLZ Ort]</p>
+          Frontend Developer<br>
+          Lüneburg, Germany</p>
 
-        <h3>Kontakt</h3>
-        <p>E-Mail: <a href="mailto:contact@kaydietrich.com">dietrich.kay&#64;outlook.de</a></p>
+        <h3>Contact</h3>
+        <p>Email: kay&#64;kaydietrich.com</p>
 
-        <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
-        <p>Kay Dietrich</p>
+        <h3>Disclaimer</h3>
+        <p>The contents of this website have been created with the utmost care.
+          However, I cannot guarantee the contents' accuracy, completeness or topicality.</p>
       </div>
     </div>
   </div>
-
-  <!-- Privacy Policy Modal -->
-  <div *ngIf="showPrivacyPolicy" class="modal-overlay" (click)="closeModals()">
-    <div class="modal-content" (click)="$event.stopPropagation()">
-      <div class="modal-header">
-        <h2>Datenschutzerklärung / Privacy Policy</h2>
-        <button class="modal-close" (click)="closeModals()">&times;</button>
-      </div>
-      <div class="modal-body">
-        <h3>Datenschutz</h3>
-        <p>Diese Website erfasst keine persönlichen Daten über Cookies oder Tracking.</p>
-
-        <h3>Kontaktformular</h3>
-        <p>Die über das Kontaktformular übermittelten Daten werden nur zur Bearbeitung Ihrer Anfrage verwendet.</p>
-
-        <h3>Externe Links</h3>
-        <p>Diese Website enthält Links zu externen Webseiten Dritter. Auf deren Inhalte haben wir keinen Einfluss.</p>
-      </div>
-    </div>
-  </div>
-
 </section>

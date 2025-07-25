@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class TextService {
 
-    getHeroTexts() {
+  getHeroTexts() {
     return {
       buttonText: { de: 'Kontakt aufnehmen', en: 'Get in Touch' },
       helloText: { de: 'Hallo Welt', en: 'Hello World' }
@@ -43,55 +43,55 @@ export class TextService {
     };
   }
 
-getProjectTexts() {
-  return {
-    craftLabel: { de: 'MEINE ARBEIT', en: 'MY CRAFT' },
-    projectsTitle: { de: 'Projekte', en: 'Projects' },
-    titleDescription: {
-      de: 'Ermutige Menschen, einen Blick zu werfen und mit deinen Projekten zu interagieren. Hebe deinen Ansatz zur Erstellung responsiver, benutzerfreundlicher Projekte mit effizientem Code hervor.',
-      en: 'Encourage people to take a look and interact with your projects. Highlight your approach to creating responsive, user-friendly projects with efficient code.'
-    },
-    joinTitle: { de: 'Join', en: 'Join' },
-    joinDescription: {
-      de: 'Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben mit Drag-and-Drop-Funktionen, weise Benutzer und Kategorien zu.',
-      en: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.'
-    },
-    powerTitle: { de: 'Power of the Beast', en: 'Power of the Beast' },
-    powerDescription: {
-      de: 'Spring-, Lauf- und Wurfspiel basierend auf objektorientiertem Ansatz. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen das verrückte Huhn zu kämpfen.',
-      en: 'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.'
-    },
-    dabubbleTitle: { de: 'DABubble', en: 'DABubble' },
-    dabubbleDescription: {
-      de: 'Diese App ist eine Slack-Clone-App. Sie revolutioniert die Teamkommunikation und -zusammenarbeit mit ihrer intuitiven Benutzeroberfläche, Echtzeit-Messaging und nahtlosem Dateiaustausch für erhöhte Produktivität.',
-      en: 'This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and seamless file sharing for enhanced productivity.'
-    }
-  };
-}
+  getProjectTexts() {
+    return {
+      craftLabel: { de: 'MEINE ARBEIT', en: 'MY CRAFT' },
+      projectsTitle: { de: 'Projekte', en: 'Projects' },
+      titleDescription: {
+        de: 'Ermutige Menschen, einen Blick zu werfen und mit deinen Projekten zu interagieren. Hebe deinen Ansatz zur Erstellung responsiver, benutzerfreundlicher Projekte mit effizientem Code hervor.',
+        en: 'Encourage people to take a look and interact with your projects. Highlight your approach to creating responsive, user-friendly projects with efficient code.'
+      },
+      joinTitle: { de: 'Join', en: 'Join' },
+      joinDescription: {
+        de: 'Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben mit Drag-and-Drop-Funktionen, weise Benutzer und Kategorien zu.',
+        en: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.'
+      },
+      powerTitle: { de: 'Power of the Beast', en: 'Power of the Beast' },
+      powerDescription: {
+        de: 'Spring-, Lauf- und Wurfspiel basierend auf objektorientiertem Ansatz. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen das verrückte Huhn zu kämpfen.',
+        en: 'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.'
+      },
+      dabubbleTitle: { de: 'DABubble', en: 'DABubble' },
+      dabubbleDescription: {
+        de: 'Diese App ist eine Slack-Clone-App. Sie revolutioniert die Teamkommunikation und -zusammenarbeit mit ihrer intuitiven Benutzeroberfläche, Echtzeit-Messaging und nahtlosem Dateiaustausch für erhöhte Produktivität.',
+        en: 'This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and seamless file sharing for enhanced productivity.'
+      }
+    };
+  }
 
-getAboutTexts() {
-  return {
-    whoIs: { de: 'WER IST KAY?', en: "WHO'S KAY?" },
-    aboutMe: { de: 'Über mich', en: 'About me' },
-    description: {
-      de: 'Hey! Ich bin Kay – ein passionierter Full-Stack-Developer, der 2022 seinen Weg über eine FAIE-Umschulung und die Bundeswehr in die faszinierende Welt der Softwareentwicklung gefunden hat.',
-      en: "Hey there! I'm Kay – a passionate Full-Stack Developer who discovered the fascinating world of software development in 2022 through a FAIE retraining program and the German Armed Forces."
-    },
-    collaboration: {
-      de: 'Ich bin aufgeschlossen und lernbegierig – bereit, neue Projekte anzugehen.',
-      en: 'I am open-minded and eager to learn – ready to tackle new projects.'
-    },
-    button: { de: 'Lass uns reden', en: "Let's talk" }
-  };
-}
+  getAboutTexts() {
+    return {
+      whoIs: { de: 'WER IST KAY?', en: "WHO'S KAY?" },
+      aboutMe: { de: 'Über mich', en: 'About me' },
+      description: {
+        de: 'Hey! Ich bin Kay – ein passionierter Full-Stack-Developer, der 2022 seinen Weg über eine FAIE-Umschulung und die Bundeswehr in die faszinierende Welt der Softwareentwicklung gefunden hat.',
+        en: "Hey there! I'm Kay – a passionate Full-Stack Developer who discovered the fascinating world of software development in 2022 through a FAIE retraining program and the German Armed Forces."
+      },
+      collaboration: {
+        de: 'Ich bin aufgeschlossen und lernbegierig – bereit, neue Projekte anzugehen.',
+        en: 'I am open-minded and eager to learn – ready to tackle new projects.'
+      },
+      button: { de: 'Lass uns reden', en: "Let's talk" }
+    };
+  }
 
-getInfoStickerTexts() {
-  return {
-    basedIn: { de: 'Ansässig in Lüneburg', en: 'Based in Lüneburg' },
-    relocate: { de: 'Umzug? NEIN!', en: 'relocate? NO!' },
-    remote: { de: 'Offen für Remote-Arbeit', en: 'Open to work remote' }
-  };
-}
+  getInfoStickerTexts() {
+    return {
+      basedIn: { de: 'Ansässig in Lüneburg', en: 'Based in Lüneburg' },
+      relocate: { de: 'Umzug? NEIN!', en: 'relocate? NO!' },
+      remote: { de: 'Offen für Remote-Arbeit', en: 'Open to work remote' }
+    };
+  }
 
 
 }

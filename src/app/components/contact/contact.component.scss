@@ -294,7 +294,6 @@
   }
 }
 
-// ===== MODAL STYLES =====
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -377,7 +376,6 @@
   }
 }
 
-// Click-Style für Links
 .privacy-link,
 .footer-legal,
 .footer-legal-text {
@@ -389,7 +387,6 @@
   }
 }
 
-// Animations
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -565,7 +562,6 @@
   }
 }
 
-// Mobile Modal
 @include tablet {
   .modal-overlay {
     align-items: flex-start;

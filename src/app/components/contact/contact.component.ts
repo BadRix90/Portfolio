@@ -68,20 +68,27 @@ export class ContactComponent {
   }
 
   private sendFormData(): void {
-    const formData = this.createFormData();
-    this.http.post('./contact.php', formData, { responseType: 'text' })
-      .subscribe({
-        next: (res) => console.log('Serverantwort:', res),
-        error: (err) => console.error('HTTP-Fehler:', err)
-      });
-  }
+    const jsonData = {
+      name: this.contactForm.value.name,
+      email: this.contactForm.value.email,
+      message: this.contactForm.value.message
+    };
 
-  private createFormData(): FormData {
-    const formData = new FormData();
-    formData.append('name', this.contactForm.value.name);
-    formData.append('email', this.contactForm.value.email);
-    formData.append('message', this.contactForm.value.message);
-    return formData;
+    this.http.post('https://kaydietrich.com/sendMail.php', jsonData, {
+      responseType: 'text',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .subscribe({
+        next: (res) => {
+          alert(this.getText('successMessage'));
+          this.contactForm.reset();
+        },
+        error: (err) => {
+          alert('Sorry, there was an error sending your message. Please try again.');
+        }
+      });
   }
 
   private markAllFieldsAsTouched(): void {

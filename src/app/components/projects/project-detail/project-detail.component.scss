@@ -78,21 +78,54 @@
   .project-main-title {
     position: relative;
     font-family: var(--font-main);
-    font-size: 48px;
+    font-size: 40px;
     font-weight: 700;
     color: #333;
     margin: 0 0 40px 0;
+
 
     .animated-underline {
       position: absolute;
       bottom: -8px;
       left: 0;
-      width: 100%;
+      width: 370px;
       height: 20px;
       background-image: url('/assets/img/Blue_line.png');
       background-size: 100% 20px;
       background-repeat: no-repeat;
-      animation: fill-animation 5s ease-in-out infinite;
+      animation: underline-cycle 12s ease-in-out infinite;
+    }
+
+    @keyframes underline-cycle {
+      0% {
+        clip-path: inset(0 100% 0 0);
+        opacity: 0;
+      }
+
+      12.5% {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+      }
+
+      37.5% {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+      }
+
+      50% {
+        clip-path: inset(0 100% 0 0);
+        opacity: 0;
+      }
+
+      75% {
+        clip-path: inset(0 100% 0 0);
+        opacity: 0;
+      }
+
+      100% {
+        clip-path: inset(0 100% 0 0);
+        opacity: 0;
+      }
     }
   }
 
@@ -337,6 +370,10 @@
     gap: 180px
   }
 
+  .animated-underline {
+    width: 320px !important;
+  }
+
 }
 
 @include desktop {
@@ -436,10 +473,10 @@
   }
 }
 
-@include tablet{
-    .project-image-section{
-      max-width: 400px;
-    }
+@include tablet {
+  .project-image-section {
+    max-width: 400px;
+  }
 }
 
 @include mobile-lg {
@@ -447,7 +484,7 @@
     .project-image-section {
       max-width: 280px;
       min-width: 250px;
-      
+
       .project-preview {
         .project-main-image {
           max-width: 280px;
@@ -456,7 +493,12 @@
       }
     }
   }
-    .featured-badge{
-      display: none;
-    }
+
+  .featured-badge {
+    display: none;
+  }
+
+  .animated-underline {
+    width: 250px !important;
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TextService } from '../../../services/text.service';
 
 @Component({
   selector: 'app-info-stickers',
@@ -8,47 +9,18 @@ import { CommonModule } from '@angular/common';
   styleUrl: './info-stickers.component.scss'
 })
 export class InfoStickersComponent {
+  @Input() currentLanguage = 'en';
 
-   @Input() currentLanguage = 'en';
-
-  // Texte direkt hier - einfach und funktional
-  texts = {
-    basedIn: {
-      de: 'Ansässig in Lüneburg',
-      en: 'Based in Lüneburg'
-    },
-    relocate: {
-      de: 'Umzug? NEIN!"',
-      en: 'relocate? NO!'
-    },
-    remote: {
-      de: 'Offen für Remote-Arbeit',
-      en: 'Open to work remote'
-    }
-  };
+  constructor(private textService: TextService) {}
 
   stickers = [
-    {
-      key: 'basedIn',
-      background: 'yellow.png',
-      icon: 'location.png',
-      color: 'yellow'
-    },
-    {
-      key: 'relocate', 
-      background: 'blue.png',
-      icon: 'relocation.png',
-      color: 'blue'
-    },
-    {
-      key: 'remote',
-      background: 'orange.png',
-      icon: 'remote.png', 
-      color: 'orange'
-    }
+    { key: 'basedIn', background: 'yellow.png', icon: 'location.png', color: 'yellow' },
+    { key: 'relocate', background: 'blue.png', icon: 'relocation.png', color: 'blue' },
+    { key: 'remote', background: 'orange.png', icon: 'remote.png', color: 'orange' }
   ];
 
   getText(key: string): string {
-    return this.texts[key as keyof typeof this.texts][this.currentLanguage as 'de' | 'en'];
+    const texts = this.textService.getInfoStickerTexts();
+    return (texts as any)[key][this.currentLanguage];
   }
 }

@@ -5,6 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class TextService {
 
+    getHeroTexts() {
+    return {
+      buttonText: { de: 'Kontakt aufnehmen', en: 'Get in Touch' },
+      helloText: { de: 'Hallo Welt', en: 'Hello World' }
+    };
+  }
+
   getContactTexts() {
     return {
       contactLabel: { de: 'KONTAKTIERE MICH', en: 'CONTACT ME' },
@@ -78,10 +85,13 @@ getAboutTexts() {
   };
 }
 
-  getHeroTexts() {
-    return {
-      buttonText: { de: 'Kontakt aufnehmen', en: 'Get in Touch' },
-      helloText: { de: 'Hallo Welt', en: 'Hello World' }
-    };
-  }
+getInfoStickerTexts() {
+  return {
+    basedIn: { de: 'Ansässig in Lüneburg', en: 'Based in Lüneburg' },
+    relocate: { de: 'Umzug? NEIN!', en: 'relocate? NO!' },
+    remote: { de: 'Offen für Remote-Arbeit', en: 'Open to work remote' }
+  };
+}
+
+
 }

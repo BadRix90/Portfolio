@@ -37,15 +37,25 @@ export class ContactComponent {
     });
   }
 
-getText(key: string): string {
-  const texts = this.textService.getContactTexts();
-  const textObj = texts[key as keyof typeof texts];
-  return textObj ? textObj[this.currentLanguage as 'de' | 'en'] : '';
-}
+  getText(key: string): string {
+    const texts = this.textService.getContactTexts();
+    const textObj = texts[key as keyof typeof texts];
+    return textObj ? textObj[this.currentLanguage as 'de' | 'en'] : '';
+  }
 
   onFieldBlur(fieldName: string): void {
     const field = this.contactForm.get(fieldName);
     if (field) field.markAsTouched();
+  }
+
+  getFieldError(fieldName: string): string {
+    const field = this.contactForm.get(fieldName);
+    if (field?.errors && field.touched) {
+      if (field.errors['required']) return `${fieldName} is required`;
+      if (field.errors['minLength']) return `${fieldName} is too short`;
+      if (field.errors['invalidEmail']) return 'Invalid email format';
+    }
+    return '';
   }
 
   onSubmit(): void {

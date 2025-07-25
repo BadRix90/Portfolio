@@ -1,4 +1,3 @@
-
 @import '../../../breakpoints';
 
 .contact-section {
@@ -413,8 +412,18 @@
   }
 }
 
-// ===== RESPONSIVE BREAKPOINTS =====
-// ===== MOBILE LAYOUT (unter 1000px) =====
+.form-input.error,
+.form-textarea.error {
+  border-bottom-color: #f44336 !important;
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 14px;
+  margin-top: 5px;
+  font-family: var(--font-main);
+}
+
 @include desktop {
   .contact-section {
     height: auto;

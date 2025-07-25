@@ -62,6 +62,22 @@ getProjectTexts() {
   };
 }
 
+getAboutTexts() {
+  return {
+    whoIs: { de: 'WER IST KAY?', en: "WHO'S KAY?" },
+    aboutMe: { de: 'Über mich', en: 'About me' },
+    description: {
+      de: 'Hey! Ich bin Kay – ein passionierter Full-Stack-Developer, der 2022 seinen Weg über eine FAIE-Umschulung und die Bundeswehr in die faszinierende Welt der Softwareentwicklung gefunden hat.',
+      en: "Hey there! I'm Kay – a passionate Full-Stack Developer who discovered the fascinating world of software development in 2022 through a FAIE retraining program and the German Armed Forces."
+    },
+    collaboration: {
+      de: 'Ich bin aufgeschlossen und lernbegierig – bereit, neue Projekte anzugehen.',
+      en: 'I am open-minded and eager to learn – ready to tackle new projects.'
+    },
+    button: { de: 'Lass uns reden', en: "Let's talk" }
+  };
+}
+
   getHeroTexts() {
     return {
       buttonText: { de: 'Kontakt aufnehmen', en: 'Get in Touch' },

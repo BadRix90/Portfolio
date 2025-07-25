@@ -61,24 +61,30 @@ export class TitleComponent implements OnInit {
     return char;
   }
 
-
-  onPHover() {
-    if (this.handState !== 'hidden') {
-      return;
-    }
-
-    this.pText = "I'm Kay Dietrich";
-    this.handState = 'waving';
-
-    setTimeout(() => {
-      this.handState = 'rolling';
-      setTimeout(() => {
-        this.handState = 'hidden';
-        this.pText = 'Hello World';
-      }, 1500);
-    }, 100);
+  onPHover(): void {
+    if (this.handState !== 'hidden') return;
+    this.updateTextToName();
+    this.startWaveAnimation();
   }
 
+  private updateTextToName(): void {
+    this.pText = "I'm Kay Dietrich";
+  }
+
+  private startWaveAnimation(): void {
+    this.handState = 'waving';
+    setTimeout(() => this.startRollingAnimation(), 100);
+  }
+
+  private startRollingAnimation(): void {
+    this.handState = 'rolling';
+    setTimeout(() => this.resetToOriginalState(), 1500);
+  }
+
+  private resetToOriginalState(): void {
+    this.handState = 'hidden';
+    this.pText = 'Hello World';
+  }
 
   onPLeave() {
     if (this.handState === 'hidden') {
@@ -97,9 +103,9 @@ export class TitleComponent implements OnInit {
   }
 
   scrollToContact(): void {
-  const element = document.getElementById('contact');
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const element = document.getElementById('contact');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
-}
 }

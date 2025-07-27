@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { TextService } from '../../../services/text.service';
 
 @Component({
   selector: 'app-my-stack',
@@ -10,13 +11,17 @@ import { Component, Input } from '@angular/core';
 export class MyStackComponent {
   @Input() currentLanguage = 'en';
 
+  constructor(private textService: TextService) {}
+
+  get skillTexts() {
+    return this.textService.getSkillTexts();
+  }
+
   get stackText() {
-    return this.currentLanguage === 'de' ? 'MEIN STACK' : 'MY STACK';
+    return this.skillTexts.stackLabel[this.currentLanguage as 'de' | 'en'];
   }
 
   get descriptionText() {
-    return this.currentLanguage === 'de' 
-      ? 'Eine kurze Einführung in deine Fähigkeiten. Hebe deine Erfahrung mit verschiedenen Frontend-Technologien hervor und betone deine Offenheit für das Lernen und die Anpassung an neue Technologien.'
-      : 'A short introduction of your skills. Highlight your experience of using different front-end technologies and emphasise your openness to learning and adapting to new technologies.';
+    return this.skillTexts.stackDescription[this.currentLanguage as 'de' | 'en'];
   }
 }

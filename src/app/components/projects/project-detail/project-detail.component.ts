@@ -134,6 +134,6 @@ getProjectImplementationDetails(): string {
   }
 
   get nextButtonIcon(): string {
-    return this.nextProject ? 'arrow_forward.png' : 'arrow_back.png';
+    return this.nextProject ? 'arrow_forward.webp' : 'arrow_back.webp';
   }
 }

@@ -8,16 +8,16 @@ import { Project } from '../interfaces/project.interface';
 export class ProjectService {
 
   private techStack = [
-    { name: 'HTML', icon: 'html.png', alt: 'HTML5 Technology' },
-    { name: 'CSS', icon: 'css.png', alt: 'CSS3 Styling' },
-    { name: 'JavaScript', icon: 'js.png', alt: 'JavaScript Programming' },
-    { name: 'TypeScript', icon: 'ts.png', alt: 'TypeScript Development' },
-    { name: 'Angular', icon: 'angular.png', alt: 'Angular Framework' },
-    { name: 'Firebase', icon: 'firebase.png', alt: 'Firebase Backend' },
-    { name: 'Git', icon: 'git.png', alt: 'Git Version Control' },
-    { name: 'Rest-Api', icon: 'rest-api.png', alt: 'REST API Development' },
-    { name: 'Scrum', icon: 'scrum.png', alt: 'Scrum Methodology' },
-    { name: 'Material Design', icon: 'material-design.png', alt: 'Material Design System' },
+    { name: 'HTML', icon: 'html.webp', alt: 'HTML5 Technology' },
+    { name: 'CSS', icon: 'css.webp', alt: 'CSS3 Styling' },
+    { name: 'JavaScript', icon: 'js.webp', alt: 'JavaScript Programming' },
+    { name: 'TypeScript', icon: 'ts.webp', alt: 'TypeScript Development' },
+    { name: 'Angular', icon: 'angular.webp', alt: 'Angular Framework' },
+    { name: 'Firebase', icon: 'firebase.webp', alt: 'Firebase Backend' },
+    { name: 'Git', icon: 'git.webp', alt: 'Git Version Control' },
+    { name: 'Rest-Api', icon: 'rest-api.webp', alt: 'REST API Development' },
+    { name: 'Scrum', icon: 'scrum.webp', alt: 'Scrum Methodology' },
+    { name: 'Material Design', icon: 'material-design.webp', alt: 'Material Design System' },
   ];
 
 private projects: { [key: string]: Project } = {
@@ -33,7 +33,7 @@ private projects: { [key: string]: Project } = {
       en: 'Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently.'
     },
     duration: '5 weeks',
-    image: 'assets/img/join.png',
+    image: 'assets/img/join.webp',
     technologies: ['JavaScript', 'CSS', 'HTML', 'Firebase'],
     githubUrl: 'https://github.com/BadRix90/join',
     liveUrl: 'https://kaydietrich.com/join/'
@@ -50,7 +50,7 @@ private projects: { [key: string]: Project } = {
       en: 'Object-oriented JavaScript game with canvas rendering, collision detection, and smooth character controls. Implemented game mechanics including jumping, running, and throwing objects.'
     },
     duration: '4 weeks',
-    image: 'assets/img/PowerOfTheBeast.png',
+    image: 'assets/img/PowerOfTheBeast.webp',
     technologies: ['JavaScript', 'HTML', 'CSS'],
     githubUrl: 'https://github.com/BadRix90/El-Pollo-Loco',
     liveUrl: 'https://kaydietrich.com/epl/'
@@ -67,7 +67,7 @@ private projects: { [key: string]: Project } = {
       en: 'Real-time chat application built with modern web technologies. Features include channel management, direct messaging, file uploads, and user authentication.'
     },
     duration: '6 weeks',
-    image: 'assets/img/DABubble.png',
+    image: 'assets/img/DABubble.webp',
     technologies: ['Angular', 'TypeScript', 'Firebase', 'CSS'],
     githubUrl: 'https://github.com/your-username/dabubble',
     liveUrl: 'https://your-dabubble-app.com'
@@ -103,7 +103,7 @@ getNextProject(currentId: string): Project | null {
 
   getTechIcon(techName: string): string {
     const tech = this.techStack.find(t => t.name.toLowerCase() === techName.toLowerCase());
-    return tech ? `assets/img/${tech.icon}` : 'assets/img/default.png';
+    return tech ? `assets/img/${tech.icon}` : 'assets/img/default.webp';
   }
 
   // ← NEU: Methode für Tech-Alt Text

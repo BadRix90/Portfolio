@@ -129,7 +129,7 @@ getTestimonialTexts() {
             en: 'Kay took the lead on the Join project and kept us together as a team. His structured approach and willingness to help made the project a success.'
           },
           linkedinUrl: 'https://www.linkedin.com/in/relja-jovanovic-794374356/',
-          backgroundImage: 'assets/img/imonials-left.png',
+          backgroundImage: 'assets/img/imonials-left.webp',
           zIndex: 3
         },
         {
@@ -141,7 +141,7 @@ getTestimonialTexts() {
             en: 'Kay\'s leadership skills and focus on clean code significantly improved our team project. He always finds a solution and motivates the whole team.'
           },
           linkedinUrl: 'https://www.linkedin.com/in/andre-gro%C3%9F-b61b43339/',
-          backgroundImage: 'assets/img/imonials-middle.png',
+          backgroundImage: 'assets/img/imonials-middle.webp',
           zIndex: 2
         },
         {
@@ -153,7 +153,7 @@ getTestimonialTexts() {
             en: 'Kay perfectly brings his military experience into development. Structured, reliable and always up-to-date with technology. A real team player.'
           },
           linkedinUrl: 'https://www.linkedin.com/in/kevin-schmidt-a76862313/',
-          backgroundImage: 'assets/img/imonials-right.png',
+          backgroundImage: 'assets/img/imonials-right.webp',
           zIndex: 1
         }
       ]

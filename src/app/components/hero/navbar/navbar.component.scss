@@ -53,19 +53,19 @@
                 transition: all 0.4s ease;
 
                 &.about {
-                    background-image: url('/assets/img/B.1_1.png');
+                    background-image: url('/assets/img/B.1_1.webp');
                 }
 
                 &.skills {
-                    background-image: url('/assets/img/B.1_1-1.png');
+                    background-image: url('/assets/img/B.1_1-1.webp');
                 }
 
                 &.projects {
-                    background-image: url('/assets/img/B.1_1-3.png');
+                    background-image: url('/assets/img/B.1_1-3.webp');
                 }
 
                 &.contact {
-                    background-image: url('/assets/img/B.1_1-2.png');
+                    background-image: url('/assets/img/B.1_1-2.webp');
                 }
             }
 
@@ -184,7 +184,7 @@
             top: 0;
             width: 100vw;
             height: 620px;
-            background-image: url('/assets/img/01_Hero.png');
+            background-image: url('/assets/img/01_Hero.webp');
             background-size: cover;
             background-repeat: no-repeat;
             background-position: bottom;
@@ -284,16 +284,16 @@
             }
 
             &:hover .menu-icon {
-                content: url('/assets/img/menu_hover.png');
+                content: url('/assets/img/menu_hover.webp');
             }
         }
 
         &.mobile-menu-open {
             .burger-menu .menu-icon {
-                content: url('/assets/img/close_menu.png');
+                content: url('/assets/img/close_menu.webp');
 
                 &:hover {
-                    content: url('/assets/img/close_menu_hover.png');
+                    content: url('/assets/img/close_menu_hover.webp');
                 }
             }
 

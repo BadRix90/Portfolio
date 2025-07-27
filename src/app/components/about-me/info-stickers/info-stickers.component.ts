@@ -14,9 +14,9 @@ export class InfoStickersComponent {
   constructor(private textService: TextService) {}
 
   stickers = [
-    { key: 'basedIn', background: 'yellow.png', icon: 'location.png', color: 'yellow' },
-    { key: 'relocate', background: 'blue.png', icon: 'relocation.png', color: 'blue' },
-    { key: 'remote', background: 'orange.png', icon: 'remote.png', color: 'orange' }
+    { key: 'basedIn', background: 'yellow.webp', icon: 'location.webp', color: 'yellow' },
+    { key: 'relocate', background: 'blue.webp', icon: 'relocation.webp', color: 'blue' },
+    { key: 'remote', background: 'orange.webp', icon: 'remote.webp', color: 'orange' }
   ];
 
   getText(key: string): string {

@@ -142,19 +142,19 @@ export class ContactComponent {
     {
       name: 'Github',
       url: 'https://github.com/BadRix90',
-      icon: 'assets/img/github.png',
+      icon: 'assets/img/github.webp',
       isExternal: true
     },
     {
       name: 'LinkedIn',
       url: 'https://linkedin.com/in/kaydietrich',
-      icon: 'assets/img/linkedin.png',
+      icon: 'assets/img/linkedin.webp',
       isExternal: true
     },
     {
       name: 'Email',
       url: 'mailto:kay@kaydietrich.com',
-      icon: 'assets/img/mail.png',
+      icon: 'assets/img/mail.webp',
       isExternal: false
     }
   ];

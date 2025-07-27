@@ -1,6 +1,5 @@
 <section class="testimonials-section">
   <div class="testimonials-container">
-    <!-- Header -->
     <div class="testimonials-header">
       <div class="header-content">
         <img src="/assets/img/imonials-arrow.png" alt="Arrow" class="arrow-icon">
@@ -9,17 +8,12 @@
       <h2 class="testimonials-title">{{ getText('testimonialsTitle') }}</h2>
     </div>
 
-    <!-- Testimonials Cards -->
     <div class="testimonials-cards">
-      <div 
-        *ngFor="let testimonial of testimonials" 
-        class="testimonial-card"
+      <div *ngFor="let testimonial of testimonials" class="testimonial-card"
         [style.background-image]="'url(' + testimonial.backgroundImage + ')'"
-        [style.z-index]="getTestimonialZIndex(testimonial)"
-        (mouseenter)="onTestimonialHover(testimonial.id)"
-        (mouseleave)="onTestimonialLeave()"
-        [attr.data-testimonial]="testimonial.id">
-        
+        [style.z-index]="getTestimonialZIndex(testimonial)" (mouseenter)="onTestimonialHover(testimonial.id)"
+        (mouseleave)="onTestimonialLeave()" [attr.data-testimonial]="testimonial.id">
+
         <div class="card-content">
           <p class="testimonial-text">{{ getTestimonialText(testimonial) }}</p>
           <div class="testimonial-footer">
@@ -27,12 +21,8 @@
               <h4 class="author-name">{{ testimonial.name }}</h4>
               <p class="author-position">{{ testimonial.position }}</p>
             </div>
-            
-            <a 
-              [href]="testimonial.linkedinUrl" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              class="linkedin-link">
+
+            <a (click)="openLinkedInProfile(testimonial.linkedinUrl)" class="linkedin-link" style="cursor: pointer;">
               <img src="/assets/img/imonials_linkedin.png" alt="LinkedIn" class="linkedin-icon">
               <span class="profile-text">{{ getText('profileText') }}</span>
             </a>

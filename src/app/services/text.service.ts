@@ -105,5 +105,58 @@ export class TextService {
     };
   }
 
-
+  getTestimonialTexts() {
+    return {
+      headerLabel: {
+        de: 'IN IHREN WORTEN:',
+        en: 'IN THEIR WORDS:'
+      },
+      testimonialsTitle: {
+        de: 'Kollegen-Meinungen',
+        en: 'Colleagues\' Thoughts'
+      },
+      profileText: {
+        de: 'Profil',
+        en: 'Profile'
+      },
+      testimonials: [
+        {
+          id: 1,
+          name: 'Relja Jovanovic',
+          position: 'Frontend Developer',
+          text: {
+            de: 'Kay war ein zuverlässiger Teampartner während unseres Join-Projekts. Er hat sich wirklich bemüht, uns alle zusammenzuhalten und war immer bereit zu helfen, wenn jemand Unterstützung brauchte.',
+            en: 'Kay was a reliable team partner during our Join project at Developer Academy. He really made an effort to keep us all together and was always ready to help when someone needed support.'
+          },
+          linkedinUrl: 'https://www.linkedin.com/in/relja-jovanovic-794374356/',
+          backgroundImage: 'assets/img/imonials-left.png',
+          zIndex: 3
+        },
+        {
+          id: 2,
+          name: 'Andre Groß',
+          position: 'Developer',
+          text: {
+            de: 'Während unseres Join-Projekts hat Kay oft die Initiative ergriffen und versucht, unser Team zu organisieren. Seine Unterstützung und sein Engagement haben mir sehr geholfen, besonders in schwierigen Momenten.',
+            en: 'During our Join project, Kay often took initiative and tried to organize our team. His support and dedication really helped me, especially during challenging moments.'
+          },
+          linkedinUrl: 'https://www.linkedin.com/in/andre-gro%C3%9F-b61b43339/',
+          backgroundImage: 'assets/img/imonials-middle.png',
+          zIndex: 2
+        },
+        {
+          id: 3,
+          name: 'Kevin Schmidt',
+          position: 'Application Developer',
+          text: {
+            de: 'Kay und ich haben zusammen die Umschulung zum Anwendungsentwickler gemacht. Was mir an ihm aufgefallen ist: Er gibt nicht so schnell auf und versucht immer, eine Lösung zu finden. Ein Typ, auf den man sich verlassen kann.',
+            en: 'Kay and I did our retraining as application developers together. What I noticed about him: He doesn\'t give up easily and always tries to find a solution. A guy you can rely on.'
+          },
+          linkedinUrl: 'https://www.linkedin.com/in/kevin-schmidt-a76862313/',
+          backgroundImage: 'assets/img/imonials-right.png',
+          zIndex: 1
+        }
+      ]
+    };
+  }
 }

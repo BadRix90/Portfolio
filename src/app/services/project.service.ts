@@ -10,8 +10,6 @@ export class ProjectService {
   private techStack = [
     { name: 'HTML', icon: 'html.png', alt: 'HTML5 Technology' },
     { name: 'CSS', icon: 'css.png', alt: 'CSS3 Styling' },
-    { name: 'SCSS', icon: 'scss.png', alt: 'SCSS Styling' },
-    { name: 'RxJs', icon: 'RxJs.png', alt: 'RxJs' },
     { name: 'JavaScript', icon: 'js.png', alt: 'JavaScript Programming' },
     { name: 'TypeScript', icon: 'ts.png', alt: 'TypeScript Development' },
     { name: 'Angular', icon: 'angular.png', alt: 'Angular Framework' },
@@ -70,7 +68,7 @@ private projects: { [key: string]: Project } = {
     },
     duration: '6 weeks',
     image: 'assets/img/DABubble.png',
-    technologies: ['Angular', 'TypeScript', 'Firebase', 'SCSS'],
+    technologies: ['Angular', 'TypeScript', 'Firebase', 'CSS'],
     githubUrl: 'https://github.com/your-username/dabubble',
     liveUrl: 'https://your-dabubble-app.com'
   }

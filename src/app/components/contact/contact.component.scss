@@ -290,20 +290,116 @@
       max-width: 1000px;
       margin-left: 100px;
 
-      .footer-link {
-        font-family: var(--font-main);
-        color: #ccc;
-        text-decoration: none;
-        transition: all 0.3s ease;
+      .social-link-container {
         position: relative;
         cursor: pointer;
+        padding: 8px 16px;
         border-radius: 25px;
-        @include hand-roll-animation;
+        transition: all 0.3s ease;
 
         &:hover {
-          color: white;
-          background-color: #3355FF; // ← Blauer Background
+          background-color: #3355FF;
         }
+
+        // Rolling Icon (wie Title Hand)
+        .social-icon-roller {
+          position: absolute;
+          top: -30px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 24px;
+          height: 24px;
+          z-index: 10;
+
+          .rolling-icon {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            filter: brightness(0) invert(1);
+            transition: opacity 0.3s ease;
+          }
+
+          &.hidden .rolling-icon {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(0) rotate(0deg);
+          }
+
+          &.hovering .rolling-icon {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(0) rotate(0deg);
+          }
+
+          &.rolling .rolling-icon {
+            opacity: 1;
+            visibility: visible;
+            animation: rollSocialIcon 1.2s ease-out forwards;
+          }
+        }
+
+        // Text Styling (wie HelloWorld)
+        .social-text {
+          font-family: var(--font-main);
+          color: #ccc;
+          font-weight: 600;
+          transition: all 0.3s ease;
+
+          &.active {
+            color: white;
+          }
+        }
+
+        &:hover .social-text {
+          color: white;
+        }
+      }
+    }
+
+    @keyframes rollSocialIcon {
+      0% {
+        transform: translateX(-40px) rotate(0deg);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      60% {
+        transform: translateX(42px) rotate(360deg);
+        opacity: 1;
+      }
+
+      75% {
+        transform: translateX(40px) rotate(360deg);
+        opacity: 1;
+      }
+
+      90% {
+        transform: translateX(40px) rotate(360deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateX(40px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes iconPulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.2);
       }
     }
   }
@@ -404,7 +500,6 @@
   }
 }
 
-// Ergänzung für .footer-legal und .footer-legal-text
 .footer-legal,
 .footer-legal-text {
   font-family: var(--font-main);
@@ -622,6 +717,32 @@
 
         .footer-link {
           text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@include tablet-lg {
+  .contact-footer {
+    .footer-right {
+      .social-link-container {
+
+        .social-icon-roller {
+          display: none;
+        }
+
+        .social-text {
+          font-size: 16px;
+          padding: 4px 0;
+        }
+
+        &:hover {
+          background-color: transparent !important;
+
+          .social-text {
+            color: #ccc !important;
+          }
         }
       }
     }

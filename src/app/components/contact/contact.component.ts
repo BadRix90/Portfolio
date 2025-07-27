@@ -133,4 +133,73 @@ export class ContactComponent {
   get email() { return this.contactForm.get('email'); }
   get message() { return this.contactForm.get('message'); }
   get privacy() { return this.contactForm.get('privacy'); }
+
+  socialState: 'hidden' | 'hovering' | 'rolling' = 'hidden';
+  hoveredIcon: string | null = null;
+
+  // Social Media Data
+  socialLinks = [
+    {
+      name: 'Github',
+      url: 'https://github.com/BadRix90',
+      icon: 'assets/img/github.png',
+      isExternal: true
+    },
+    {
+      name: 'LinkedIn',
+      url: 'https://linkedin.com/in/kaydietrich',
+      icon: 'assets/img/linkedin.png',
+      isExternal: true
+    },
+    {
+      name: 'Email',
+      url: 'mailto:kay@kaydietrich.com',
+      icon: 'assets/img/mail.png',
+      isExternal: false
+    }
+  ];
+
+  // Event Handlers (genau wie Hand Animation)
+  onSocialHover(iconName: string): void {
+    if (this.socialState !== 'hidden') return; // Verhindert mehrfache Ausführung
+    this.hoveredIcon = iconName;
+    this.startSocialAnimation();
+  }
+
+  private startSocialAnimation(): void {
+    this.socialState = 'hovering';
+    setTimeout(() => this.startRollingAnimation(), 50);
+  }
+
+  private startRollingAnimation(): void {
+    this.socialState = 'rolling';
+    setTimeout(() => this.resetSocialState(), 1200);
+  }
+
+  private resetSocialState(): void {
+    this.socialState = 'hidden';
+    this.hoveredIcon = null;
+  }
+
+  onSocialLeave(): void {
+    // Nur zurücksetzen wenn keine Animation läuft
+    if (this.socialState === 'hidden') {
+      this.hoveredIcon = null;
+    }
+  }
+
+  getSocialIconState(iconName: string): string {
+    if (this.hoveredIcon === iconName) {
+      return this.socialState;
+    }
+    return 'hidden';
+  }
+
+  openSocialLink(url: string, isExternal: boolean): void {
+    if (isExternal) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } else {
+      window.location.href = url;
+    }
+  }
 }

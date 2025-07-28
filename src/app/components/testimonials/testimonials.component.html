@@ -9,10 +9,14 @@
     </div>
 
     <div class="testimonials-cards">
-      <div *ngFor="let testimonial of testimonials" class="testimonial-card"
-        [style.background-image]="'url(' + testimonial.backgroundImage + ')'"
-        [style.z-index]="getTestimonialZIndex(testimonial)" (mouseenter)="onTestimonialHover(testimonial.id)"
-        (mouseleave)="onTestimonialLeave()" [attr.data-testimonial]="testimonial.id">
+      <div *ngFor="let testimonial of testimonials" 
+           class="testimonial-card"
+           [class.hovered]="hoveredTestimonial === testimonial.id"
+           [style.background-image]="'url(' + testimonial.backgroundImage + ')'"
+           [style.z-index]="getTestimonialZIndex(testimonial)" 
+           (mouseenter)="onTestimonialHover(testimonial.id)"
+           (mouseleave)="onTestimonialLeave()" 
+           [attr.data-testimonial]="testimonial.id">
 
         <div class="card-content">
           <p class="testimonial-text">{{ getTestimonialText(testimonial) }}</p>

@@ -87,21 +87,8 @@
       transform: rotate(6deg);
     }
 
-    &:hover {
-      &[data-testimonial="1"] {
-        transform: rotate(-8deg);
-      }
-
-      &[data-testimonial="2"] {
-        transform: translateX(-50%) rotate(2deg);
-      }
-
-      &[data-testimonial="3"] {
-        transform: rotate(6deg);
-      }
-    }
-
-    &::after {
+    // Hover-Overlay - nutzt Angular Hover-State statt CSS :hover
+    &::before {
       content: '';
       position: absolute;
       top: 0;
@@ -114,14 +101,15 @@
       background-repeat: no-repeat;
       border-radius: 20px;
       opacity: 0;
-      z-index: 2;
+      z-index: 1;
       pointer-events: none;
+      transition: opacity 0.2s ease-in-out;
     }
 
-    &:hover::after {
+    // Verwende Angular Hover-State statt CSS :hover
+    &.hovered::before {
       opacity: 1;
     }
-
 
     .card-content {
       padding: 30px;
@@ -131,7 +119,7 @@
       justify-content: space-between;
       color: #333;
       position: relative;
-      z-index: 3;
+      z-index: 2;
     }
 
     .testimonial-text {
@@ -205,7 +193,6 @@
   }
 }
 
-// ===== RESPONSIVE BREAKPOINTS =====
 @include desktop-xl {
   .testimonials-section {
     padding: 80px 40px;
@@ -238,7 +225,6 @@
         transform: rotate(6deg) !important;
       }
 
-      // 🔥 Hover mit Rotation
       &:hover {
         &[data-testimonial="1"] {
           transform: rotate(-8deg) scale(1.05) !important;

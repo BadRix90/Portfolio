@@ -22,12 +22,14 @@ interface Testimonial {
   templateUrl: './testimonials.component.html',
   styleUrl: './testimonials.component.scss'
 })
+
 export class TestimonialsComponent {
   @Input() currentLanguage = 'en';
 
   hoveredTestimonial: number | null = null;
+  hoveredLinkedIn: number | null = null;
 
-  constructor(private textService: TextService) {}
+  constructor(private textService: TextService) { }
 
   get testimonials(): Testimonial[] {
     return this.textService.getTestimonialTexts().testimonials;
@@ -48,6 +50,20 @@ export class TestimonialsComponent {
 
   onTestimonialLeave(): void {
     this.hoveredTestimonial = null;
+    this.hoveredLinkedIn = null;
+  }
+
+  onLinkedInHover(testimonialId: number): void {
+    this.hoveredLinkedIn = testimonialId;
+  }
+
+  onLinkedInLeave(): void {
+    this.hoveredLinkedIn = null;
+  }
+  
+  resetAllHoverStates(): void {
+    this.hoveredTestimonial = null;
+    this.hoveredLinkedIn = null;
   }
 
   getTestimonialZIndex(testimonial: Testimonial): number {
@@ -58,7 +74,7 @@ export class TestimonialsComponent {
   }
 
   openLinkedInProfile(url: string): void {
-  const formattedUrl = url.startsWith('http') ? url : `https://${url}`;
-  window.open(formattedUrl, '_blank', 'noopener,noreferrer');
-}
+    const formattedUrl = url.startsWith('http') ? url : `https://${url}`;
+    window.open(formattedUrl, '_blank', 'noopener,noreferrer');
+  }
 }

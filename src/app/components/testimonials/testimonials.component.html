@@ -8,7 +8,7 @@
       <h2 class="testimonials-title">{{ getText('testimonialsTitle') }}</h2>
     </div>
 
-    <div class="testimonials-cards">
+    <div class="testimonials-cards" (mouseleave)="resetAllHoverStates()">
       <div *ngFor="let testimonial of testimonials" 
            class="testimonial-card"
            [class.hovered]="hoveredTestimonial === testimonial.id"
@@ -26,7 +26,12 @@
               <p class="author-position">{{ testimonial.position }}</p>
             </div>
 
-            <a (click)="openLinkedInProfile(testimonial.linkedinUrl)" class="linkedin-link" style="cursor: pointer;">
+            <a (click)="openLinkedInProfile(testimonial.linkedinUrl)" 
+               class="linkedin-link" 
+               [class.linkedin-hovered]="hoveredLinkedIn === testimonial.id"
+               (mouseenter)="onLinkedInHover(testimonial.id); $event.stopPropagation()"
+               (mouseleave)="onLinkedInLeave(); $event.stopPropagation()"
+               style="cursor: pointer;">
               <img src="/assets/img/linkedin_black.webp" alt="LinkedIn" class="linkedin-icon">
               <span class="profile-text">{{ getText('profileText') }}</span>
             </a>

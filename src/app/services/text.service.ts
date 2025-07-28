@@ -105,7 +105,7 @@ export class TextService {
     };
   }
 
-getTestimonialTexts() {
+  getTestimonialTexts() {
     return {
       headerLabel: {
         de: 'IN IHREN WORTEN:',
@@ -116,8 +116,8 @@ getTestimonialTexts() {
         en: 'Colleagues\' Thoughts'
       },
       profileText: {
-        de: 'Profil',
-        en: 'Profile'
+        de: 'LinkedIn-Profil ansehen',
+        en: 'View LinkedIn Profile'
       },
       testimonials: [
         {

@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kaydietrich.com/sitemap.xml
+
+# Wichtige Seiten crawlen lassen
+Allow: /about
+Allow: /skills  
+Allow: /projects
+Allow: /contact
+
+# Keine technischen Dateien crawlen
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /*.json$
+
+# Crawl-delay für bessere Performance
+Crawl-delay: 1

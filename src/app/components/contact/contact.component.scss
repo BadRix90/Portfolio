@@ -165,12 +165,32 @@
       gap: 12px;
 
       input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
         width: 20px;
         height: 20px;
         margin: 0;
         flex-shrink: 0;
-        accent-color: #ff6b35;
         cursor: pointer;
+        border: 2px solid #3355FF;
+        border-radius: 3px;
+        background-color: transparent;
+        position: relative;
+        transition: all 0.3s ease;
+
+        &:checked {
+          background-image: url('/assets/img/check.webp');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          border-color: #3355FF;
+        }
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 2px rgba(51, 85, 255, 0.3);
+        }
       }
 
       .checkbox-label {

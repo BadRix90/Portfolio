@@ -182,16 +182,26 @@
 
       &:hover {
         transform: scale(1.05);
+
+        .profile-text {
+          color: #F8F9FA;
+        }
+
+        .linkedin-icon {
+          content: url('/assets/img/linkedin_white.webp');
+        }
       }
 
       .linkedin-icon {
         width: 32px;
         height: 32px;
+        transition: all 0.3s ease;
       }
 
       .profile-text {
         font-family: var(--font-main);
         font-weight: 600;
+        transition: color 0.3s ease;
       }
     }
   }

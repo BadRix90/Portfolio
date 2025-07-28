@@ -70,7 +70,6 @@
     background-repeat: no-repeat;
     border-radius: 20px;
     cursor: default;
-    transition: all 0.3s ease;
     transform-origin: center;
 
     &[data-testimonial="1"] {
@@ -115,7 +114,6 @@
       background-repeat: no-repeat;
       border-radius: 20px;
       opacity: 0;
-      transition: opacity 0.3s ease;
       z-index: 2;
       pointer-events: none;
     }

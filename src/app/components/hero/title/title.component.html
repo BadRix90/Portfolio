@@ -16,12 +16,11 @@
             </h1>
         </div>
         <div class="frame-container" (mouseenter)="onFrameHover()" (mouseleave)="onFrameLeave()">
-            <img src="assets/img/frame.webp" alt="Frame" class="frame-image" />
-            <div class="frame-photo">
-                <img src="assets/img/kay.webp" alt="Kay Dietrich" class="photo-image" />
-            </div>
+            <img src="assets/img/frame-photo.webp" alt="Kay Dietrich" class="frame-image" width="204" height="244"
+                fetchpriority="high" decoding="async" />
             <div class="frame-text">{{ frameText }}</div>
         </div>
+
     </div>
 
 
@@ -42,7 +41,6 @@
         </div>
     </div>
 
-    <!-- Lower Content (immer gleich) -->
     <div class="lower-content">
         <h1 class="hero-text developer">
             <span *ngFor="let c of developer; let i = index" class="swap-char" (mouseenter)="onHover('developer', i)"
@@ -51,15 +49,13 @@
             </span>
         </h1>
 
-<button class="primary-btn" (click)="scrollToContact()">{{ buttonText }}</button>
+        <button class="primary-btn" (click)="scrollToContact()">{{ buttonText }}</button>
     </div>
 
-    <!-- Mobile Frame unten -->
     <div class="frame-container" *ngIf="isMobileLayout" (mouseenter)="onFrameHover()" (mouseleave)="onFrameLeave()">
-        <img src="assets/img/frame.webp" alt="Frame" class="frame-image" />
-        <div class="frame-photo">
-            <img src="assets/img/kay.jpg" alt="Kay Dietrich" class="photo-image" />
-        </div>
+        <img src="assets/img/frame-photo.webp" alt="Kay Dietrich" class="frame-image" width="204" height="244"
+            fetchpriority="high" decoding="async" />
         <div class="frame-text">{{ frameText }}</div>
     </div>
+
 </div>

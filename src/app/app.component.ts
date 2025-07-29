@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { HeroComponent } from './components/hero/hero.component';
@@ -23,11 +23,19 @@ import { ContactComponent } from './components/contact/contact.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'portfolio-website';
   selectedLanguage = 'en';
 
- onLanguageChange(language: string) {
+  ngOnInit() {
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'de')) {
+      this.selectedLanguage = savedLanguage;
+    }
+  }
+
+  onLanguageChange(language: string) {
     this.selectedLanguage = language;
+    localStorage.setItem('selectedLanguage', language);
   }
 }

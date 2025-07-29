@@ -1,0 +1,127 @@
+@import '../../../breakpoints';
+
+.legal-section {
+  background-image: url('/assets/img/06_Footer.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 0%;
+  min-height: 100vh;
+  color: white;
+  padding: 0 50px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.legal-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 100px 0 50px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-weight: 600;
+  margin-bottom: 40px;
+  transition: all 0.3s ease;
+  width: fit-content;
+
+  img {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    background-color: #F87A55;
+    color: black;
+    border-color: #F87A55;
+  }
+}
+
+.legal-content {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: var(--font-main);
+}
+
+.legal-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #F87A55;
+  text-align: center;
+}
+
+.legal-section-block {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 40px 0 20px 0;
+  color: white;
+}
+
+.subsection-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 30px 0 15px 0;
+  color: #ccc;
+}
+
+.legal-text {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #ccc;
+  text-align: justify;
+  white-space: pre-line;
+}
+
+.legal-link {
+  color: #F87A55;
+  text-decoration: underline;
+  
+  &:hover {
+    color: #ff8a65;
+  }
+}
+
+@include desktop {
+  .legal-section {
+    padding: 20px;
+  }
+  
+  .legal-container {
+    padding: 60px 20px 40px;
+  }
+  
+  .legal-title {
+    font-size: 36px;
+  }
+  
+  .section-title {
+    font-size: 24px;
+  }
+  
+  .subsection-title {
+    font-size: 18px;
+  }
+}

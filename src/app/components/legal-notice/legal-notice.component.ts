@@ -1,11 +1,31 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { TextService } from '../../services/text.service';
 
 @Component({
   selector: 'app-legal-notice',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './legal-notice.component.html',
-  styleUrl: './legal-notice.component.scss'
+  styleUrls: ['./legal-notice.component.scss']
 })
 export class LegalNoticeComponent {
+  currentLanguage = 'en';
 
+  constructor(
+    private router: Router,
+    private textService: TextService
+  ) {
+    this.currentLanguage = localStorage.getItem('selectedLanguage') || localStorage.getItem('language') || 'en';
+  }
+
+  getText(key: string): string {
+    const texts = this.textService.getLegalTexts();
+    return (texts as any)[key][this.currentLanguage];
+  }
+
+  goBack() {
+    this.router.navigate(['/']);
+  }
 }

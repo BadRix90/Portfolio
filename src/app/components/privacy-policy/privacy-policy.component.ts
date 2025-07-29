@@ -1,11 +1,31 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { TextService } from '../../services/text.service';
 
 @Component({
   selector: 'app-privacy-policy',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './privacy-policy.component.html',
-  styleUrl: './privacy-policy.component.scss'
+  styleUrls: ['./privacy-policy.component.scss']
 })
 export class PrivacyPolicyComponent {
+  currentLanguage = 'en';
 
+  constructor(
+    private router: Router,
+    private textService: TextService
+  ) {
+    this.currentLanguage = localStorage.getItem('selectedLanguage') || localStorage.getItem('language') || 'en';
+  }
+
+  getText(key: string): string {
+    const texts = this.textService.getLegalTexts();
+    return (texts as any)[key][this.currentLanguage];
+  }
+
+  goBack() {
+    this.router.navigate(['/']);
+  }
 }

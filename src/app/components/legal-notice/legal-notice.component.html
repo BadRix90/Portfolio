@@ -1,1 +1,39 @@
-<p>legal-notice works!</p>
+<section class="legal-section">
+  <div class="legal-container">
+    <button class="back-button" (click)="goBack()">
+      <img src="assets/img/arrow_back.webp" alt="Back">
+      {{ getText('goBack') }}
+    </button>
+    
+    <div class="legal-content">
+      <h1 class="legal-title">{{ getText('legalTitle') }}</h1>
+      
+      <div class="legal-section-block">
+        <h2 class="section-title">{{ getText('companyInfo') }}</h2>
+        <p class="legal-text">{{ getText('companyDetails') }}</p>
+      </div>
+
+      <div class="legal-section-block">
+        <h2 class="section-title">{{ getText('contactInfo') }}</h2>
+        <p class="legal-text">
+          <a href="mailto:contact@kaydietrich.com" class="legal-link">{{ getText('contactDetails') }}</a>
+        </p>
+      </div>
+
+      <div class="legal-section-block">
+        <h2 class="section-title">{{ getText('disclaimer') }}</h2>
+        
+        <h3 class="subsection-title">{{ getText('content') }}</h3>
+        <p class="legal-text">{{ getText('contentText') }}</p>
+        
+        <h3 class="subsection-title">{{ getText('links') }}</h3>
+        <p class="legal-text">{{ getText('linksText') }}</p>
+      </div>
+
+      <div class="legal-section-block">
+        <h2 class="section-title">{{ getText('copyright') }}</h2>
+        <p class="legal-text">{{ getText('copyrightText') }}</p>
+      </div>
+    </div>
+  </div>
+</section>

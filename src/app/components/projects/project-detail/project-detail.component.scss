@@ -65,8 +65,12 @@
 
 .project-info-section {
   display: flex;
-  gap: 300px;
+  gap: 80px; // 🔥 FIX: 300px → 80px (viel kleiner!)
   align-items: flex-start;
+  justify-content: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .project-description-card {
@@ -74,6 +78,7 @@
   background: transparent;
   padding: 0;
   max-width: 600px;
+  min-width: 400px;
 
   .project-main-title {
     position: relative;
@@ -201,10 +206,10 @@
 }
 
 .project-image-section {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   gap: 30px;
   max-width: 500px;
   min-width: 320px;

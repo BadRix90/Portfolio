@@ -28,8 +28,18 @@ export class ProjectsComponent {
     this.showProjectDetail = true;
   }
 
-  closeProjectDetail() {
-    this.showProjectDetail = false;
-    this.selectedProjectId = '';
-  }
+ closeProjectDetail() {
+  this.showProjectDetail = false;
+  this.selectedProjectId = '';
+  
+  setTimeout(() => {
+    const projectsElement = document.getElementById('projects');
+    if (projectsElement) {
+      projectsElement.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    }
+  }, 100);
+}
 }

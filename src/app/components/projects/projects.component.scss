@@ -79,20 +79,22 @@
 
 .view-project-btn {
     padding: 12px 24px;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.95);
     color: #333;
     border: 2px solid #333;
     border-radius: 25px;
-    box-shadow: 4px 4px 0 #333;
+    box-shadow: 4px 4px 0 #333, 0 0 20px rgba(0, 0, 0, 0.5);
     cursor: pointer;
-    transition: all 0.2s ease;
     font-family: var(--font-main);
+    font-weight: 600;
     z-index: 10;
+    backdrop-filter: blur(5px);
 
     &:hover {
         background-color: #F87A55;
         color: white;
-        box-shadow: none;
+        border-color: #F87A55;
+        box-shadow: 4px 4px 0 #F87A55, 0 0 25px rgba(248, 122, 85, 0.6);
         transform: translate(2px, 2px);
     }
 }
@@ -175,9 +177,10 @@
     hyphens: auto;
 }
 
-// ===== ANIMATIONS =====
 @keyframes laptop-float {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0px);
     }
 
@@ -186,7 +189,6 @@
     }
 }
 
-// ===== RESPONSIVE BREAKPOINTS =====
 @include desktop-max {
     .projects-container {
         padding: 0 80px;
@@ -274,12 +276,12 @@
     }
 
     .project-description {
-       min-height: 0;
-   }
-   
-   .project-title {
-       margin: 30px 0 15px 0; // Abstand zum Image
-   }
+        min-height: 0;
+    }
+
+    .project-title {
+        margin: 30px 0 15px 0; // Abstand zum Image
+    }
 
     .view-project-btn {
         position: static;

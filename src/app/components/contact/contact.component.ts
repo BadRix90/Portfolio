@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { TextService } from '../../services/text.service';
 import { ValidationService } from '../../services/validation.service';
 import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contact',
@@ -16,8 +17,6 @@ import { RouterModule } from '@angular/router';
 export class ContactComponent {
   @Input() currentLanguage = 'en';
   contactForm: FormGroup;
-  showLegalNotice = false;
-  showPrivacyPolicy = false;
 
   showToast = false;
   toastMessage = '';
@@ -27,7 +26,8 @@ export class ContactComponent {
     private fb: FormBuilder,
     private http: HttpClient,
     private textService: TextService,
-    private validationService: ValidationService
+    private validationService: ValidationService,
+    private router: Router
   ) {
     this.contactForm = this.createForm();
   }
@@ -114,19 +114,11 @@ export class ContactComponent {
   }
 
   openLegalNotice() {
-    this.showLegalNotice = true;
-    document.body.style.overflow = 'hidden';
+    this.router.navigate(['/legal-notice']);
   }
 
   openPrivacyPolicy() {
-    this.showPrivacyPolicy = true;
-    document.body.style.overflow = 'hidden';
-  }
-
-  closeModals() {
-    this.showLegalNotice = false;
-    this.showPrivacyPolicy = false;
-    document.body.style.overflow = 'auto';
+    this.router.navigate(['/privacy-policy']);
   }
 
   get isFormValid(): boolean {

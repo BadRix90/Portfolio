@@ -100,12 +100,10 @@
             (mouseenter)="onSocialHover(social.name)" (mouseleave)="onSocialLeave()"
             (click)="openSocialLink(social.url, social.isExternal)">
 
-            <!-- Rolling Icon (wie Waving Hand) -->
             <div class="social-icon-roller" [ngClass]="getSocialIconState(social.name)">
               <img [src]="social.icon" [alt]="social.name" class="rolling-icon">
             </div>
 
-            <!-- Text (wie HelloWorld) -->
             <span class="social-text" [ngClass]="hoveredIcon === social.name ? 'active' : ''">
               {{ social.name }}
             </span>
@@ -116,59 +114,6 @@
 
   </div>
 
-  <div *ngIf="showLegalNotice" class="modal-overlay" (click)="closeModals()">
-    <div class="modal-content" (click)="$event.stopPropagation()">
-      <div class="modal-header">
-        <h2>Legal Notice</h2>
-        <button (click)="closeModals()" class="close-btn">×</button>
-      </div>
-      <div class="modal-body">
-        <h3>Information according to § 5 TMG</h3>
-        <p>Kay Dietrich<br>
-          Frontend Developer<br>
-          Lüneburg, Germany</p>
-
-        <h3>Contact</h3>
-        <p>Email: <a href="mailto:contact@kaydietrich.com">contact&#64;kaydietrich.com</a></p>
-
-        <h3>Disclaimer</h3>
-        <p>The contents of this website have been created with the utmost care.
-          However, I cannot guarantee the contents' accuracy, completeness or topicality.</p>
-      </div>
-    </div>
-  </div>
-
-  <div *ngIf="showPrivacyPolicy" class="modal-overlay" (click)="closeModals()">
-    <div class="modal-content" (click)="$event.stopPropagation()">
-      <div class="modal-header">
-        <h2>Privacy Policy</h2>
-        <button (click)="closeModals()" class="close-btn">×</button>
-      </div>
-      <div class="modal-body">
-        <h3>Data Protection</h3>
-        <p>This website does not collect or store personal data beyond what is technically necessary for operation.</p>
-
-        <h3>Contact Form</h3>
-        <p>When you use our contact form, the data you provide will be used solely to respond to your inquiry.
-          Your data will not be shared with third parties.</p>
-
-        <h3>Server Logs</h3>
-        <p>The web server automatically collects and stores information in server log files.
-          This information includes browser type, operating system, and IP address.</p>
-
-        <h3>Cookies</h3>
-        <p>This website does not use cookies for tracking or analytics purposes.</p>
-
-        <h3>Your Rights</h3>
-        <p>You have the right to information, correction, deletion and restriction of processing of your personal data.
-        </p>
-
-        <h3>Contact</h3>
-        <p>For questions regarding data protection: <a
-            href="mailto:contact@kaydietrich.com">contact&#64;kaydietrich.com</a></p>
-      </div>
-    </div>
-  </div>
   <div class="toast-container" *ngIf="showToast">
     <div class="toast" [ngClass]="'toast-' + toastType" (click)="hideToast()">
 

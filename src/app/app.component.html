@@ -1,4 +1,4 @@
-<div class="app-wrapper">
+<div *ngIf="showMainContent" class="app-wrapper">
   <main>
     <app-hero (languageChange)="onLanguageChange($event)" [currentLanguage]="selectedLanguage"></app-hero>
 
@@ -21,6 +21,5 @@
     </section>
   </main>
 </div>
-
 
 <router-outlet></router-outlet>

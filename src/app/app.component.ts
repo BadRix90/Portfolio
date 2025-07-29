@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
+import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { CommonModule } from '@angular/common';
 import { HeroComponent } from './components/hero/hero.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { SkillSetComponent } from './components/skill-set/skill-set.component';
@@ -12,6 +13,7 @@ import { ContactComponent } from './components/contact/contact.component';
   selector: 'app-root',
   standalone: true,
   imports: [
+    CommonModule,
     RouterOutlet,
     HeroComponent,
     AboutMeComponent,
@@ -26,6 +28,9 @@ import { ContactComponent } from './components/contact/contact.component';
 export class AppComponent implements OnInit {
   title = 'portfolio-website';
   selectedLanguage = 'en';
+  showMainContent = true;
+
+  constructor(private router: Router) { }
 
   ngOnInit() {
     if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
@@ -34,6 +39,22 @@ export class AppComponent implements OnInit {
         this.selectedLanguage = savedLanguage;
       }
     }
+    this.checkRoute();
+
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      this.checkRoute();
+    });
+  }
+
+  private checkRoute() {
+    const url = this.router.url;
+    console.log('Current URL:', url);
+    this.showMainContent = url === '/' || url === '' ||
+      (!url.includes('legal-notice') && !url.includes('privacy-policy'));
+
+    console.log('showMainContent:', this.showMainContent);
   }
 
   onLanguageChange(language: string) {

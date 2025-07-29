@@ -2,21 +2,17 @@
   <div class="testimonials-container">
     <div class="testimonials-header">
       <div class="header-content">
-        <img src="/assets/img/imonials-arrow.webp" alt="Arrow" class="arrow-icon">
+        <img src="/assets/img/imonials-arrow.webp" alt="Arrow pointing to testimonials" class="arrow-icon">
         <span class="header-label">{{ getText('headerLabel') }}</span>
       </div>
       <h2 class="testimonials-title">{{ getText('testimonialsTitle') }}</h2>
     </div>
 
     <div class="testimonials-cards" (mouseleave)="resetAllHoverStates()">
-      <div *ngFor="let testimonial of testimonials" 
-           class="testimonial-card"
-           [class.hovered]="hoveredTestimonial === testimonial.id"
-           [style.background-image]="'url(' + testimonial.backgroundImage + ')'"
-           [style.z-index]="getTestimonialZIndex(testimonial)" 
-           (mouseenter)="onTestimonialHover(testimonial.id)"
-           (mouseleave)="onTestimonialLeave()" 
-           [attr.data-testimonial]="testimonial.id">
+      <div *ngFor="let testimonial of testimonials; trackBy: trackByTestimonial" class="testimonial-card"
+        [style.background-image]="'url(' + testimonial.backgroundImage + ')'"
+        [style.z-index]="getTestimonialZIndex(testimonial)" (mouseenter)="onTestimonialHover(testimonial.id)"
+        (mouseleave)="onTestimonialLeave()" [attr.data-testimonial]="testimonial.id">
 
         <div class="card-content">
           <p class="testimonial-text">{{ getTestimonialText(testimonial) }}</p>
@@ -26,13 +22,9 @@
               <p class="author-position">{{ testimonial.position }}</p>
             </div>
 
-            <a (click)="openLinkedInProfile(testimonial.linkedinUrl)" 
-               class="linkedin-link" 
-               [class.linkedin-hovered]="hoveredLinkedIn === testimonial.id"
-               (mouseenter)="onLinkedInHover(testimonial.id); $event.stopPropagation()"
-               (mouseleave)="onLinkedInLeave(); $event.stopPropagation()"
-               style="cursor: pointer;">
-              <img src="/assets/img/linkedin_black.webp" alt="LinkedIn" class="linkedin-icon">
+            <a [href]="testimonial.linkedinUrl.startsWith('http') ? testimonial.linkedinUrl : 'https://' + testimonial.linkedinUrl"
+              target="_blank" rel="noopener noreferrer" class="linkedin-link">
+              <img src="/assets/img/linkedin_black.webp" alt="LinkedIn Profile" class="linkedin-icon">
               <span class="profile-text">{{ getText('profileText') }}</span>
             </a>
           </div>

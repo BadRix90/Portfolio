@@ -1,4 +1,9 @@
-import { Component, Input } from '@angular/core';
+// ================================================================
+// TESTIMONIALS CHANGE DETECTION FIX
+// DATEI: src/app/components/testimonials/testimonials.component.ts
+// ================================================================
+
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TextService } from '../../services/text.service';
 
@@ -22,17 +27,25 @@ interface Testimonial {
   templateUrl: './testimonials.component.html',
   styleUrl: './testimonials.component.scss'
 })
-
-export class TestimonialsComponent {
+export class TestimonialsComponent implements OnInit {
   @Input() currentLanguage = 'en';
 
   hoveredTestimonial: number | null = null;
   hoveredLinkedIn: number | null = null;
+  
+  // 🔥 FIX: Testimonials als Property statt Getter
+  testimonials: Testimonial[] = [];
 
   constructor(private textService: TextService) { }
 
-  get testimonials(): Testimonial[] {
-    return this.textService.getTestimonialTexts().testimonials;
+  ngOnInit() {
+    // 🔥 FIX: Einmal laden, nicht bei jedem Change Detection
+    this.testimonials = this.textService.getTestimonialTexts().testimonials;
+  }
+
+  // 🔥 TRACKBY FÜR NGFOR
+  trackByTestimonial(index: number, testimonial: Testimonial): number {
+    return testimonial.id;
   }
 
   getText(key: string): string {

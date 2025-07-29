@@ -101,11 +101,15 @@
       border-radius: 20px;
       opacity: 0;
       z-index: 1;
-      pointer-events: none; // Wichtig: Verhindert Event-Blockierung
+      pointer-events: none;
       transition: opacity 0.2s ease-in-out;
     }
 
     &.hovered::before {
+      opacity: 1;
+    }
+
+    &:hover::before {
       opacity: 1;
     }
 
@@ -118,7 +122,7 @@
       color: #333;
       position: relative;
       z-index: 2;
-      // Wichtig: Stelle sicher, dass Events durchkommen
+
       pointer-events: auto;
     }
 
@@ -165,40 +169,36 @@
       padding: 5px;
       border-radius: 5px;
       transform: scale(1);
-      transition: transform 0.3s ease;
-      // Wichtig: Eigene z-index für Events
       position: relative;
       z-index: 3;
 
       .linkedin-icon {
         width: 32px;
         height: 32px;
-        transition: all 0.3s ease;
+
       }
 
       .profile-text {
         font-family: var(--font-main);
         font-weight: 600;
         color: #333;
-        transition: color 0.3s ease;
       }
 
-      &.linkedin-hovered {
+      &:hover {
         transform: scale(1.05);
-        
+
         .profile-text {
-          color: #F8F9FA;
+          color: #F8F9FA !important;
         }
 
         .linkedin-icon {
-          content: url('/assets/img/linkedin_white.webp');
+          content: url('/assets/img/linkedin_white.webp') !important;
         }
       }
     }
   }
 }
 
-// Rest der Media Queries bleibt gleich...
 @include desktop-xl {
   .testimonials-section {
     padding: 80px 40px;

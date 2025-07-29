@@ -28,14 +28,18 @@ export class AppComponent implements OnInit {
   selectedLanguage = 'en';
 
   ngOnInit() {
-    const savedLanguage = localStorage.getItem('selectedLanguage');
-    if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'de')) {
-      this.selectedLanguage = savedLanguage;
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      const savedLanguage = localStorage.getItem('selectedLanguage');
+      if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'de')) {
+        this.selectedLanguage = savedLanguage;
+      }
     }
   }
 
   onLanguageChange(language: string) {
     this.selectedLanguage = language;
-    localStorage.setItem('selectedLanguage', language);
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      localStorage.setItem('selectedLanguage', language);
+    }
   }
 }

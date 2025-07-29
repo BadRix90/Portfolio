@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TextService } from '../../../services/text.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,6 +16,15 @@ export class NavbarComponent {
   @Output() mobileMenuToggle = new EventEmitter<boolean>();
 
   isMobileMenuOpen = false;
+
+  // TextService injizieren
+  constructor(private textService: TextService) {}
+
+  // Neue Methode für Navigation-Texte
+  getNavigationText(key: string): string {
+    const texts = this.textService.getNavigationTexts();
+    return (texts as any)[key][this.currentLanguage];
+  }
 
   toggleLanguage(): void {
     const newLanguage = this.currentLanguage === 'en' ? 'de' : 'en';

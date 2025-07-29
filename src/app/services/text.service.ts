@@ -5,6 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class TextService {
 
+  getNavigationTexts() {
+    return {
+      aboutMe: { de: 'Über mich', en: 'About me' },
+      skills: { de: 'Fähigkeiten', en: 'Skills' },
+      projects: { de: 'Projekte', en: 'Projects' },
+      contact: { de: 'Kontakt', en: 'Contact' }
+    };
+  }
+
   getHeroTexts() {
     return {
       buttonText: { de: 'Schreib mir', en: 'Contact me' },

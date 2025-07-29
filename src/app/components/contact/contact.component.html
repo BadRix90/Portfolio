@@ -169,4 +169,25 @@
       </div>
     </div>
   </div>
+  <div class="toast-container" *ngIf="showToast">
+    <div class="toast" [ngClass]="'toast-' + toastType" (click)="hideToast()">
+
+      <div class="toast-icon">
+        <span [ngSwitch]="toastType">
+          <span *ngSwitchCase="'success'">✓</span>
+          <span *ngSwitchCase="'error'">✕</span>
+          <span *ngSwitchCase="'warning'">⚠</span>
+          <span *ngSwitchDefault>ℹ</span>
+        </span>
+      </div>
+
+      <div class="toast-message">
+        {{ toastMessage }}
+      </div>
+
+      <button class="toast-close" (click)="hideToast()">
+        ×
+      </button>
+    </div>
+  </div>
 </section>

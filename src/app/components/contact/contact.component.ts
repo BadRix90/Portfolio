@@ -19,6 +19,10 @@ export class ContactComponent {
   showLegalNotice = false;
   showPrivacyPolicy = false;
 
+  showToast = false;
+  toastMessage = '';
+  toastType: 'success' | 'error' | 'warning' | 'info' = 'info';
+
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
@@ -82,11 +86,11 @@ export class ContactComponent {
     })
       .subscribe({
         next: (res) => {
-          alert(this.getText('successMessage'));
+          this.showToastMessage(this.getText('successMessage'), 'success');
           this.contactForm.reset();
         },
         error: (err) => {
-          alert('Sorry, there was an error sending your message. Please try again.');
+          this.showToastMessage('Sorry, there was an error sending your message. Please try again.', 'error');
         }
       });
   }
@@ -106,7 +110,7 @@ export class ContactComponent {
   }
 
   private showValidationError(): void {
-    alert(this.getText('errorMessage'));
+    this.showToastMessage(this.getText('errorMessage'), 'warning');
   }
 
   openLegalNotice() {
@@ -137,7 +141,20 @@ export class ContactComponent {
   socialState: 'hidden' | 'hovering' | 'rolling' = 'hidden';
   hoveredIcon: string | null = null;
 
-  // Social Media Data
+  showToastMessage(message: string, type: 'success' | 'error' | 'warning' | 'info' = 'info') {
+    this.toastMessage = message;
+    this.toastType = type;
+    this.showToast = true;
+
+    setTimeout(() => {
+      this.hideToast();
+    }, 4000);
+  }
+
+  hideToast() {
+    this.showToast = false;
+  }
+
   socialLinks = [
     {
       name: 'Github',

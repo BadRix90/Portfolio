@@ -52,7 +52,7 @@ private projects: { [key: string]: Project } = {
     duration: '4 weeks',
     image: 'assets/img/PowerOfTheBeast.webp',
     technologies: ['JavaScript', 'HTML', 'CSS'],
-    githubUrl: 'https://github.com/BadRix90/El-Pollo-Loco',
+    githubUrl: 'https://github.com/BadRix90/Power-of-the-Beast',
     liveUrl: 'https://kaydietrich.com/epl/'
   },
   dabubble: {

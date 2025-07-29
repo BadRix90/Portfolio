@@ -22,6 +22,10 @@ export class ProjectDetailComponent implements AfterViewInit {
   nextProject: Project | null = null;
   isMobileMenuOpen = false;
 
+  showToast = false;
+  toastMessage = '';
+  toastType: 'success' | 'error' | 'warning' | 'info' = 'info';
+
   constructor(private projectService: ProjectService, private textService: TextService) { }
 
   getText(key: string): string {
@@ -30,14 +34,14 @@ export class ProjectDetailComponent implements AfterViewInit {
   }
 
   getProjectDescription(): string {
-  if (!this.project) return '';
-  return (this.project.description as any)[this.currentLanguage] || '';
-}
+    if (!this.project) return '';
+    return (this.project.description as any)[this.currentLanguage] || '';
+  }
 
-getProjectImplementationDetails(): string {
-  if (!this.project) return '';
-  return (this.project.implementationDetails as any)[this.currentLanguage] || '';
-}
+  getProjectImplementationDetails(): string {
+    if (!this.project) return '';
+    return (this.project.implementationDetails as any)[this.currentLanguage] || '';
+  }
 
   ngAfterViewInit() {
     this.setDynamicUnderlineWidth();
@@ -99,9 +103,16 @@ getProjectImplementationDetails(): string {
   }
 
   openLiveTest() {
-    if (this.project?.liveUrl) {
-      window.open(this.project.liveUrl, '_blank');
+    if (!this.project?.liveUrl) {
+      return;
     }
+
+    if (this.project.liveUrl === 'coming-soon') {
+      this.showToastMessage('DABubble wird bald verfügbar sein! 🚧', 'warning');
+      return;
+    }
+
+    window.open(this.project.liveUrl, '_blank');
   }
 
   getTechIcon(techName: string): string {
@@ -110,6 +121,24 @@ getProjectImplementationDetails(): string {
 
   getTechAlt(techName: string): string {
     return this.projectService.getTechAlt(techName);
+  }
+
+  showToastMessage(message: string, type: 'success' | 'error' | 'warning' | 'info' = 'info') {
+    this.toastMessage = message;
+    this.toastType = type;
+    this.showToast = true;
+
+    setTimeout(() => {
+      this.hideToast();
+    }, 3000);
+  }
+
+  hideToast() {
+    this.showToast = false;
+  }
+
+  isComingSoon(): boolean {
+    return this.project?.liveUrl === 'coming-soon';
   }
 
   private setDynamicUnderlineWidth() {
@@ -127,13 +156,5 @@ getProjectImplementationDetails(): string {
         (underlineElement as HTMLElement).style.width = `${textWidth}px`;
       }
     }
-  }
-
-  get nextButtonText(): string {
-    return this.nextProject ? 'Next Project' : 'Go Back';
-  }
-
-  get nextButtonIcon(): string {
-    return this.nextProject ? 'arrow_forward.webp' : 'arrow_back.webp';
   }
 }

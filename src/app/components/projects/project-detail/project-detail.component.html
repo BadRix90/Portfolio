@@ -1,4 +1,3 @@
-
 <div class="project-detail-wrapper">
   <div class="background-image-wrapper">
     <div class="project-content">
@@ -69,16 +68,15 @@
                 {{ getText('github') }}
               </button>
 
-              <button class="primary-btn live-btn" (click)="openLiveTest()">
-                {{ getText('liveTest') }}
+              <button class="primary-btn live-btn" [class.disabled]="isComingSoon()" (click)="openLiveTest()">
+                {{ isComingSoon() ? getText('comingSoon') : getText('liveTest') }}
               </button>
             </div>
 
-            <button class="next-project-btn" (click)="onNextProject()">
-              {{ nextProject ? getText('nextProject') : getText('goBack') }}
-              <img [src]="'assets/img/' + nextButtonIcon" [alt]="nextProject ? 'Forward' : 'Back'"
-                class="nav-arrow-img">
-            </button>
+            <button class="next-project-btn" (click)="onNextProject()" *ngIf="nextProject">
+  {{ getText('nextProject') }}
+  <img src="assets/img/arrow_forward.webp" alt="Forward" class="nav-arrow-img">
+</button>
           </div>
 
         </div>
@@ -96,6 +94,27 @@
         </div>
 
       </div>
+    </div>
+  </div>
+  <div class="toast-container" *ngIf="showToast">
+    <div class="toast" [ngClass]="'toast-' + toastType" (click)="hideToast()">
+
+      <div class="toast-icon">
+        <span [ngSwitch]="toastType">
+          <span *ngSwitchCase="'success'">✓</span>
+          <span *ngSwitchCase="'error'">✕</span>
+          <span *ngSwitchCase="'warning'">⚠</span>
+          <span *ngSwitchDefault>ℹ</span>
+        </span>
+      </div>
+
+      <div class="toast-message">
+        {{ toastMessage }}
+      </div>
+
+      <button class="toast-close" (click)="hideToast()">
+        ×
+      </button>
     </div>
   </div>
 </div>

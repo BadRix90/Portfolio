@@ -86,7 +86,8 @@ export class TextService {
       goBack: { de: 'Zurück', en: 'Go Back' },
       nextProject: { de: 'Nächstes Projekt', en: 'Next Project' },
       github: { de: 'GitHub', en: 'GitHub' },
-      liveTest: { de: 'Live Test', en: 'Live Test' }
+      liveTest: { de: 'Live Test', en: 'Live Test' },
+      comingSoon: { de: 'Demnächst', en: 'Coming Soon' }
     };
   }
 

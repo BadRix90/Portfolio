@@ -300,9 +300,11 @@
     }
 
     .project-image:hover .view-project-btn {
-        display: block; // Bleibt sichtbar
+        display: block;
     }
 }
+
+
 
 @include mobile {
     .projects-container {

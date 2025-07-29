@@ -116,8 +116,8 @@ export class TextService {
         en: 'Colleagues\' Thoughts'
       },
       profileText: {
-        de: 'LinkedIn-Profil ansehen',
-        en: 'View LinkedIn Profile'
+        de: 'Profil',
+        en: 'Profile'
       },
       testimonials: [
         {

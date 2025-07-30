@@ -20,10 +20,11 @@ export class PrivacyPolicyComponent implements OnInit {
     private scrollService: ScrollService
   ) {
     this.loadLanguage();
+    this.scrollService.scrollToTop();
   }
 
   ngOnInit(): void {
-    this.scrollToPageTop();
+    this.scrollService.scrollToTop();
   }
 
   private loadLanguage(): void {

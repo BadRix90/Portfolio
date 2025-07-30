@@ -65,7 +65,7 @@
 
 .project-info-section {
   display: flex;
-  gap: 80px; // 🔥 FIX: 300px → 80px (viel kleiner!)
+  gap: 80px;
   align-items: flex-start;
   justify-content: center;
   max-width: 1400px;
@@ -79,6 +79,12 @@
   padding: 0;
   max-width: 600px;
   min-width: 400px;
+
+  p,
+  h1,
+  h2 {
+    color: #4A5568 !important;
+  }
 
   .project-main-title {
     position: relative;
@@ -190,6 +196,7 @@
     font-size: 16px;
     color: #333;
     margin-bottom: 30px;
+    color: #4A5568 !important;
   }
 
   .technologies-section {
@@ -207,7 +214,7 @@
         font-family: var(--font-main);
         font-size: 14px;
         font-weight: 600;
-        color: #333;
+        color: #4A5568 !important;
 
         .tech-icon {
           width: 20px;

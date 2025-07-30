@@ -1,120 +1,97 @@
 <div class="project-detail-wrapper">
-  <div class="background-image-wrapper">
-    <div class="project-content">
+  <div class="background-image-wrapper"></div> <!-- ← Background LEER lassen! -->
+  
+  <app-navbar [currentLanguage]="currentLanguage" 
+              [slideDirection]="'horizontal'"
+              (languageChange)="onLanguageChange($event)" 
+              (mobileMenuToggle)="onMobileMenuToggle($event)">
+  </app-navbar>
 
+  <div class="project-detail-content" *ngIf="project">
+    <button class="go-back-btn" (click)="onGoBack()">
+      <img src="assets/img/arrow_back.webp" alt="Back" class="back-arrow-img">
+      {{ getText('goBack') }}
+    </button>
 
-      <app-navbar [currentLanguage]="currentLanguage" [slideDirection]="'horizontal'"
-        (languageChange)="onLanguageChange($event)" (mobileMenuToggle)="onMobileMenuToggle($event)">
-      </app-navbar>
+    <div class="project-info-section">
+      <div class="project-description-card">
+        <h1 class="project-main-title">
+          {{ project.title }}
+          <div class="animated-underline"></div>
+        </h1>
 
-      <div class="project-detail-content" *ngIf="project">
+        <div class="description-section">
+          <h2>{{ getText('description') }}</h2>
+          <p>{{ getProjectDescription() }}</p>
+        </div>
 
-        <button class="go-back-btn" (click)="onGoBack()">
-          <img src="assets/img/arrow_back.webp" alt="Back" class="back-arrow-img">
-          {{ getText('goBack') }}
+        <div class="implementation-section">
+          <h2>{{ getText('implementationDetails') }}</h2>
+          <p>{{ getProjectImplementationDetails() }}</p>
+        </div>
+
+        <div class="duration-section">
+          <strong>{{ getText('duration') }}:</strong> {{ project.duration }}
+        </div>
+
+        <div class="technologies-section">
+          <div class="tech-icons">
+            <div *ngFor="let tech of project.technologies" class="tech-badge">
+              <img [src]="getTechIcon(tech)" [alt]="getTechAlt(tech)" class="tech-icon">
+              <span class="tech-name">{{ tech }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-image-section">
+        <div class="project-preview">
+          <img [src]="project.image" [alt]="project.title" class="project-main-image">
+          <div class="featured-badge">
+            <img *ngIf="project.id === 'join'" src="assets/img/Sticker.webp" alt="Featured Project"
+                 class="featured-sticker">
+            <div *ngIf="project.id !== 'join'" class="seal-logo">
+              <img src="assets/img/siegel_orange.webp" alt="Seal" class="orange-seal">
+              <img src="assets/img/logo_kay.webp" alt="Logo" class="logo-img" />
+            </div>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="primary-btn github-btn" (click)="openGithub()">
+            {{ getText('github') }}
+          </button>
+          <button class="primary-btn live-btn" [class.disabled]="isComingSoon()" (click)="openLiveTest()">
+            {{ isComingSoon() ? getText('comingSoon') : getText('liveTest') }}
+          </button>
+        </div>
+
+        <button class="next-project-btn" *ngIf="nextProject" (click)="onNextProject()">
+          {{ getText('nextProject') }}
+          <img src="assets/img/arrow_forward.webp" alt="Next" class="nav-arrow-img">
         </button>
-
-        <div class="project-info-section">
-
-          <div class="project-description-card">
-            <h1 class="project-main-title">
-              {{ project.title }}
-              <div class="animated-underline"></div>
-            </h1>
-
-            <div class="description-section">
-              <h2>{{ getText('description') }}</h2>
-              <p>{{ getProjectDescription() }}</p>
-            </div>
-
-            <div class="implementation-section">
-              <h2>{{ getText('implementationDetails') }}</h2>
-              <p>{{ getProjectImplementationDetails() }}</p>
-            </div>
-
-            <div class="duration-section">
-              <strong>{{ getText('duration') }}:</strong> {{ project.duration }}
-            </div>
-
-            <div class="technologies-section">
-              <div class="tech-icons">
-                <div *ngFor="let tech of project.technologies" class="tech-badge">
-                  <img [src]="getTechIcon(tech)" [alt]="getTechAlt(tech)" class="tech-icon">
-                  <span class="tech-name">{{ tech }}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-image-section">
-            <div class="project-preview">
-              <img [src]="project.image" [alt]="project.title" class="project-main-image">
-              <div class="featured-badge">
-                <!-- Join behält den Sticker -->
-                <img *ngIf="project.id === 'join'" src="assets/img/Sticker.webp" alt="Featured Project"
-                  class="featured-sticker">
-
-                <!-- Power of the Beast und DABubble bekommen Seal-Logo -->
-                <div *ngIf="project.id !== 'join'" class="seal-logo">
-                  <img src="assets/img/siegel_orange.webp" alt="Seal" class="orange-seal">
-                  <img src="assets/img/logo_kay.webp" alt="Logo" class="logo-img" />
-                </div>
-              </div>
-            </div>
-
-
-            <div class="action-buttons">
-              <button class="primary-btn github-btn" (click)="openGithub()">
-                {{ getText('github') }}
-              </button>
-
-              <button class="primary-btn live-btn" [class.disabled]="isComingSoon()" (click)="openLiveTest()">
-                {{ isComingSoon() ? getText('comingSoon') : getText('liveTest') }}
-              </button>
-            </div>
-
-            <button class="next-project-btn" (click)="onNextProject()" *ngIf="nextProject">
-  {{ getText('nextProject') }}
-  <img src="assets/img/arrow_forward.webp" alt="Forward" class="nav-arrow-img">
-</button>
-          </div>
-
-        </div>
-
-        <div class="mobile-navigation">
-          <button class="mobile-go-back" (click)="onGoBack()">
-            <img src="assets/img/arrow_back.webp" alt="Back" class="back-arrow-img">
-            {{ getText('goBack') }}
-          </button>
-
-          <button class="mobile-next-project" (click)="onNextProject()" *ngIf="nextProject">
-            {{ getText('nextProject') }}
-            <img src="assets/img/arrow_forward.webp" alt="Forward" class="forward-arrow-img">
-          </button>
-        </div>
-
       </div>
     </div>
   </div>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-navigation">
+    <button class="mobile-go-back" (click)="onGoBack()">
+      <img src="assets/img/arrow_back.webp" alt="Back" class="back-arrow-img">
+      {{ getText('goBack') }}
+    </button>
+    <button class="mobile-next-project" *ngIf="nextProject" (click)="onNextProject()">
+      {{ getText('nextProject') }}
+      <img src="assets/img/arrow_forward.webp" alt="Next" class="forward-arrow-img">
+    </button>
+  </div>
+
+  <!-- Toast Container -->
   <div class="toast-container" *ngIf="showToast">
-    <div class="toast" [ngClass]="'toast-' + toastType" (click)="hideToast()">
-
-      <div class="toast-icon">
-        <span [ngSwitch]="toastType">
-          <span *ngSwitchCase="'success'">✓</span>
-          <span *ngSwitchCase="'error'">✕</span>
-          <span *ngSwitchCase="'warning'">⚠</span>
-          <span *ngSwitchDefault>ℹ</span>
-        </span>
-      </div>
-
-      <div class="toast-message">
-        {{ toastMessage }}
-      </div>
-
-      <button class="toast-close" (click)="hideToast()">
-        ×
-      </button>
+    <div class="toast" [class]="'toast-' + toastType" (click)="hideToast()">
+      <div class="toast-icon">⚠</div>
+      <div class="toast-message">{{ toastMessage }}</div>
+      <button class="toast-close" (click)="hideToast()">×</button>
     </div>
   </div>
 </div>

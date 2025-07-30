@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TextService } from '../../services/text.service';
-import { ActivatedRoute } from '@angular/router';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-legal-notice',
@@ -11,15 +11,28 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './legal-notice.component.html',
   styleUrls: ['./legal-notice.component.scss']
 })
-export class LegalNoticeComponent {
+export class LegalNoticeComponent implements OnInit {
   currentLanguage = 'en';
 
   constructor(
     private router: Router,
     private textService: TextService,
-    private route: ActivatedRoute
+    private scrollService: ScrollService
   ) {
-    this.currentLanguage = localStorage.getItem('selectedLanguage') || localStorage.getItem('language') || 'en';
+    this.loadLanguage();
+  }
+
+  ngOnInit(): void {
+    this.scrollToPageTop();
+  }
+
+  private loadLanguage(): void {
+    this.currentLanguage = localStorage.getItem('selectedLanguage') || 
+                          localStorage.getItem('language') || 'en';
+  }
+
+  private scrollToPageTop(): void {
+    this.scrollService.scrollToTop();
   }
 
   getText(key: string): string {
@@ -27,7 +40,10 @@ export class LegalNoticeComponent {
     return (texts as any)[key][this.currentLanguage];
   }
 
-  goBack() {
+  goBack(): void {
     this.router.navigate(['/']);
+    setTimeout(() => {
+      this.scrollService.scrollToContact();
+    });
   }
 }

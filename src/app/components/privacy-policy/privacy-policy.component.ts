@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TextService } from '../../services/text.service';
-import { ActivatedRoute } from '@angular/router';
+import { ScrollService } from '../../services/scroll.service';
 
 @Component({
   selector: 'app-privacy-policy',
@@ -11,15 +11,28 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './privacy-policy.component.html',
   styleUrls: ['./privacy-policy.component.scss']
 })
-export class PrivacyPolicyComponent {
+export class PrivacyPolicyComponent implements OnInit {
   currentLanguage = 'en';
 
   constructor(
     private router: Router,
     private textService: TextService,
-    private route: ActivatedRoute
+    private scrollService: ScrollService
   ) {
-    this.currentLanguage = localStorage.getItem('selectedLanguage') || localStorage.getItem('language') || 'en';
+    this.loadLanguage();
+  }
+
+  ngOnInit(): void {
+    this.scrollToPageTop();
+  }
+
+  private loadLanguage(): void {
+    this.currentLanguage = localStorage.getItem('selectedLanguage') || 
+                          localStorage.getItem('language') || 'en';
+  }
+
+  private scrollToPageTop(): void {
+    this.scrollService.scrollToTop();
   }
 
   getText(key: string): string {
@@ -27,7 +40,10 @@ export class PrivacyPolicyComponent {
     return (texts as any)[key][this.currentLanguage];
   }
 
-  goBack() {
+  goBack(): void {
     this.router.navigate(['/']);
+    setTimeout(() => {
+      this.scrollService.scrollToContact();
+    });
   }
 }

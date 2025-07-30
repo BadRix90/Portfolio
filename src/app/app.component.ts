@@ -50,11 +50,8 @@ export class AppComponent implements OnInit {
 
   private checkRoute() {
     const url = this.router.url;
-    console.log('Current URL:', url);
     this.showMainContent = url === '/' || url === '' ||
       (!url.includes('legal-notice') && !url.includes('privacy-policy'));
-
-    console.log('showMainContent:', this.showMainContent);
   }
 
   onLanguageChange(language: string) {

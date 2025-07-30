@@ -24,7 +24,7 @@ export class TextService {
   getContactTexts() {
     return {
       contactLabel: { de: 'KONTAKTIERE MICH', en: 'CONTACT ME' },
-      contactTitle: { de: 'Bereit zusammenzuarbeiten?', en: 'Ready to work together?' },
+      contactTitle: { de: 'Bereit zu starten?', en: 'Ready to work together?' },
       contactDescription1: {
         de: 'Ich suche eine Entwicklerstelle als Frontend-Developer, Anwendungsentwickler oder auch als Projektmanager.',
         en: 'I am looking for a developer position as Frontend Developer, Application Developer or Project Manager.'

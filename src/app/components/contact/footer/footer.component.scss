@@ -1,0 +1,235 @@
+  @import '../../../../breakpoints.scss';
+
+  .contact-footer {
+      margin-top: auto;
+      padding-top: 40px;
+      padding-bottom: 40px;
+
+      .footer-content {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+      }
+
+      .footer-left {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+
+          .footer-logo-section {
+              .logo-img {
+                  width: 60px;
+                  height: 60px;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  cursor: pointer;
+                  transition: transform 0.3s ease;
+
+                  &:hover {
+                      transform: scale(1.1);
+                  }
+              }
+          }
+
+          .footer-copyright {
+              font-family: var(--font-main);
+              color: #ccc;
+              margin: 0;
+          }
+
+          .footer-legal {
+              font-family: var(--font-main);
+              color: #ccc;
+              text-decoration: none;
+              transition: color 0.3s ease;
+
+              &:hover {
+                  color: white;
+              }
+          }
+      }
+
+      .footer-mobile-info {
+          display: none;
+      }
+
+      .footer-right {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex: 1;
+          max-width: 1000px;
+          margin-left: 100px;
+
+          .social-link-container {
+              position: relative;
+              cursor: pointer;
+              padding: 8px 16px;
+              border-radius: 25px;
+              transition: all 0.3s ease;
+
+              &:hover {
+                  background-color: #3355FF;
+              }
+              .social-icon-roller {
+                  position: absolute;
+                  top: -30px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  width: 24px;
+                  height: 24px;
+                  z-index: 10;
+
+                  .rolling-icon {
+                      width: 24px;
+                      height: 24px;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      opacity: 0;
+                      visibility: hidden;
+                      filter: brightness(0) invert(1);
+                      transition: opacity 0.3s ease;
+                  }
+
+                  &.hidden .rolling-icon {
+                      opacity: 0;
+                      visibility: hidden;
+                      transform: translateX(0) rotate(0deg);
+                  }
+
+                  &.hovering .rolling-icon {
+                      opacity: 0;
+                      visibility: visible;
+                      transform: translateX(0) rotate(0deg);
+                  }
+
+                  &.rolling .rolling-icon {
+                      opacity: 1;
+                      visibility: visible;
+                      animation: rollSocialIcon 1.2s ease-out forwards;
+                  }
+              }
+
+              .social-text {
+                  font-family: var(--font-main);
+                  color: #ccc;
+                  font-weight: 600;
+                  transition: all 0.3s ease;
+
+                  &.active {
+                      color: white;
+                  }
+              }
+
+              &:hover .social-text {
+                  color: white;
+              }
+          }
+      }
+
+      @keyframes rollSocialIcon {
+          0% {
+              transform: translateX(-40px) rotate(0deg);
+              opacity: 0;
+          }
+
+          20% {
+              opacity: 1;
+          }
+
+          60% {
+              transform: translateX(42px) rotate(360deg);
+              opacity: 1;
+          }
+
+          75% {
+              transform: translateX(40px) rotate(360deg);
+              opacity: 1;
+          }
+
+          90% {
+              transform: translateX(40px) rotate(360deg);
+              opacity: 1;
+          }
+
+          100% {
+              transform: translateX(40px) rotate(360deg);
+              opacity: 1;
+          }
+      }
+
+      @keyframes iconPulse {
+
+          0%,
+          100% {
+              transform: scale(1);
+          }
+
+          50% {
+              transform: scale(1.2);
+          }
+      }
+  }
+
+  .footer-legal,
+  .footer-legal-text {
+      font-family: var(--font-main);
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      position: relative;
+      cursor: pointer;
+
+      .image-hover {
+          position: absolute;
+          bottom: -16px;
+          left: 24%;
+          transform: translateX(-50%) scale(0.8);
+          opacity: 0;
+          width: 120px;
+          height: 40px;
+          background-image: url('/assets/img/B.1_1-2.webp');
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          pointer-events: none;
+          z-index: 99;
+          transition: all 0.4s ease;
+      }
+
+      &:hover {
+
+          .image-hover {
+              opacity: 1;
+              transform: translateX(-50%) scale(1);
+              animation: slideLeft 0.3s ease;
+          }
+      }
+  }
+
+  @include tablet-lg {
+      .contact-footer {
+          .footer-right {
+              .social-link-container {
+
+                  .social-icon-roller {
+                      display: none;
+                  }
+
+                  .social-text {
+                      font-size: 16px;
+                      padding: 4px 0;
+                  }
+
+                  &:hover {
+                      background-color: transparent !important;
+
+                      .social-text {
+                          color: #ccc !important;
+                      }
+                  }
+              }
+          }
+      }
+  }

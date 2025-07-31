@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+
+import { FooterComponent } from '../../components/contact/footer/footer.component';
 import { TextService } from '../../services/text.service';
 import { ValidationService } from '../../services/validation.service';
 import { RouterModule } from '@angular/router';
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, FooterComponent],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
@@ -41,10 +43,8 @@ export class ContactComponent {
     });
   }
 
-  getText(key: string): string {
-    const texts = this.textService.getContactTexts();
-    const textObj = texts[key as keyof typeof texts];
-    return textObj ? textObj[this.currentLanguage as 'de' | 'en'] : '';
+  openPrivacyPolicy() {
+    this.router.navigate(['/privacy-policy']);
   }
 
   onFieldBlur(fieldName: string): void {
@@ -95,14 +95,10 @@ export class ContactComponent {
       });
   }
 
-  scrollToHero(): void {
-    const heroElement = document.querySelector('.hero');
-    if (heroElement) {
-      heroElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
+  getText(key: string): string {
+    const texts = this.textService.getContactTexts();
+    const textObj = texts[key as keyof typeof texts];
+    return textObj ? textObj[this.currentLanguage as 'de' | 'en'] : '';
   }
 
   private markAllFieldsAsTouched(): void {
@@ -113,13 +109,7 @@ export class ContactComponent {
     this.showToastMessage(this.getText('errorMessage'), 'warning');
   }
 
-  openLegalNotice() {
-    this.router.navigate(['/legal-notice']);
-  }
 
-  openPrivacyPolicy() {
-    this.router.navigate(['/privacy-policy']);
-  }
 
   get isFormValid(): boolean {
     return this.contactForm.valid;
@@ -147,34 +137,6 @@ export class ContactComponent {
     this.showToast = false;
   }
 
-  socialLinks = [
-    {
-      name: 'Github',
-      url: 'https://github.com/BadRix90',
-      icon: 'assets/img/github.webp',
-      isExternal: true
-    },
-    {
-      name: 'LinkedIn',
-      url: 'https://linkedin.com/in/kaydietrich',
-      icon: 'assets/img/linkedin.webp',
-      isExternal: true
-    },
-    {
-      name: 'Email',
-      url: 'mailto:kay@kaydietrich.com',
-      icon: 'assets/img/mail.webp',
-      isExternal: false
-    }
-  ];
-
-  // Event Handlers (genau wie Hand Animation)
-  onSocialHover(iconName: string): void {
-    if (this.socialState !== 'hidden') return; // Verhindert mehrfache Ausführung
-    this.hoveredIcon = iconName;
-    this.startSocialAnimation();
-  }
-
   private startSocialAnimation(): void {
     this.socialState = 'hovering';
     setTimeout(() => this.startRollingAnimation(), 50);
@@ -190,25 +152,9 @@ export class ContactComponent {
     this.hoveredIcon = null;
   }
 
-  onSocialLeave(): void {
-    // Nur zurücksetzen wenn keine Animation läuft
-    if (this.socialState === 'hidden') {
-      this.hoveredIcon = null;
-    }
-  }
 
-  getSocialIconState(iconName: string): string {
-    if (this.hoveredIcon === iconName) {
-      return this.socialState;
-    }
-    return 'hidden';
-  }
 
-  openSocialLink(url: string, isExternal: boolean): void {
-    if (isExternal) {
-      window.open(url, '_blank', 'noopener,noreferrer');
-    } else {
-      window.location.href = url;
-    }
-  }
+
+
+
 }

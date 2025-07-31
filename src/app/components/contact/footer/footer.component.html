@@ -1,0 +1,38 @@
+ <footer class="contact-footer">
+      <div class="footer-content">
+
+        <div class="footer-left">
+          <div class="footer-logo-section">
+            <img src="assets/img/logo_kay.webp" alt="Logo" class="logo-img" (click)="scrollToHero()" />
+          </div>
+          <p class="footer-copyright">{{ getText('copyrightText') }}</p>
+          <a (click)="openLegalNotice()" class="footer-legal">
+            {{ getText('legalNotice') }}
+            <div class="image-hover"></div>
+          </a>
+        </div>
+
+        <div class="footer-mobile-info">
+          <p class="footer-copyright">{{ getText('copyrightText') }}</p>
+          <a (click)="openLegalNotice()" class="footer-legal-text">
+            {{ getText('legalNotice') }}
+            <div class="image-hover"></div>
+          </a>
+        </div>
+
+        <div class="footer-right">
+          <div *ngFor="let social of socialLinks" class="social-link-container"
+            (mouseenter)="onSocialHover(social.name)" (mouseleave)="onSocialLeave()"
+            (click)="openSocialLink(social.url, social.isExternal)">
+
+            <div class="social-icon-roller" [ngClass]="getSocialIconState(social.name)">
+              <img [src]="social.icon" [alt]="social.name" class="rolling-icon">
+            </div>
+
+            <span class="social-text" [ngClass]="hoveredIcon === social.name ? 'active' : ''">
+              {{ social.name }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>

@@ -90,15 +90,17 @@
 }
 
 section[id] {
-  scroll-margin-top: 120px; // Platz für Navbar + Buffer
+  scroll-margin-top: 120px;
 }
 #about,
-#skills,
 #projects,
 #contact {
   scroll-margin-top: 120px;
 }
 
+#skills {
+  scroll-margin-top: 0;
+}
 
 
 

@@ -1,10 +1,8 @@
 <div class="project-detail-wrapper">
   <div class="background-image-wrapper"></div> <!-- ← Background LEER lassen! -->
-  
-  <app-navbar [currentLanguage]="currentLanguage" 
-              [slideDirection]="'horizontal'"
-              (languageChange)="onLanguageChange($event)" 
-              (mobileMenuToggle)="onMobileMenuToggle($event)">
+
+  <app-navbar [currentLanguage]="currentLanguage" [slideDirection]="'horizontal'"
+    (languageChange)="onLanguageChange($event)" (mobileMenuToggle)="onMobileMenuToggle($event)">
   </app-navbar>
 
   <div class="project-detail-content" *ngIf="project">
@@ -49,7 +47,7 @@
           <img [src]="project.image" [alt]="project.title" class="project-main-image">
           <div class="featured-badge">
             <img *ngIf="project.id === 'join'" src="assets/img/Sticker.webp" alt="Featured Project"
-                 class="featured-sticker">
+              class="featured-sticker">
             <div *ngIf="project.id !== 'join'" class="seal-logo">
               <img src="assets/img/siegel_orange.webp" alt="Seal" class="orange-seal">
               <img src="assets/img/logo_kay.webp" alt="Logo" class="logo-img" />

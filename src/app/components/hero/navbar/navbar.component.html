@@ -1,65 +1,61 @@
 <nav class="navbar" [ngClass]="{
-       'horizontal': slideDirection === 'horizontal',
-       'vertical': slideDirection === 'vertical',
-       'mobile-menu-open': isMobileMenuOpen
-     }">
+  'horizontal': slideDirection === 'horizontal',
+  'vertical': slideDirection === 'vertical',
+  'mobile-menu-open': isMobileMenuOpen
+}">
+  <img src="assets/img/logo_kay.webp" alt="Logo" class="logo-img" />
 
-    <img src="assets/img/logo_kay.webp" alt="Logo" class="logo-img" />
+  <ul class="nav-links">
+    <li>
+      <a href="#about" class="nav-link" (click)="closeMobileMenu()">
+        {{ getNavigationText('aboutMe') }}
+        <div class="image-hover about"></div>
+      </a>
+    </li>
+    <li>
+      <a href="#skills" class="nav-link" (click)="closeMobileMenu()">
+        {{ getNavigationText('skills') }}
+        <div class="image-hover skills"></div>
+      </a>
+    </li>
+    <li>
+      <a href="#projects" class="nav-link" (click)="closeMobileMenu()">
+        {{ getNavigationText('projects') }}
+        <div class="image-hover projects"></div>
+      </a>
+    </li>
+    <li>
+      <a href="#contact" class="nav-link" (click)="closeMobileMenu()">
+        {{ getNavigationText('contact') }}
+        <div class="image-hover contact"></div>
+      </a>
+    </li>
+    <li>
+      <div class="language-toggle">
+        <span class="lang nav-lang" [class.active]="currentLanguage === 'en'">EN</span>
+        <label class="switch">
+          <input type="checkbox" [checked]="currentLanguage === 'de'" (change)="toggleLanguage()" />
+          <span class="slider"></span>
+        </label>
+        <span class="lang nav-lang" [class.active]="currentLanguage === 'de'">DE</span>
+      </div>
+    </li>
+    <li class="mobile-social-icons">
+      <div class="social-icons-container">
+        <a href="https://www.linkedin.com/in/kaydietrich" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/linkedin.webp" alt="LinkedIn" />
+        </a>
+        <a href="https://github.com/BadRix90" target="_blank" rel="noopener noreferrer">
+          <img src="assets/img/github.webp" alt="GitHub" />
+        </a>
+        <a href="mailto:dietrich.kay@outlook.de">
+          <img src="assets/img/mail.webp" alt="Mail" />
+        </a>
+      </div>
+    </li>
+  </ul>
 
-    <ul class="nav-links">
-        <li class="mobile-logo">
-            <img src="assets/img/logo_kay.webp" alt="Logo" class="mobile-logo-img" />
-        </li>
-        <li>
-            <a href="#about" class="nav-link" (click)="closeMobileMenu()">
-                {{ getNavigationText('aboutMe') }}
-                <div class="image-hover about"></div>
-            </a>
-        </li>
-        <li>
-            <a href="#skills" class="nav-link" (click)="closeMobileMenu()">
-                {{ getNavigationText('skills') }}
-                <div class="image-hover skills"></div>
-            </a>
-        </li>
-        <li>
-            <a href="#projects" class="nav-link" (click)="closeMobileMenu()">
-                {{ getNavigationText('projects') }}
-                <div class="image-hover projects"></div>
-            </a>
-        </li>
-        <li>
-            <a href="#contact" class="nav-link" (click)="closeMobileMenu()">
-                {{ getNavigationText('contact') }}
-                <div class="image-hover contact"></div>
-            </a>
-        </li>
-        <li>
-            <div class="language-toggle">
-                <span class="lang nav-lang" [class.active]="currentLanguage === 'en'">EN</span>
-                <label class="switch">
-                    <input type="checkbox" [checked]="currentLanguage === 'de'" (change)="toggleLanguage()" />
-                    <span class="slider"></span>
-                </label>
-                <span class="lang nav-lang" [class.active]="currentLanguage === 'de'">DE</span>
-            </div>
-        </li>
-        <li class="mobile-social-icons">
-            <div class="social-icons-container">
-                <a href="https://www.linkedin.com/in/kaydietrich" target="_blank" rel="noopener noreferrer">
-                    <img src="assets/img/linkedin.webp" alt="LinkedIn" />
-                </a>
-                <a href="https://github.com/BadRix90" target="_blank" rel="noopener noreferrer">
-                    <img src="assets/img/github.webp" alt="GitHub" />
-                </a>
-                <a href="mailto:dietrich.kay@outlook.de">
-                    <img src="assets/img/mail.webp" alt="Mail" />
-                </a>
-            </div>
-        </li>
-    </ul>
-
-    <button class="burger-menu" (click)="toggleMobileMenu()">
-        <img src="assets/img/menu.webp" alt="Menu" class="menu-icon">
-    </button>
+  <button class="burger-menu" (click)="toggleMobileMenu()">
+    <img src="assets/img/menu.webp" alt="Menu" class="menu-icon">
+  </button>
 </nav>

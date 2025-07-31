@@ -11,7 +11,7 @@ import { TextService } from '../../../services/text.service';
 })
 export class TitleComponent implements OnInit {
   frameText = 'Kay :)';
-  handState: 'hidden' | 'waving' | 'rolling' = 'hidden';
+  handState: 'hidden' | 'waving' | 'rolling' | 'rolling-back' = 'hidden';
   isMobileLayout = false;
   currentPText = '';
   @Input() currentLanguage = 'en';
@@ -85,7 +85,6 @@ export class TitleComponent implements OnInit {
 
   private startRollingAnimation(): void {
     this.handState = 'rolling';
-    setTimeout(() => this.resetToOriginalState(), 1500);
   }
 
   private resetToOriginalState(): void {
@@ -93,11 +92,14 @@ export class TitleComponent implements OnInit {
     this.currentPText = '';
   }
 
-  onPLeave() {
-    if (this.handState === 'hidden') {
-      this.currentPText = '';
-    }
+  onPLeave(): void {
+  if (this.handState === 'rolling') {
+    this.handState = 'rolling-back';
+    setTimeout(() => this.resetToOriginalState(), 1500);
+  } else if (this.handState === 'hidden') {
+    this.currentPText = '';
   }
+}
 
   onFrameHover() {
     this.frameText = 'Kay :D';

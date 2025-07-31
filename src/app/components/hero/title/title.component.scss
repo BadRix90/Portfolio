@@ -106,6 +106,12 @@
                 visibility: visible;
                 animation: rollRightAndFadeIn 1.5s ease-out forwards;
             }
+
+            &.rolling-back .wave-hand-alt {
+                opacity: 1;
+                visibility: visible;
+                animation: rollBackLeft 1.5s ease-out forwards;
+            }
         }
 
         .HelloWorld {
@@ -170,27 +176,7 @@
         width: 100%;
     }
 
-    @keyframes neonFlicker {
 
-        0%,
-        100% {
-            text-shadow:
-                0 0 5px currentColor,
-                0 0 10px currentColor,
-                0 0 15px currentColor,
-                0 0 20px currentColor,
-                0 0 25px currentColor;
-        }
-
-        50% {
-            text-shadow:
-                0 0 2px currentColor,
-                0 0 5px currentColor,
-                0 0 8px currentColor,
-                0 0 12px currentColor,
-                0 0 15px currentColor;
-        }
-    }
 }
 
 .swap-char {
@@ -247,22 +233,42 @@
         opacity: 0;
     }
 
+    10% {
+        opacity: 0;
+    }
+
     20% {
         opacity: 1;
     }
 
     60% {
-        transform: translateX(150px) rotate(360deg);
+        transform: translateX(100px) rotate(360deg);
         opacity: 1;
     }
 
     90% {
-        transform: translateX(150px) rotate(360deg);
+        transform: translateX(100px) rotate(360deg);
         opacity: 1;
     }
 
     100% {
-        transform: translateX(150px) rotate(360deg);
+        transform: translateX(100px) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+@keyframes rollBackLeft {
+    0% {
+        transform: translateX(100px) rotate(360deg);
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg);
         opacity: 0;
     }
 }

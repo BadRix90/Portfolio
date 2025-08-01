@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { TextService } from '../../../services/text.service';
@@ -10,7 +10,10 @@ import { TextService } from '../../../services/text.service';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']  // <-- Korrektur: styleUrls statt styleUrl
 })
+
+
 export class FooterComponent {
+  @Input() currentLanguage = 'en';
 
   socialLinks = [
     {
@@ -34,8 +37,7 @@ export class FooterComponent {
   ];
 
   hoveredIcon: string | null = null;
-  socialState: string = 'hidden';  // <-- wird in getSocialIconState verwendet
-  currentLanguage: string = 'de';  // <-- wird in getText() verwendet
+  socialState: string = 'hidden';
 
   constructor(
     public textService: TextService,
@@ -43,9 +45,9 @@ export class FooterComponent {
   ) { }
 
   getText(key: string): string {
-    const texts = this.textService.getContactTexts();
+    const texts = this.textService.getFooterTexts();
     const textObj = texts[key as keyof typeof texts];
-    return textObj ? textObj[this.currentLanguage as 'de' | 'en'] : '';
+    return textObj ? (textObj as any)[this.currentLanguage] : '';
   }
 
   openLegalNotice() {

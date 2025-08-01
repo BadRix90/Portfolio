@@ -6,6 +6,7 @@ import { SkillSetComponent } from '../skill-set/skill-set.component';
 import { ProjectsComponent } from '../projects/projects.component';
 import { TestimonialsComponent } from '../testimonials/testimonials.component';
 import { ContactComponent } from '../contact/contact.component';
+import { FooterComponent } from '../contact/footer/footer.component';
 
 @Component({
   selector: 'app-home',
@@ -18,9 +19,9 @@ import { ContactComponent } from '../contact/contact.component';
     ProjectsComponent,
     TestimonialsComponent,
     ContactComponent,
+    FooterComponent
   ],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
   selectedLanguage = 'en';

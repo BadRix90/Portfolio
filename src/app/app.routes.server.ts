@@ -1,8 +1,15 @@
-import { RenderMode, ServerRoute } from '@angular/ssr';
+import { RenderMode, type ServerRoute } from "@angular/ssr"
 
 export const serverRoutes: ServerRoute[] = [
   {
-    path: '**',
-    renderMode: RenderMode.Prerender
-  }
-];
+    path: "project/:id",
+    renderMode: RenderMode.Prerender,
+    getPrerenderParams: async () => {
+      return [{ id: "join" }, { id: "powerofthebeast" }, { id: "dabubble" }]
+    },
+  },
+  {
+    path: "**",
+    renderMode: RenderMode.Prerender,
+  },
+]

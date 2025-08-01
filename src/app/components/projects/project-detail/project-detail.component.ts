@@ -169,3 +169,4 @@ export class ProjectDetailComponent implements AfterViewInit {
     }
   }
 }
+export const renderMode = 'client';

@@ -47,10 +47,16 @@ export class TextService {
       submitButton: { de: 'Senden', en: 'Send' },
       successMessage: { de: 'Vielen Dank für deine Nachricht!', en: 'Thank you for your message!' },
       errorMessage: { de: 'Bitte fülle alle Felder aus.', en: 'Please fill in all fields.' },
+    };
+  }
+
+  getFooterTexts() {
+    return {
       copyrightText: { de: '© Kay Dietrich 2025', en: '© Kay Dietrich 2025' },
       legalNotice: { de: 'Impressum', en: 'Legal Notice' }
     };
   }
+
 
   getProjectTexts() {
     return {
@@ -180,70 +186,70 @@ export class TextService {
     };
   }
 
-getLegalTexts() {
-  return {
-    legalTitle: { de: 'Impressum', en: 'Legal Notice' },
-    privacyTitle: { de: 'Datenschutzerklärung', en: 'Privacy Policy' },
-    goBack: { de: 'Zurück', en: 'Back' },
-    
-    // Legal Notice
-    companyInfo: { de: 'Angaben gemäß § 5 TMG', en: 'Information according to § 5 TMG' },
-    contactInfo: { de: 'Kontakt', en: 'Contact' },
-    disclaimer: { de: 'Haftungsausschluss', en: 'Disclaimer' },
-    content: { de: 'Inhalte', en: 'Content' },
-    links: { de: 'Links', en: 'Links' },
-    copyright: { de: 'Urheberrecht', en: 'Copyright' },
-    
-    companyDetails: {
-      de: 'Kay Dietrich\nFrontend Developer\nLüneburg, Deutschland',
-      en: 'Kay Dietrich\nFrontend Developer\nLüneburg, Germany'
-    },
-    contactDetails: {
-      de: 'E-Mail: contact@kaydietrich.com',
-      en: 'Email: contact@kaydietrich.com'
-    },
-    contentText: {
-      de: 'Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.',
-      en: 'The contents of this website have been created with the utmost care. However, we cannot guarantee the accuracy, completeness and timeliness of the content.'
-    },
-    linksText: {
-      de: 'Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.',
-      en: 'Our website contains links to external third-party websites over whose content we have no influence. Therefore, we cannot assume any liability for these external contents.'
-    },
-    copyrightText: {
-      de: 'Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.',
-      en: 'The content and works created by the site operator on these pages are subject to German copyright law.'
-    },
-    
-    // Privacy Policy
-    dataProtection: { de: 'Datenschutz auf einen Blick', en: 'Privacy at a glance' },
-    generalInfo: { de: 'Allgemeine Hinweise', en: 'General information' },
-    dataCollection: { de: 'Datenerfassung auf dieser Website', en: 'Data collection on this website' },
-    responsible: { de: 'Wer ist verantwortlich für die Datenerfassung?', en: 'Who is responsible for data collection?' },
-    howCollect: { de: 'Wie erfassen wir Ihre Daten?', en: 'How do we collect your data?' },
-    contactForm: { de: 'Kontaktformular', en: 'Contact form' },
-    yourRights: { de: 'Ihre Rechte', en: 'Your rights' },
-    
-    generalInfoText: {
-      de: 'Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.',
-      en: 'The following information provides a simple overview of what happens to your personal data when you visit this website.'
-    },
-    responsibleText: {
-      de: 'Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.',
-      en: 'Data processing on this website is carried out by the website operator. You can find their contact details in the legal notice of this website.'
-    },
-    howCollectText: {
-      de: 'Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z.B. um Daten handeln, die Sie in ein Kontaktformular eingeben.',
-      en: 'Your data is collected on the one hand by you providing it to us. This can be data that you enter in a contact form, for example.'
-    },
-    contactFormText: {
-      de: 'Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.',
-      en: 'If you send us inquiries via the contact form, your details from the inquiry form including the contact data you provided there will be stored by us for the purpose of processing the inquiry and in case of follow-up questions.'
-    },
-    rightsText: {
-      de: 'Sie haben jederzeit das Recht unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen.',
-      en: 'You have the right to receive information about the origin, recipient and purpose of your stored personal data free of charge at any time. You also have the right to request the correction, blocking or deletion of this data.'
-    }
-  };
-}
+  getLegalTexts() {
+    return {
+      legalTitle: { de: 'Impressum', en: 'Legal Notice' },
+      privacyTitle: { de: 'Datenschutzerklärung', en: 'Privacy Policy' },
+      goBack: { de: 'Zurück', en: 'Back' },
+
+      // Legal Notice
+      companyInfo: { de: 'Angaben gemäß § 5 TMG', en: 'Information according to § 5 TMG' },
+      contactInfo: { de: 'Kontakt', en: 'Contact' },
+      disclaimer: { de: 'Haftungsausschluss', en: 'Disclaimer' },
+      content: { de: 'Inhalte', en: 'Content' },
+      links: { de: 'Links', en: 'Links' },
+      copyright: { de: 'Urheberrecht', en: 'Copyright' },
+
+      companyDetails: {
+        de: 'Kay Dietrich\nFrontend Developer\nLüneburg, Deutschland',
+        en: 'Kay Dietrich\nFrontend Developer\nLüneburg, Germany'
+      },
+      contactDetails: {
+        de: 'E-Mail: contact@kaydietrich.com',
+        en: 'Email: contact@kaydietrich.com'
+      },
+      contentText: {
+        de: 'Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.',
+        en: 'The contents of this website have been created with the utmost care. However, we cannot guarantee the accuracy, completeness and timeliness of the content.'
+      },
+      linksText: {
+        de: 'Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.',
+        en: 'Our website contains links to external third-party websites over whose content we have no influence. Therefore, we cannot assume any liability for these external contents.'
+      },
+      copyrightText: {
+        de: 'Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.',
+        en: 'The content and works created by the site operator on these pages are subject to German copyright law.'
+      },
+
+      // Privacy Policy
+      dataProtection: { de: 'Datenschutz auf einen Blick', en: 'Privacy at a glance' },
+      generalInfo: { de: 'Allgemeine Hinweise', en: 'General information' },
+      dataCollection: { de: 'Datenerfassung auf dieser Website', en: 'Data collection on this website' },
+      responsible: { de: 'Wer ist verantwortlich für die Datenerfassung?', en: 'Who is responsible for data collection?' },
+      howCollect: { de: 'Wie erfassen wir Ihre Daten?', en: 'How do we collect your data?' },
+      contactForm: { de: 'Kontaktformular', en: 'Contact form' },
+      yourRights: { de: 'Ihre Rechte', en: 'Your rights' },
+
+      generalInfoText: {
+        de: 'Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen.',
+        en: 'The following information provides a simple overview of what happens to your personal data when you visit this website.'
+      },
+      responsibleText: {
+        de: 'Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser Website entnehmen.',
+        en: 'Data processing on this website is carried out by the website operator. You can find their contact details in the legal notice of this website.'
+      },
+      howCollectText: {
+        de: 'Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z.B. um Daten handeln, die Sie in ein Kontaktformular eingeben.',
+        en: 'Your data is collected on the one hand by you providing it to us. This can be data that you enter in a contact form, for example.'
+      },
+      contactFormText: {
+        de: 'Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.',
+        en: 'If you send us inquiries via the contact form, your details from the inquiry form including the contact data you provided there will be stored by us for the purpose of processing the inquiry and in case of follow-up questions.'
+      },
+      rightsText: {
+        de: 'Sie haben jederzeit das Recht unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung, Sperrung oder Löschung dieser Daten zu verlangen.',
+        en: 'You have the right to receive information about the origin, recipient and purpose of your stored personal data free of charge at any time. You also have the right to request the correction, blocking or deletion of this data.'
+      }
+    };
+  }
 }

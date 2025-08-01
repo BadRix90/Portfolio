@@ -1,0 +1,23 @@
+<div *ngIf="showMainContent" class="app-wrapper">
+    <main>
+        <app-hero (languageChange)="onLanguageChange($event)" [currentLanguage]="selectedLanguage"></app-hero>
+
+        <section id="about">
+            <app-about-me [currentLanguage]="selectedLanguage"></app-about-me>
+        </section>
+
+        <section id="skills">
+            <app-skill-set [currentLanguage]="selectedLanguage"></app-skill-set>
+        </section>
+
+        <section id="projects">
+            <app-projects ngSkipHydration [currentLanguage]="selectedLanguage"></app-projects>
+        </section>
+
+        <app-testimonials [currentLanguage]="selectedLanguage"></app-testimonials>
+
+        <section id="contact">
+            <app-contact [currentLanguage]="selectedLanguage"></app-contact>
+        </section>
+    </main>
+</div>

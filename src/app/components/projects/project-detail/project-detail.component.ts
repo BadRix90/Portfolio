@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { Project } from '../../../interfaces/project.interface';
 import { ProjectService } from '../../../services/project.service';
 import { NavbarComponent } from '../../hero/navbar/navbar.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [CommonModule, NavbarComponent],
+  imports: [CommonModule, NavbarComponent, NavbarComponent],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss'
 })
@@ -26,7 +27,12 @@ export class ProjectDetailComponent implements AfterViewInit {
   toastMessage = '';
   toastType: 'success' | 'error' | 'warning' | 'info' = 'info';
 
-  constructor(private projectService: ProjectService, private textService: TextService) { }
+  constructor(private projectService: ProjectService, private textService: TextService, private router: Router) { }
+
+  onLanguageChange(lang: string) {
+    this.currentLanguage = lang;
+    localStorage.setItem('selectedLanguage', lang);
+  }
 
   getText(key: string): string {
     const texts = this.textService.getProjectDetailTexts();
@@ -77,10 +83,6 @@ export class ProjectDetailComponent implements AfterViewInit {
     }
   }
 
-  onLanguageChange(language: string) {
-    this.languageChange.emit(language);
-  }
-
   onMobileMenuToggle(isOpen: boolean) {
     this.isMobileMenuOpen = isOpen;
 
@@ -94,6 +96,10 @@ export class ProjectDetailComponent implements AfterViewInit {
       projectWrapper?.classList.remove('menu-open');
       body.style.overflow = 'auto';
     }
+  }
+
+  navigateToSection(sectionId: string) {
+    this.router.navigate(['/'], { fragment: sectionId });
   }
 
   openGithub() {

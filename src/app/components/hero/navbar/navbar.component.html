@@ -11,25 +11,25 @@
     </div>
 
     <li>
-      <a href="#about" class="nav-link" (click)="closeMobileMenu()">
+      <a href="#about" class="nav-link" (click)="navigateToSection('about');">
         {{ getNavigationText('aboutMe') }}
         <div class="image-hover about"></div>
       </a>
     </li>
     <li>
-      <a href="#skills" class="nav-link" (click)="closeMobileMenu()">
+      <a href="#skills" class="nav-link" (click)="navigateToSection('skills');">
         {{ getNavigationText('skills') }}
         <div class="image-hover skills"></div>
       </a>
     </li>
     <li>
-      <a href="#projects" class="nav-link" (click)="closeMobileMenu()">
+      <a href="#projects" class="nav-link" (click)="navigateToSection('projects');">
         {{ getNavigationText('projects') }}
         <div class="image-hover projects"></div>
       </a>
     </li>
     <li>
-      <a href="#contact" class="nav-link" (click)="closeMobileMenu()">
+      <a href="#contact" class="nav-link" (click)="navigateToSection('contact');">
         {{ getNavigationText('contact') }}
         <div class="image-hover contact"></div>
       </a>

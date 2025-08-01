@@ -1,6 +1,6 @@
 <div class="project-detail-wrapper">
   <div class="background-image-wrapper"></div>
-
+  
   <app-navbar [currentLanguage]="currentLanguage" [slideDirection]="'horizontal'"
     (languageChange)="onLanguageChange($event)" (mobileMenuToggle)="onMobileMenuToggle($event)">
   </app-navbar>
@@ -72,16 +72,16 @@
     </div>
   </div>
 
-<div class="mobile-navigation">
-  <button class="mobile-go-back" (click)="onGoBack()">
-    <img src="assets/img/arrow_back.webp" alt="Back" class="back-arrow-img">
-    {{ getText('goBack') }}
-  </button>
-  <button class="mobile-next-project" *ngIf="nextProject" (click)="onNextProject()">
-    {{ getText('nextProject') }}
-    <img src="assets/img/arrow_forward.webp" alt="Next" class="forward-arrow-img">
-  </button>
-</div>
+  <div class="mobile-navigation">
+    <button class="mobile-go-back" (click)="onGoBack()">
+      <img src="assets/img/arrow_back.webp" alt="Back" class="back-arrow-img">
+      {{ getText('goBack') }}
+    </button>
+    <button class="mobile-next-project" *ngIf="nextProject" (click)="onNextProject()">
+      {{ getText('nextProject') }}
+      <img src="assets/img/arrow_forward.webp" alt="Next" class="forward-arrow-img">
+    </button>
+  </div>
 
   <div class="toast-container" *ngIf="showToast">
     <div class="toast" [class]="'toast-' + toastType" (click)="hideToast()">

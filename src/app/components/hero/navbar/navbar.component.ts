@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TextService } from '../../../services/text.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -18,7 +19,7 @@ export class NavbarComponent {
   isMobileMenuOpen = false;
 
   // TextService injizieren
-  constructor(private textService: TextService) {}
+  constructor(private textService: TextService, private router: Router) { }
 
   // Neue Methode für Navigation-Texte
   getNavigationText(key: string): string {
@@ -39,5 +40,9 @@ export class NavbarComponent {
   closeMobileMenu(): void {
     this.isMobileMenuOpen = false;
     this.mobileMenuToggle.emit(this.isMobileMenuOpen);
+  }
+  navigateToSection(sectionId: string): void {
+    this.closeMobileMenu();
+    this.router.navigate(['/'], { fragment: sectionId });
   }
 }

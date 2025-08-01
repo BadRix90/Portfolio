@@ -269,6 +269,9 @@
         }
 
         .burger-menu {
+            position: fixed;
+            top: 32px;
+            right: 32px;
             display: block;
             background: transparent;
             border: none;

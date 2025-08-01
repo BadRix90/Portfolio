@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { TextService } from '../../services/text.service';
 import { ScrollService } from '../../services/scroll.service';
 import { NavbarComponent } from '../hero/navbar/navbar.component';
+import { FooterComponent } from '../contact/footer/footer.component';
 
 @Component({
   selector: 'app-legal-notice',
   standalone: true,
-  imports: [CommonModule, NavbarComponent],
+  imports: [CommonModule, NavbarComponent, FooterComponent],
   templateUrl: './legal-notice.component.html',
   styleUrls: ['./legal-notice.component.scss']
 })

@@ -559,24 +559,29 @@
   }
 
   .mobile-navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px;
     display: flex;
-    position: absolute;
-    left: 20px;
-    right: 20px;
     justify-content: space-between;
     z-index: 10000;
+    backdrop-filter: blur(10px);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+    pointer-events: auto;
 
-    .mobile-go-back {
+    .mobile-go-back,
+    .mobile-next-project {
       display: flex;
       align-items: center;
       gap: 8px;
       padding: 12px 24px;
-      color: #F8F9FA;
-      cursor: pointer;
       font-family: var(--font-main);
       font-weight: 600;
+      color: #F8F9FA;
 
-      .back-arrow-img {
+      img {
         width: 18px;
         height: 18px;
       }

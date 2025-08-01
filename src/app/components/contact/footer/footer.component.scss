@@ -71,6 +71,7 @@
               &:hover {
                   background-color: #3355FF;
               }
+
               .social-icon-roller {
                   position: absolute;
                   top: -30px;
@@ -228,6 +229,49 @@
                       .social-text {
                           color: #ccc !important;
                       }
+                  }
+              }
+          }
+      }
+  }
+
+  @include mobile-lg {
+      .contact-footer {
+          .footer-content {
+              flex-direction: column;
+              gap: 30px;
+              align-items: stretch;
+          }
+
+          .footer-left {
+              order: 1;
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+              gap: 20px;
+
+              .footer-info-right {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-end;
+                  gap: 5px;
+              }
+          }
+
+          .footer-right {
+              order: 2;
+              margin-left: 0;
+              max-width: none;
+              justify-content: space-between;
+              gap: 40px;
+
+              .social-link-container {
+                  &:hover {
+                      background-color: transparent !important;
+                  }
+
+                  .social-icon-roller {
+                      display: none;
                   }
               }
           }

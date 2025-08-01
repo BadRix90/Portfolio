@@ -1,9 +1,12 @@
 <div class="project-detail-wrapper">
   <div class="background-image-wrapper"></div>
-  
-  <app-navbar [currentLanguage]="currentLanguage" [slideDirection]="'horizontal'"
-    (languageChange)="onLanguageChange($event)" (mobileMenuToggle)="onMobileMenuToggle($event)">
-  </app-navbar>
+
+  <app-navbar
+  [currentLanguage]="currentLanguage"
+  [slideDirection]="'horizontal'"
+  (languageChange)="onLanguageChange($event)"
+  (mobileMenuToggle)="onMobileMenuToggle($event)">
+</app-navbar>
 
   <div class="project-detail-content" *ngIf="project">
     <button class="go-back-btn" (click)="onGoBack()">

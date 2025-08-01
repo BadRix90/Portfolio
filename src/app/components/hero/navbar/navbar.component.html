@@ -11,25 +11,25 @@
     </div>
 
     <li>
-      <a href="#about" class="nav-link" (click)="navigateToSection('about');">
+      <a href="#about" class="nav-link" (click)="onNavigationClick('about', $event);">
         {{ getNavigationText('aboutMe') }}
         <div class="image-hover about"></div>
       </a>
     </li>
     <li>
-      <a href="#skills" class="nav-link" (click)="navigateToSection('skills');">
+      <a href="#skills" class="nav-link" (click)="onNavigationClick('skills', $event);">
         {{ getNavigationText('skills') }}
         <div class="image-hover skills"></div>
       </a>
     </li>
     <li>
-      <a href="#projects" class="nav-link" (click)="navigateToSection('projects');">
+      <a href="#projects" class="nav-link" (click)="onNavigationClick('projects', $event);">
         {{ getNavigationText('projects') }}
         <div class="image-hover projects"></div>
       </a>
     </li>
     <li>
-      <a href="#contact" class="nav-link" (click)="navigateToSection('contact');">
+      <a href="#contact" class="nav-link" (click)="onNavigationClick('contact', $event);">
         {{ getNavigationText('contact') }}
         <div class="image-hover contact"></div>
       </a>

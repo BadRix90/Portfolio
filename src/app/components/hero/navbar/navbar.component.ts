@@ -18,10 +18,9 @@ export class NavbarComponent {
 
   isMobileMenuOpen = false;
 
-  // TextService injizieren
+
   constructor(private textService: TextService, private router: Router) { }
 
-  // Neue Methode für Navigation-Texte
   getNavigationText(key: string): string {
     const texts = this.textService.getNavigationTexts();
     return (texts as any)[key][this.currentLanguage];
@@ -37,12 +36,36 @@ export class NavbarComponent {
     this.mobileMenuToggle.emit(this.isMobileMenuOpen);
   }
 
+  onNavigationClick(sectionId: string, event: Event): void {
+    event.preventDefault();
+    this.closeMobileMenu();
+
+    if (this.router.url !== '/') {
+      this.router.navigateByUrl('/', { skipLocationChange: false }).then(() => {
+        // Nach Navigation zurück zur Hauptseite → scrollen
+        setTimeout(() => {
+          const el = document.getElementById(sectionId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 200);
+      });
+    } else {
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
   closeMobileMenu(): void {
     this.isMobileMenuOpen = false;
     this.mobileMenuToggle.emit(this.isMobileMenuOpen);
   }
-  navigateToSection(sectionId: string): void {
+
+  navigateToSection(sectionId: string) {
     this.closeMobileMenu();
-    this.router.navigate(['/'], { fragment: sectionId });
+    if (this.router.url !== '/') {
+      this.router.navigate(['/'], { fragment: sectionId });
+    } else {
+      const el = document.getElementById(sectionId);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }

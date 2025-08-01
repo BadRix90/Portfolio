@@ -1,71 +1,73 @@
-<!-- src/app/components/projects/projects.component.html -->
-<div *ngIf="!showProjectDetail">
-    <div class="projects-container">
-        <!-- Title Section -->
-        <div class="title-section">
-            <span class="craft-label">{{ getText('craftLabel') }}</span>
-            <h2 class="projects-title">{{ getText('projectsTitle') }}
-                <img src="assets/img/projects-title-line.webp" alt="underline" class="title-underline">
-            </h2>
-            <p class="title-description">{{ getText('titleDescription') }}</p>
-        </div>
+<div class="projects-container">
+    <!-- Title Section -->
+    <div class="title-section">
+        <span class="craft-label">{{ getText('craftLabel') }}</span>
+        <h2 class="projects-title">{{ getText('projectsTitle') }}
+            <img src="assets/img/projects-title-line.webp" alt="underline" class="title-underline">
+        </h2>
+        <p class="title-description">{{ getText('titleDescription') }}</p>
+    </div>
 
-        <!-- Join Project -->
-        <div class="project-card join-project">
-            <div class="project-image">
-                <img src="assets/img/Laptop.webp" alt="Join Task Manager" class="laptop-image">
-                <img src="assets/img/Sticker.webp" alt="Featured Project" class="featured-sticker">
-                <!-- DESKTOP BUTTON -->
-                <button class="view-project-btn desktop-only" (click)="openProjectDetail('join')">
+    <div class="project-card join-project">
+        <div class="project-image">
+            <img src="assets/img/Laptop.webp" alt="Join Task Manager" class="laptop-image">
+            <img src="assets/img/Sticker.webp" alt="Featured Project" class="featured-sticker">
+            <a [routerLink]="['/project', 'join']">
+                <button class="view-project-btn desktop-only">
                     Project Details
                 </button>
-            </div>
-            <div class="project-info">
-                <h3 class="project-title">{{ getText('joinTitle') }}</h3>
-                <p class="project-description">{{ getText('joinDescription') }}</p>
-                <!-- MOBILE BUTTON -->
-                <button class="view-project-btn mobile-only" (click)="openProjectDetail('join')">
-                    Project Details
-                </button>
-            </div>
+            </a>
         </div>
-
-        <!-- El Pollo Loco Project -->
-        <div class="project-card el-pollo-loco-project">
-            <div class="project-image">
-                <img src="assets/img/PowerOfTheBeast.webp" alt="Power of the Beast" class="epl-image">
-                <button class="view-project-btn desktop-only" (click)="openProjectDetail('powerofthebeast')">
+        <div class="project-info">
+            <h3 class="project-title">{{ getText('joinTitle') }}</h3>
+            <p class="project-description">{{ getText('joinDescription') }}</p>
+            <a [routerLink]="['/project', 'join']">
+                <button class="view-project-btn mobile-only">
                     Project Details
                 </button>
-            </div>
-            <div class="project-info">
-                <h3 class="project-title">{{ getText('powerTitle') }}</h3>
-                <p class="project-description">{{ getText('powerDescription') }}</p>
-                <button class="view-project-btn mobile-only" (click)="openProjectDetail('powerofthebeast')">
-                    Project Details
-                </button>
-            </div>
+            </a>
         </div>
+    </div>
 
-        <!-- DABubble Project -->
-        <div class="project-card dabubble-project">
-            <div class="project-image">
-                <img src="assets/img/DABubble.webp" alt="DABubble" class="dab-image">
-                <button class="view-project-btn desktop-only" (click)="openProjectDetail('dabubble')">
+    <!-- El Pollo Loco Project -->
+    <div class="project-card el-pollo-loco-project">
+        <div class="project-image">
+            <img src="assets/img/PowerOfTheBeast.webp" alt="Power of the Beast" class="epl-image">
+            <a [routerLink]="['/project', 'powerofthebeast']">
+                <button class="view-project-btn desktop-only">
                     Project Details
                 </button>
-            </div>
-            <div class="project-info">
-                <h3 class="project-title">{{ getText('dabubbleTitle') }}</h3>
-                <p class="project-description">{{ getText('dabubbleDescription') }}</p>
-                <button class="view-project-btn mobile-only" (click)="openProjectDetail('dabubble')">
+            </a>
+        </div>
+        <div class="project-info">
+            <h3 class="project-title">{{ getText('powerTitle') }}</h3>
+            <p class="project-description">{{ getText('powerDescription') }}</p>
+            <a [routerLink]="['/project', 'powerofthebeast']">
+                <button class="view-project-btn mobile-only">
                     Project Details
                 </button>
-            </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- DABubble Project -->
+    <div class="project-card dabubble-project">
+        <div class="project-image">
+            <img src="assets/img/DABubble.webp" alt="DABubble" class="dab-image">
+            <a [routerLink]="['/project', 'dabubble']">
+                <button class="view-project-btn desktop-only">
+                    Project Details
+                </button>
+            </a>
+        </div>
+        <div class="project-info">
+            <h3 class="project-title">{{ getText('dabubbleTitle') }}</h3>
+            <p class="project-description">{{ getText('dabubbleDescription') }}</p>
+            <a [routerLink]="['/project', 'dabubble']">
+                <button class="view-project-btn mobile-only">
+                    Project Details
+                </button>
+            </a>
         </div>
     </div>
 </div>
-
-<app-project-detail *ngIf="showProjectDetail" [projectId]="selectedProjectId" [currentLanguage]="currentLanguage"
-    (goBack)="closeProjectDetail()">
-</app-project-detail>

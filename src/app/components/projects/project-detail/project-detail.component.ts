@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Project } from '../../../interfaces/project.interface';
 import { ProjectService } from '../../../services/project.service';
 import { NavbarComponent } from '../../hero/navbar/navbar.component';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-project-detail',
@@ -27,7 +27,7 @@ export class ProjectDetailComponent implements AfterViewInit {
   toastMessage = '';
   toastType: 'success' | 'error' | 'warning' | 'info' = 'info';
 
-  constructor(private projectService: ProjectService, private textService: TextService, private router: Router) { }
+  constructor(private projectService: ProjectService, private textService: TextService, private router: Router, private route: ActivatedRoute) { }
 
   onLanguageChange(lang: string) {
     this.currentLanguage = lang;
@@ -54,7 +54,13 @@ export class ProjectDetailComponent implements AfterViewInit {
   }
 
   ngOnInit() {
-    this.loadProject();
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (id) {
+        this.projectId = id;
+        this.loadProject();
+      }
+    });
   }
 
   ngOnChanges() {
@@ -70,14 +76,13 @@ export class ProjectDetailComponent implements AfterViewInit {
   }
 
   onGoBack() {
-    this.goBack.emit();
+    this.router.navigate(['/'], { fragment: 'projects' });
   }
+
 
   onNextProject() {
     if (this.nextProject) {
-      this.projectId = this.nextProject.id;
-      this.loadProject();
-      setTimeout(() => this.setDynamicUnderlineWidth(), 0);
+      this.router.navigate(['/project', this.nextProject.id]);
     } else {
       this.onGoBack();
     }

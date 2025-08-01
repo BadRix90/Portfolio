@@ -1,12 +1,9 @@
 <div class="project-detail-wrapper">
   <div class="background-image-wrapper"></div>
 
-  <app-navbar
-  [currentLanguage]="currentLanguage"
-  [slideDirection]="'horizontal'"
-  (languageChange)="onLanguageChange($event)"
-  (mobileMenuToggle)="onMobileMenuToggle($event)">
-</app-navbar>
+  <app-navbar [currentLanguage]="currentLanguage" [slideDirection]="'horizontal'"
+    (languageChange)="onLanguageChange($event)" (mobileMenuToggle)="onMobileMenuToggle($event)">
+  </app-navbar>
 
   <div class="project-detail-content" *ngIf="project">
     <button class="go-back-btn" (click)="onGoBack()">
@@ -85,6 +82,7 @@
       <img src="assets/img/arrow_forward.webp" alt="Next" class="forward-arrow-img">
     </button>
   </div>
+
 
   <div class="toast-container" *ngIf="showToast">
     <div class="toast" [class]="'toast-' + toastType" (click)="hideToast()">

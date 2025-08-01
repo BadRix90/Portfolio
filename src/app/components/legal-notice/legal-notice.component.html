@@ -1,14 +1,19 @@
-<app-navbar></app-navbar>
-<section class="legal-section">
+<div class="legal-section">
+  <div class="background-image-wrapper"></div>
+
+  <app-navbar [currentLanguage]="currentLanguage" [slideDirection]="'horizontal'"
+    (languageChange)="onLanguageChange($event)" (mobileMenuToggle)="onMobileMenuToggle($event)">
+  </app-navbar>
+
   <div class="legal-container">
     <button class="back-button" (click)="goBack()">
       <img src="assets/img/arrow_back.webp" alt="Back">
       {{ getText('goBack') }}
     </button>
-    
+
     <div class="legal-content">
       <h1 class="legal-title">{{ getText('legalTitle') }}</h1>
-      
+
       <div class="legal-section-block">
         <h2 class="section-title">{{ getText('companyInfo') }}</h2>
         <p class="legal-text">{{ getText('companyDetails') }}</p>
@@ -23,10 +28,10 @@
 
       <div class="legal-section-block">
         <h2 class="section-title">{{ getText('disclaimer') }}</h2>
-        
+
         <h3 class="subsection-title">{{ getText('content') }}</h3>
         <p class="legal-text">{{ getText('contentText') }}</p>
-        
+
         <h3 class="subsection-title">{{ getText('links') }}</h3>
         <p class="legal-text">{{ getText('linksText') }}</p>
       </div>
@@ -36,6 +41,6 @@
         <p class="legal-text">{{ getText('copyrightText') }}</p>
       </div>
     </div>
+    <app-footer></app-footer>
   </div>
-</section>
-<app-footer></app-footer>
+</div>

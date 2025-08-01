@@ -14,7 +14,7 @@ import { FooterComponent } from '../contact/footer/footer.component';
   styleUrls: ['./legal-notice.component.scss']
 })
 export class LegalNoticeComponent implements OnInit {
-  currentLanguage = 'en';
+  currentLanguage = 'de';
 
   constructor(
     private router: Router,
@@ -25,13 +25,20 @@ export class LegalNoticeComponent implements OnInit {
     this.scrollService.scrollToTop();
   }
 
+  onLanguageChange(lang: string) {
+    this.currentLanguage = lang;
+  }
+
+  onMobileMenuToggle(isOpen: boolean) {
+  }
+
   ngOnInit(): void {
     this.scrollService.scrollToTop();
   }
 
   private loadLanguage(): void {
-    this.currentLanguage = localStorage.getItem('selectedLanguage') || 
-                          localStorage.getItem('language') || 'en';
+    this.currentLanguage = localStorage.getItem('selectedLanguage') ||
+      localStorage.getItem('language') || 'en';
   }
 
   private scrollToPageTop(): void {

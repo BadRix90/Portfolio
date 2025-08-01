@@ -1,40 +1,48 @@
-<app-navbar></app-navbar>
-<section class="legal-section">
-  <div class="legal-container">
+<div class="privacy-section">
+  <div class="background-image-wrapper"></div>
+
+  <app-navbar
+    [currentLanguage]="currentLanguage"
+    [slideDirection]="'horizontal'"
+    (languageChange)="onLanguageChange($event)"
+    (mobileMenuToggle)="onMobileMenuToggle($event)">
+  </app-navbar>
+
+  <div class="privacy-container">
     <button class="back-button" (click)="goBack()">
       <img src="assets/img/arrow_back.webp" alt="Back">
       {{ getText('goBack') }}
     </button>
     
-    <div class="legal-content">
-      <h1 class="legal-title">{{ getText('privacyTitle') }}</h1>
+    <div class="privacy-content">
+      <h1 class="privacy-title">{{ getText('privacyTitle') }}</h1>
       
-      <div class="legal-section-block">
+      <div class="privacy-section-block">
         <h2 class="section-title">{{ getText('dataProtection') }}</h2>
         <h3 class="subsection-title">{{ getText('generalInfo') }}</h3>
-        <p class="legal-text">{{ getText('generalInfoText') }}</p>
+        <p class="privacy-text">{{ getText('generalInfoText') }}</p>
       </div>
 
-      <div class="legal-section-block">
+      <div class="privacy-section-block">
         <h2 class="section-title">{{ getText('dataCollection') }}</h2>
         
         <h3 class="subsection-title">{{ getText('responsible') }}</h3>
-        <p class="legal-text">{{ getText('responsibleText') }}</p>
+        <p class="privacy-text">{{ getText('responsibleText') }}</p>
         
         <h3 class="subsection-title">{{ getText('howCollect') }}</h3>
-        <p class="legal-text">{{ getText('howCollectText') }}</p>
+        <p class="privacy-text">{{ getText('howCollectText') }}</p>
       </div>
 
-      <div class="legal-section-block">
+      <div class="privacy-section-block">
         <h2 class="section-title">{{ getText('contactForm') }}</h2>
-        <p class="legal-text">{{ getText('contactFormText') }}</p>
+        <p class="privacy-text">{{ getText('contactFormText') }}</p>
       </div>
 
-      <div class="legal-section-block">
+      <div class="privacy-section-block">
         <h2 class="section-title">{{ getText('yourRights') }}</h2>
-        <p class="legal-text">{{ getText('rightsText') }}</p>
+        <p class="privacy-text">{{ getText('rightsText') }}</p>
       </div>
     </div>
+    <app-footer></app-footer>
   </div>
-</section>
-<app-footer></app-footer>
+</div>

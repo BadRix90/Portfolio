@@ -1,29 +1,46 @@
 @import '../../../breakpoints';
 
-.legal-section {
-  background-image: url('/assets/img/06_Footer.webp');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center 0%;
-  min-height: 100vh;
-  color: white;
-  padding: 0 50px;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  align-items: stretch;
-  position: relative;
-  overflow: hidden;
-  max-width: 100%;
+.privacy-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #1D1D1D;
+  z-index: 9999;
+  overflow-y: auto;
+
+  app-navbar {
+    position: relative;
+    z-index: 10000;
+  }
+
+  &.menu-open .privacy-container {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
 }
 
-.legal-container {
+.background-image-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/img/06_Footer.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.privacy-container {
   max-width: 1920px;
   margin: 0 auto;
-  padding: 100px 0 50px;
-  display: flex;
-  flex-direction: column;
+  padding: 100px 50px 200px;
   position: relative;
+  z-index: 1;
+  min-height: calc(100vh - 100px);
 }
 
 .back-button {
@@ -54,13 +71,13 @@
   }
 }
 
-.legal-content {
+.privacy-content {
   max-width: 800px;
   margin: 0 auto;
   font-family: var(--font-main);
 }
 
-.legal-title {
+.privacy-title {
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 40px;
@@ -68,7 +85,7 @@
   text-align: center;
 }
 
-.legal-section-block {
+.privacy-section-block {
   margin-bottom: 40px;
 }
 
@@ -86,7 +103,7 @@
   color: #ccc;
 }
 
-.legal-text {
+.privacy-text {
   font-size: 16px;
   line-height: 1.6;
   margin-bottom: 20px;
@@ -95,74 +112,66 @@
   white-space: pre-line;
 }
 
-.legal-link {
+.privacy-link {
   color: #F87A55;
   text-decoration: underline;
-  
+
   &:hover {
     color: #ff8a65;
   }
 }
 
 @include desktop {
-  .legal-section {
-    padding: 20px;
-  }
-  
-  .legal-container {
+  .privacy-container {
     padding: 60px 20px 40px;
   }
-  
-  .legal-title {
+
+  .privacy-title {
     font-size: 36px;
   }
-  
+
   .section-title {
     font-size: 24px;
   }
-  
+
   .subsection-title {
     font-size: 18px;
   }
 }
 
 @include mobile-lg {
-  .legal-section {
-    padding: 10px;
-  }
-  
-  .legal-container {
+  .privacy-container {
     padding: 40px 10px 20px;
   }
-  
-  .legal-content {
+
+  .privacy-content {
     max-width: 100%;
     padding: 0 10px;
   }
-  
-  .legal-title {
+
+  .privacy-title {
     font-size: 28px;
     margin-bottom: 30px;
   }
-  
+
   .section-title {
     font-size: 20px;
     margin: 30px 0 15px 0;
   }
-  
+
   .subsection-title {
     font-size: 16px;
     margin: 20px 0 10px 0;
   }
-  
-  .legal-text {
+
+  .privacy-text {
     font-size: 14px;
     line-height: 1.5;
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
   }
-  
+
   .back-button {
     margin-bottom: 20px;
     padding: 10px 20px;

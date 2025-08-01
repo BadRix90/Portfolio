@@ -269,9 +269,6 @@
         }
 
         .burger-menu {
-            position: fixed;
-            top: 32px;
-            right: 32px;
             display: block;
             background: transparent;
             border: none;
@@ -351,4 +348,16 @@
         transform: translate(-50%, 0) scale(1);
         opacity: 1;
     }
+}
+
+.navbar.mobile-menu-open::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 9997;
 }

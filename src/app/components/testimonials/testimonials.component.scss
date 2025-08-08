@@ -129,7 +129,11 @@
     .testimonial-text {
       font-family: var(--font-main);
       font-weight: 400;
-      text-align: justify;
+      font-size: clamp(16px, 1.5vw, 24px);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin: 0 0 20px 0;
       flex: 1;
     }
@@ -214,8 +218,8 @@
     .testimonial-card {
       position: static !important;
       width: 80%;
-      max-width: 600px;
-      height: 400px;
+      max-width: 500px;
+      height: 300px;
       left: auto !important;
       right: auto !important;
 

@@ -1,5 +1,7 @@
+// src/app/components/projects/project-detail/project-detail.component.ts
+
 import { TextService } from '../../../services/text.service';
-import { Component, Input, Output, EventEmitter, AfterViewInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, AfterViewInit, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Project } from '../../../interfaces/project.interface';
 import { ProjectService } from '../../../services/project.service';
@@ -9,11 +11,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-project-detail',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, NavbarComponent],
+  imports: [CommonModule, NavbarComponent],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss'
 })
-export class ProjectDetailComponent implements AfterViewInit {
+export class ProjectDetailComponent implements OnInit, AfterViewInit {
   @Input() currentLanguage = 'en';
   @Input() projectId: string = '';
   @Output() goBack = new EventEmitter<void>();
@@ -22,16 +24,83 @@ export class ProjectDetailComponent implements AfterViewInit {
   project: Project | null = null;
   nextProject: Project | null = null;
   isMobileMenuOpen = false;
-
   showToast = false;
   toastMessage = '';
   toastType: 'success' | 'error' | 'warning' | 'info' = 'info';
 
-  constructor(private projectService: ProjectService, private textService: TextService, private router: Router, private route: ActivatedRoute) { }
+  constructor(
+    private projectService: ProjectService, 
+    private textService: TextService, 
+    private router: Router, 
+    private route: ActivatedRoute
+  ) {}
 
-  onLanguageChange(lang: string) {
+  ngOnInit(): void {
+    this.loadLanguageFromStorage();
+    this.subscribeToRoute();
+  }
+
+  ngAfterViewInit(): void {
+    this.setDynamicUnderlineWidth();
+  }
+
+  ngOnChanges(): void {
+    this.loadProject();
+    setTimeout(() => this.setDynamicUnderlineWidth(), 0);
+  }
+
+  private loadLanguageFromStorage(): void {
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      const savedLanguage = localStorage.getItem('selectedLanguage');
+      if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'de')) {
+        this.currentLanguage = savedLanguage;
+      }
+    }
+  }
+
+  private subscribeToRoute(): void {
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (id) {
+        this.projectId = id;
+        this.loadProject();
+      }
+    });
+  }
+
+  private loadProject(): void {
+    if (this.projectId) {
+      this.project = this.projectService.getProject(this.projectId);
+      this.nextProject = this.projectService.getNextProject(this.projectId);
+    }
+  }
+
+  private setDynamicUnderlineWidth(): void {
+    const titleElement = document.querySelector('.project-main-title');
+    const underlineElement = document.querySelector('.animated-underline');
+
+    if (titleElement && underlineElement) {
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+      const computedStyle = window.getComputedStyle(titleElement);
+
+      if (context) {
+        context.font = `${computedStyle.fontWeight} ${computedStyle.fontSize} ${computedStyle.fontFamily}`;
+        const textWidth = context.measureText(titleElement.textContent || '').width;
+        (underlineElement as HTMLElement).style.width = `${textWidth}px`;
+      }
+    }
+  }
+
+  onLanguageChange(lang: string): void {
     this.currentLanguage = lang;
-    localStorage.setItem('selectedLanguage', lang);
+    this.saveLanguageToStorage(lang);
+  }
+
+  private saveLanguageToStorage(lang: string): void {
+    if (typeof window !== 'undefined' && typeof localStorage !== 'undefined') {
+      localStorage.setItem('selectedLanguage', lang);
+    }
   }
 
   getText(key: string): string {
@@ -49,38 +118,11 @@ export class ProjectDetailComponent implements AfterViewInit {
     return (this.project.implementationDetails as any)[this.currentLanguage] || '';
   }
 
-  ngAfterViewInit() {
-    this.setDynamicUnderlineWidth();
-  }
-
-  ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      const id = params.get('id');
-      if (id) {
-        this.projectId = id;
-        this.loadProject();
-      }
-    });
-  }
-
-  ngOnChanges() {
-    this.loadProject();
-    setTimeout(() => this.setDynamicUnderlineWidth(), 0);
-  }
-
-  loadProject() {
-    if (this.projectId) {
-      this.project = this.projectService.getProject(this.projectId);
-      this.nextProject = this.projectService.getNextProject(this.projectId);
-    }
-  }
-
-  onGoBack() {
+  onGoBack(): void {
     this.router.navigate(['/'], { fragment: 'projects' });
   }
 
-
-  onNextProject() {
+  onNextProject(): void {
     if (this.nextProject) {
       this.router.navigate(['/project', this.nextProject.id]);
     } else {
@@ -88,41 +130,43 @@ export class ProjectDetailComponent implements AfterViewInit {
     }
   }
 
-  onMobileMenuToggle(isOpen: boolean) {
+  onMobileMenuToggle(isOpen: boolean): void {
     this.isMobileMenuOpen = isOpen;
+    this.toggleBodyScroll(isOpen);
+    this.toggleMenuClass(isOpen);
+  }
 
-    const projectWrapper = document.querySelector('.project-detail-wrapper');
+  private toggleBodyScroll(isOpen: boolean): void {
     const body = document.body;
+    body.style.overflow = isOpen ? 'hidden' : 'auto';
+  }
 
+  private toggleMenuClass(isOpen: boolean): void {
+    const projectWrapper = document.querySelector('.project-detail-wrapper');
     if (isOpen) {
       projectWrapper?.classList.add('menu-open');
-      body.style.overflow = 'hidden';
     } else {
       projectWrapper?.classList.remove('menu-open');
-      body.style.overflow = 'auto';
     }
   }
 
-  navigateToSection(sectionId: string) {
+  navigateToSection(sectionId: string): void {
     this.router.navigate(['/'], { fragment: sectionId });
   }
 
-  openGithub() {
+  openGithub(): void {
     if (this.project?.githubUrl) {
       window.open(this.project.githubUrl, '_blank');
     }
   }
 
-  openLiveTest() {
-    if (!this.project?.liveUrl) {
-      return;
-    }
-
+  openLiveTest(): void {
+    if (!this.project?.liveUrl) return;
+    
     if (this.project.liveUrl === 'coming-soon') {
       this.showToastMessage('DABubble wird bald verfügbar sein! 🚧', 'warning');
       return;
     }
-
     window.open(this.project.liveUrl, '_blank');
   }
 
@@ -134,39 +178,20 @@ export class ProjectDetailComponent implements AfterViewInit {
     return this.projectService.getTechAlt(techName);
   }
 
-  showToastMessage(message: string, type: 'success' | 'error' | 'warning' | 'info' = 'info') {
+  showToastMessage(message: string, type: 'success' | 'error' | 'warning' | 'info' = 'info'): void {
     this.toastMessage = message;
     this.toastType = type;
     this.showToast = true;
-
-    setTimeout(() => {
-      this.hideToast();
-    }, 3000);
+    setTimeout(() => this.hideToast(), 3000);
   }
 
-  hideToast() {
+  hideToast(): void {
     this.showToast = false;
   }
 
   isComingSoon(): boolean {
     return this.project?.liveUrl === 'coming-soon';
   }
-
-  private setDynamicUnderlineWidth() {
-    const titleElement = document.querySelector('.project-main-title');
-    const underlineElement = document.querySelector('.animated-underline');
-
-    if (titleElement && underlineElement) {
-      const canvas = document.createElement('canvas');
-      const context = canvas.getContext('2d');
-      const computedStyle = window.getComputedStyle(titleElement);
-
-      if (context) {
-        context.font = `${computedStyle.fontWeight} ${computedStyle.fontSize} ${computedStyle.fontFamily}`;
-        const textWidth = context.measureText(titleElement.textContent || '').width;
-        (underlineElement as HTMLElement).style.width = `${textWidth}px`;
-      }
-    }
-  }
 }
+
 export const renderMode = 'client';

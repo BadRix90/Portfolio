@@ -43,7 +43,7 @@
   position: relative;
   z-index: 1;
   transition: all 0.3s ease;
-  
+
 }
 
 .go-back-btn {
@@ -69,7 +69,7 @@
   display: flex;
   gap: 80px;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-around;
   max-width: 1920px;
   margin: 0 auto;
   padding: 0 20px;
@@ -482,61 +482,6 @@
     width: 320px !important;
   }
 
-}
-
-@include desktop {
-
-  .background-image-wrapper {
-    background-image: url('/assets/img/note_book_paper_mobile.webp');
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .project-detail-wrapper {
-    position: absolute;
-    height: auto;
-    min-height: 100vh;
-    overflow-y: auto;
-
-    app-navbar {
-      position: relative;
-      z-index: 10001;
-      overflow: hidden;
-
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent 80%);
-        pointer-events: none;
-        z-index: 0;
-      }
-    }
-
-  }
-
-  .background-image-wrapper {
-    position: absolute;
-    height: 100%;
-    min-height: 100vh;
-    background-image: url('/assets/img/note_book_paper_mobile.webp');
-    background-position: 50% 80%;
-  }
-
-  .project-detail-content {
-    padding: 20px;
-    padding-bottom: 100px;
-  }
-
-  .go-back-btn {
-    display: none;
-  }
-
   .project-info-section {
     flex-direction: column;
     gap: 100px;
@@ -608,6 +553,62 @@
       }
     }
   }
+
+}
+
+@include desktop {
+
+  .background-image-wrapper {
+    background-image: url('/assets/img/note_book_paper_mobile.webp');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .project-detail-wrapper {
+    position: absolute;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+
+    app-navbar {
+      position: relative;
+      z-index: 10001;
+      overflow: hidden;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent 80%);
+        pointer-events: none;
+        z-index: 0;
+      }
+    }
+
+  }
+
+  .background-image-wrapper {
+    position: absolute;
+    height: 100%;
+    min-height: 100vh;
+    background-image: url('/assets/img/note_book_paper_mobile.webp');
+    background-position: 50% 80%;
+  }
+
+  .project-detail-content {
+    padding: 20px;
+    padding-bottom: 100px;
+  }
+
+  .go-back-btn {
+    display: none;
+  }
+
 }
 
 @include tablet {
